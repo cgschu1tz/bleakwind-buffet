@@ -1,10 +1,14 @@
-﻿using System;
+﻿// Author: Chris Schultz
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    class PhillyPoacher
+    /// <summary>
+    /// Philly cheesesteak sandwich
+    /// </summary>
+    public class PhillyPoacher
     {
         /// <summary>
         /// The price of this item in USD.
@@ -39,6 +43,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Onion { get; set; } = true;
         public bool Roll { get; set; } = true;
 
-        public override string ToString() =>"Philly Poacher";
+        /// <returns>A string containing the name of this item.</returns>
+        public override string ToString() => "Philly Poacher";
     }
 }

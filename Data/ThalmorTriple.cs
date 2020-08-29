@@ -1,11 +1,14 @@
-﻿// Author: Christopher Schultz
+﻿// Author: Chris Schultz
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    class TripleThalmor
+    /// <summary>
+    /// A 1lb burger
+    /// </summary>
+    public class TripleThalmor
     {
         /// <summary>
         /// The price of this item in USD.
@@ -54,6 +57,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Bacon { get; set; } = true;
         public bool Egg { get; set; } = true;
 
+        /// <returns>A string containing the name of this item.</returns>
         public override string ToString() => "Thalmor Triple";
     }
 }

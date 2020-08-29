@@ -1,9 +1,9 @@
-﻿// Author: Christopher Schultz
+﻿// Author: Chris Schultz
 
 namespace BleakwindBuffet.Data.Enums
 {
     /// <summary>
-    /// Enumerates all drink and side sizes.
+    /// Enumerates all possible sizes of menu items.
     /// </summary>
     public enum Size
     {

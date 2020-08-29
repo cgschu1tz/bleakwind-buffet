@@ -1,4 +1,4 @@
-﻿// Author: Christopher Schultz
+﻿// Author: Chris Schultz
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,10 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    class DragonbornWaffleFries
+    /// <summary>
+    /// Cajun fries
+    /// </summary>
+    public class DragonbornWaffleFries
     {
         /// <summary>
         /// The price of this item in USD.
@@ -16,14 +19,10 @@ namespace BleakwindBuffet.Data.Drinks
             get {
                 switch (Size)
                 {
-                    case Size.Small:
-                        return 0.42;
-                    case Size.Medium:
-                        return 0.76;
-                    case Size.Large:
-                        return 0.96;
-                    default:
-                        throw new NotImplementedException();
+                    case Size.Small: return 0.42;
+                    case Size.Medium: return 0.76;
+                    case Size.Large: return 0.96;
+                    default: throw new NotImplementedException();
                 }
             }
         }
@@ -36,20 +35,20 @@ namespace BleakwindBuffet.Data.Drinks
             get {
                 switch (Size)
                 {
-                    case Size.Small:
-                        return 77;
-                    case Size.Medium:
-                        return 89;
-                    case Size.Large:
-                        return 100;
-                    default:
-                        throw new NotImplementedException();
+                    case Size.Small: return 77;
+                    case Size.Medium: return 89;
+                    case Size.Large: return 100;
+                    default: throw new NotImplementedException();
                 }
             }
         }
 
-        public Size Size { get; } = Size.Small;
+        /// <summary>
+        /// The size of this item.
+        /// </summary>
+        public Size Size { get; set; } = Size.Small;
 
+        /// <returns>A string containing the name of this item.</returns>
         public override string ToString() => $"{Size} Dragonborn Waffle Fries";
     }
 }

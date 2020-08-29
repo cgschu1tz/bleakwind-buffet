@@ -1,4 +1,4 @@
-﻿// Author: Christopher Schultz
+﻿// Author: Chris Schultz
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,10 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    class WarriorWater
+    /// <summary>
+    /// Water
+    /// </summary>
+    public class WarriorWater
     {
         /// <summary>
         /// The price of this item in USD.
@@ -18,7 +21,10 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         public uint Calories => 0;
 
-        public Size Size { get; } = Size.Small;
+        /// <summary>
+        /// The size of this item.
+        /// </summary>
+        public Size Size { get; set; } = Size.Small;
 
         /// <summary>
         /// A list of instructions to follow when preparing this item
@@ -41,6 +47,7 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice { get; set; } = true;
         public bool Lemon { get; set; } = false;
 
+        /// <returns>A string containing the name of this item.</returns>
         public override string ToString() => $"{Size} Warrior Water";
     }
 }

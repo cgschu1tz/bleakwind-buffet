@@ -1,11 +1,14 @@
-﻿// Author: Christopher Schultz
+﻿// Author: Chris Schultz
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    class SmokehouseSkeleton
+    /// <summary>
+    /// Breakfast combo
+    /// </summary>
+    public class SmokehouseSkeleton
     {
         /// <summary>
         /// The price of this item in USD.
@@ -42,6 +45,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool HashBrowns { get; set; } = true;
         public bool Pancake { get; set; } = true;
 
+        /// <returns>A string containing the name of this item.</returns>
         public override string ToString() => "Smokehouse Skeleton";
     }
 }

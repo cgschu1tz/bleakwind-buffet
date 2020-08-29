@@ -1,10 +1,14 @@
-﻿using System;
+﻿// Author: Chris Schultz
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    class GardenOrcOmelette
+    /// <summary>
+    /// Vegetarian omelette
+    /// </summary>
+    public class GardenOrcOmelette
     {
         /// <summary>
         /// The price of this item in USD.
@@ -41,6 +45,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Tomato { get; set; } = true;
         public bool Cheddar { get; set; } = true;
 
+        /// <returns>A string containing the name of this item.</returns>
         public override string ToString() => "Garden Orc Omelette";
     }
 }

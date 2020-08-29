@@ -1,10 +1,14 @@
-﻿using System;
+﻿// Author: Chris Schultz
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    class ThugsTBone
+    /// <summary>
+    /// T-Bone steak
+    /// </summary>
+    public class ThugsTBone
     {
         /// <summary>
         /// The price of this item in USD.
@@ -22,6 +26,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public List<string> SpecialInstructions => new List<string>();
 
-        public override string ToString()=> "Thugs T-Bone";
+        /// <returns>A string containing the name of this item.</returns>
+        public override string ToString() => "Thugs T-Bone";
     }
 }
