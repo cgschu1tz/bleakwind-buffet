@@ -12,20 +12,20 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class GardenOrcOmelette
     {
-        /// <value>
+        /// <summary>
         /// The price of this item in USD.
-        /// </value>
+        /// </summary>
         public double Price => 4.57;
 
-        /// <value>
+        /// <summary>
         /// How many calories this item contains.
-        /// </value>
+        /// </summary>
         public uint Calories => 404;
 
-        /// <value>
+        /// <summary>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
-        /// </value>
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get {
@@ -40,24 +40,24 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Broccoli { get; set; } = true;
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Mushrooms { get; set; } = true;
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Tomato { get; set; } = true;
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Cheddar { get; set; } = true;
 
         /// <summary>

@@ -12,20 +12,20 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class ThugsTBone
     {
-        /// <value>
+        /// <summary>
         /// The price of this item in USD.
-        /// </value>
+        /// </summary>
         public double Price => 6.44;
 
-        /// <value>
+        /// <summary>
         /// How many calories this item contains.
-        /// </value>
+        /// </summary>
         public uint Calories => 982;
 
-        /// <value>
+        /// <summary>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
-        /// </value>
+        /// </summary>
         public List<string> SpecialInstructions => new List<string>();
 
         /// <summary>

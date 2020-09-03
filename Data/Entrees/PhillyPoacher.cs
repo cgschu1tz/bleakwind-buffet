@@ -12,20 +12,20 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class PhillyPoacher
     {
-        /// <value>
+        /// <summary>
         /// The price of this item in USD.
-        /// </value>
+        /// </summary>
         public double Price => 7.23;
 
-        /// <value>
+        /// <summary>
         /// How many calories this item contains.
-        /// </value>
+        /// </summary>
         public uint Calories => 784;
 
-        /// <value>
+        /// <summary>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
-        /// </value>
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get {
@@ -39,19 +39,19 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Sirloin { get; set; } = true;
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Onion { get; set; } = true;
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Roll { get; set; } = true;
 
         /// <summary>

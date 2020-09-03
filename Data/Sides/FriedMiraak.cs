@@ -13,9 +13,9 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class FriedMiraak
     {
-        /// <value>
+        /// <summary>
         /// The price of this item in USD.
-        /// </value>
+        /// </summary>
         /// <exception cref="NotImplementedException">
         /// <see cref="Size"/> is not a valid size
         /// </exception>
@@ -32,9 +32,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <value>
+        /// <summary>
         /// How many calories this item contains.
-        /// </value>
+        /// </summary>
         /// <exception cref="NotImplementedException">
         /// <see cref="Size"/> is not a valid size
         /// </exception>
@@ -51,9 +51,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <value>
+        /// <summary>
         /// The size of this item.
-        /// </value>
+        /// </summary>
         public Size Size { get; set; } = Size.Small;
 
         /// <summary>

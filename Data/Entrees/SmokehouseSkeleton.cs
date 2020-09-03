@@ -12,20 +12,20 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class SmokehouseSkeleton
     {
-        /// <value>
+        /// <summary>
         /// The price of this item in USD.
-        /// </value>
+        /// </summary>
         public double Price => 5.62;
 
-        /// <value>
+        /// <summary>
         /// How many calories this item contains.
-        /// </value>
+        /// </summary>
         public uint Calories => 602;
 
-        /// <value>
+        /// <summary>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
-        /// </value>
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get {
@@ -40,24 +40,24 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool SausageLink { get; set; } = true;
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Egg { get; set; } = true;
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool HashBrowns { get; set; } = true;
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Pancake { get; set; } = true;
 
         /// <summary>

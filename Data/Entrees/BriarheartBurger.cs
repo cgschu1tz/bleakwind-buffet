@@ -12,20 +12,20 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class BriarheartBurger
     {
-        /// <value>
+        /// <summary>
         /// The price of this item in USD.
-        /// </value>
+        /// </summary>
         public double Price => 6.32;
 
-        /// <value>
+        /// <summary>
         /// How many calories this item contains.
-        /// </value>
+        /// </summary>
         public uint Calories => 743;
 
-        /// <value>
+        /// <summary>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
-        /// </value>
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get {
@@ -41,29 +41,29 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Bun { get; set; } = true;
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Ketchup { get; set; } = true;
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Mustard { get; set; } = true;
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Pickle { get; set; } = true;
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Cheese { get; set; } = true;
 
         /// <summary>

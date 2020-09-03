@@ -14,9 +14,9 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class AretinoAppleJuice
     {
-        /// <value>
+        /// <summary>
         /// The price of this item in USD.
-        /// </value>
+        /// </summary>
         /// <exception cref="NotImplementedException">
         /// <see cref="Size"/> is not a valid size
         /// </exception>
@@ -33,9 +33,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <value>
+        /// <summary>
         /// How many calories this item contains.
-        /// </value>
+        /// </summary>
         /// <exception cref="NotImplementedException">
         /// <see cref="Size"/> is not a valid size
         /// </exception>
@@ -52,15 +52,15 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <value>
+        /// <summary>
         /// The size of this item.
-        /// </value>
+        /// </summary>
         public Size Size { get; set; } = Size.Small;
 
-        /// <value>
+        /// <summary>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
-        /// </value>
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get {
@@ -72,9 +72,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <value>
+        /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
-        /// </value>
+        /// </summary>
         public bool Ice { get; set; } = false;
 
         /// <summary>
