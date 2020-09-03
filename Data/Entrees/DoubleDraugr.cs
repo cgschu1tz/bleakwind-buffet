@@ -1,7 +1,9 @@
-﻿// Author: Chris Schultz
-using System;
+﻿/*
+ * Author: Chris Schultz
+ * Class name: DoubleDraugr.cs
+ * Purpose: Defines a class for the Double Draugr
+ */
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -10,20 +12,20 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class DoubleDraugr
     {
-        /// <summary>
+        /// <value>
         /// The price of this item in USD.
-        /// </summary>
+        /// </value>
         public double Price => 7.32;
 
-        /// <summary>
+        /// <value>
         /// How many calories this item contains.
-        /// </summary>
+        /// </value>
         public uint Calories => 843;
 
-        /// <summary>
+        /// <value>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get {
@@ -42,18 +44,50 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        // Ingredients:
-        // Set to true to include in this item and false to exclude them.
+        /// <value>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </value>
         public bool Bun { get; set; } = true;
+
+        /// <value>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </value>
         public bool Ketchup { get; set; } = true;
+
+        /// <value>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </value>
         public bool Mustard { get; set; } = true;
+
+        /// <value>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </value>
         public bool Pickle { get; set; } = true;
+
+        /// <value>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </value>
         public bool Cheese { get; set; } = true;
+
+        /// <value>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </value>
         public bool Tomato { get; set; } = true;
+
+        /// <value>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </value>
         public bool Lettuce { get; set; } = true;
+
+        /// <value>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </value>
         public bool Mayo { get; set; } = true;
 
-        /// <returns>A string containing the name of this item.</returns>
+        /// <summary>
+        /// Converts this item to its string representation.
+        /// </summary>
+        /// <returns>A string containing the name of the item.</returns>
         public override string ToString() => "Double Draugr";
     }
 }

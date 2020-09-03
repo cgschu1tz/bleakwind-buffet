@@ -1,4 +1,8 @@
-﻿// Author: Chris Schultz
+﻿/*
+ * Author: Chris Schultz
+ * Class name: SodaFlavor.cs
+ * Purpose: Defines an enumeraton for all soft drink flavors
+ */
 
 namespace BleakwindBuffet.Data.Enums
 {

@@ -1,8 +1,11 @@
-﻿// Author: Chris Schultz
+﻿/*
+ * Author: Chris Schultz
+ * Class name: SailorSoda.cs
+ * Purpose: Defines a class for the Sailor Soda
+ */
 using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
@@ -11,9 +14,9 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class SailorSoda
     {
-        /// <summary>
+        /// <value>
         /// The price of this item in USD.
-        /// </summary>
+        /// </value>
         public double Price
         {
             get {
@@ -27,9 +30,9 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
+        /// <value>
         /// How many calories this item contains.
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get {
@@ -43,15 +46,15 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        /// <summary>
+        /// <value>
         /// The size of this item.
-        /// </summary>
+        /// </value>
         public Size Size { get; set; } = Size.Small;
 
-        /// <summary>
+        /// <value>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get {
@@ -63,16 +66,20 @@ namespace BleakwindBuffet.Data.Drinks
             }
         }
 
-        // Ingredients:
-        // Set to true to include in this item and false to exclude them.
+        /// <value>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </value>
         public bool Ice { get; set; } = true;
 
-        /// <summary>
+        /// <value>
         /// The flavor of syrup to mix in this drink.
-        /// </summary>
+        /// </value>
         SodaFlavor Flavor { get; set; } = SodaFlavor.Cherry;
 
-        /// <returns>A string containing the name of this item.</returns>
+        /// <summary>
+        /// Converts this item to its string representation.
+        /// </summary>
+        /// <returns>A string containing the name of the item.</returns>
         public override string ToString() => $"{Size} {Flavor} Sailor Soda";
     }
 }

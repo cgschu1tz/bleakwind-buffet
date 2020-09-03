@@ -1,9 +1,9 @@
 ﻿/*
  * Author: Chris Schultz
+ * Class name: ThugsTBone.cs
+ * Purpose: Defines a class for the Thug's T-Bone
  */
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -12,23 +12,26 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class ThugsTBone
     {
-        /// <summary>
+        /// <value>
         /// The price of this item in USD.
-        /// </summary>
+        /// </value>
         public double Price => 6.44;
 
-        /// <summary>
+        /// <value>
         /// How many calories this item contains.
-        /// </summary>
+        /// </value>
         public uint Calories => 982;
 
-        /// <summary>
+        /// <value>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions => new List<string>();
 
-        /// <returns>A string containing the name of this item.</returns>
+        /// <summary>
+        /// Converts this item to its string representation.
+        /// </summary>
+        /// <returns>A string containing the name of the item.</returns>
         public override string ToString() => "Thugs T-Bone";
     }
 }

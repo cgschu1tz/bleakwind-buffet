@@ -3,12 +3,8 @@
  * Class: SailorSodaTests.cs
  * Purpose: Test the SailorSoda.cs class in the Data library
  */
-using System;
-
-using Xunit;
-
-using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
+using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {

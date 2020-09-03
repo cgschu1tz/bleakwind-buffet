@@ -1,7 +1,9 @@
-﻿// Author: Chris Schultz
-using System;
+﻿/*
+ * Author: Chris Schultz
+ * Class name: PhillyPoacher.cs
+ * Purpose: Defines a class for the Philly Poacher
+ */
 using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
@@ -10,20 +12,20 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class PhillyPoacher
     {
-        /// <summary>
+        /// <value>
         /// The price of this item in USD.
-        /// </summary>
+        /// </value>
         public double Price => 7.23;
 
-        /// <summary>
+        /// <value>
         /// How many calories this item contains.
-        /// </summary>
+        /// </value>
         public uint Calories => 784;
 
-        /// <summary>
+        /// <value>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
-        /// </summary>
+        /// </value>
         public List<string> SpecialInstructions
         {
             get {
@@ -37,13 +39,25 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        // Ingredients:
-        // Set to true to include in this item and false to exclude them.
+        /// <value>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </value>
         public bool Sirloin { get; set; } = true;
+
+        /// <value>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </value>
         public bool Onion { get; set; } = true;
+
+        /// <value>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </value>
         public bool Roll { get; set; } = true;
 
-        /// <returns>A string containing the name of this item.</returns>
+        /// <summary>
+        /// Converts this item to its string representation.
+        /// </summary>
+        /// <returns>A string containing the name of the item.</returns>
         public override string ToString() => "Philly Poacher";
     }
 }

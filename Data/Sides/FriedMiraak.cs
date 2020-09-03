@@ -1,8 +1,10 @@
-﻿// Author: Chris Schultz
+﻿/*
+ * Author: Chris Schultz
+ * Class name: FriedMiraak.cs
+ * Purpose: Defines a class for Fried Miraak
+ */
 using BleakwindBuffet.Data.Enums;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BleakwindBuffet.Data.Sides
 {
@@ -11,9 +13,9 @@ namespace BleakwindBuffet.Data.Sides
     /// </summary>
     public class FriedMiraak
     {
-        /// <summary>
+        /// <value>
         /// The price of this item in USD.
-        /// </summary>
+        /// </value>
         public double Price
         {
             get {
@@ -27,9 +29,9 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <summary>
+        /// <value>
         /// How many calories this item contains.
-        /// </summary>
+        /// </value>
         public uint Calories
         {
             get {
@@ -43,12 +45,15 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
 
-        /// <summary>
+        /// <value>
         /// The size of this item.
-        /// </summary>
+        /// </value>
         public Size Size { get; set; } = Size.Small;
 
-        /// <returns>A string containing the name of this item.</returns>
+        /// <summary>
+        /// Converts this item to its string representation.
+        /// </summary>
+        /// <returns>A string containing the name of the item.</returns>
         public override string ToString() => $"{Size} Fried Miraak";
     }
 }
