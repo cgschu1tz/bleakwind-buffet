@@ -17,6 +17,9 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// The price of this item in USD.
         /// </value>
+        /// <exception cref="NotImplementedException">
+        /// <see cref="Size"/> is not a valid size
+        /// </exception>
         public double Price
         {
             get {
@@ -33,6 +36,9 @@ namespace BleakwindBuffet.Data.Drinks
         /// <value>
         /// How many calories this item contains.
         /// </value>
+        /// <exception cref="NotImplementedException">
+        /// <see cref="Size"/> is not a valid size
+        /// </exception>
         public uint Calories
         {
             get {
