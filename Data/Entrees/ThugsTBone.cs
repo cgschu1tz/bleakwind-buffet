@@ -1,4 +1,6 @@
-﻿// Author: Chris Schultz
+﻿/*
+ * Author: Chris Schultz
+ */
 using System;
 using System.Collections.Generic;
 using System.Text;
