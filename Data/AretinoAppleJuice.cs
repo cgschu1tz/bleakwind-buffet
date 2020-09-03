@@ -9,7 +9,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Apple juice
     /// </summary>
-    public class ArentinoAppleJuice
+    public class AretinoAppleJuice
     {
         /// <summary>
         /// The price of this item in USD.
