@@ -201,6 +201,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             t.Mustard = includeMustard;
             t.Pickle = includePickle;
             t.Cheese = includeCheese;
+            t.Tomato = includeTomato;
+            t.Lettuce = includeLettuce;
+            t.Mayo = includeMayo;
             t.Bacon = includeBacon;
             t.Egg = includeEgg;
 

@@ -168,6 +168,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             d.Mustard = includeMustard;
             d.Pickle = includePickle;
             d.Cheese = includeCheese;
+            d.Tomato = includeTomato;
+            d.Lettuce = includeLettuce;
+            d.Mayo = includeMayo;
 
             if (!includeBun) Assert.Contains("Hold bun", d.SpecialInstructions);
             if (!includeKetchup) Assert.Contains("Hold ketchup", d.SpecialInstructions);

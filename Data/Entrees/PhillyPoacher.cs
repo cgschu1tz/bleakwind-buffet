@@ -31,7 +31,7 @@ namespace BleakwindBuffet.Data.Entrees
             get {
                 var instructions = new List<string>();
 
-                if (!Sirloin) instructions.Add("Hold sirloins");
+                if (!Sirloin) instructions.Add("Hold sirloin");
                 if (!Onion) instructions.Add("Hold onions");
                 if (!Roll) instructions.Add("Hold roll");
 
