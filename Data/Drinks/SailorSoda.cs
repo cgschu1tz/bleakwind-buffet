@@ -80,7 +80,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// The flavor of syrup to mix in this drink.
         /// </summary>
-        SodaFlavor Flavor { get; set; } = SodaFlavor.Cherry;
+        public SodaFlavor Flavor { get; set; } = SodaFlavor.Cherry;
 
         /// <summary>
         /// Converts this item to its string representation.

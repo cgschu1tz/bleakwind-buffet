@@ -81,6 +81,6 @@ namespace BleakwindBuffet.Data.Drinks
         /// Converts this item to its string representation.
         /// </summary>
         /// <returns>A string containing the name of the item.</returns>
-        public override string ToString() => $"{Size} Arentino Apple Juice";
+        public override string ToString() => $"{Size} Aretino Apple Juice";
     }
 }

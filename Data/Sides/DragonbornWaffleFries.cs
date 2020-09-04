@@ -5,6 +5,7 @@
  */
 using BleakwindBuffet.Data.Enums;
 using System;
+using System.Collections.Generic;
 
 namespace BleakwindBuffet.Data.Sides
 {
@@ -55,6 +56,12 @@ namespace BleakwindBuffet.Data.Sides
         /// The size of this item.
         /// </summary>
         public Size Size { get; set; } = Size.Small;
+
+        /// <summary>
+        /// A list of instructions to follow when preparing this item
+        /// (e.g. "Hold mayo" or "Hold ice").
+        /// </summary>
+        public List<string> SpecialInstructions => new List<string>();
 
         /// <summary>
         /// Converts this item to its string representation.
