@@ -1,5 +1,6 @@
 ﻿/*
  * Author: Zachery Brunner
+ * Edited by: Chris Schultz
  * Class: SailorSodaTests.cs
  * Purpose: Test the SailorSoda.cs class in the Data library
  */
@@ -9,6 +10,9 @@ using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
+    /// <summary>
+    /// Unit tests for <see cref="SailorSoda"/>
+    /// </summary>
     public class SailorSodaTests
     {
         [Fact]
