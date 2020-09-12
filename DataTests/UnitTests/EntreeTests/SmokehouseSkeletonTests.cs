@@ -17,6 +17,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class SmokehouseSkeletonTests
     {
         [Fact]
+        public void InheritsEntree()
+        {
+            Assert.IsAssignableFrom<Entree>(new SmokehouseSkeleton());
+        }
+
+        [Fact]
         public void ImplementsIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(new SmokehouseSkeleton());

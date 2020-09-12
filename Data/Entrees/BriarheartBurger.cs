@@ -10,23 +10,23 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// A 1/4lb burger
     /// </summary>
-    public class BriarheartBurger : IOrderItem
+    public class BriarheartBurger : Entree, IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.
         /// </summary>
-        public double Price => 6.32;
+        public override double Price => 6.32;
 
         /// <summary>
         /// How many calories this item contains.
         /// </summary>
-        public uint Calories => 743;
+        public override uint Calories => 743;
 
         /// <summary>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get {
                 var instructions = new List<string>();

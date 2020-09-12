@@ -10,23 +10,23 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Breakfast combo
     /// </summary>
-    public class SmokehouseSkeleton : IOrderItem
+    public class SmokehouseSkeleton : Entree, IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.
         /// </summary>
-        public double Price => 5.62;
+        public override double Price => 5.62;
 
         /// <summary>
         /// How many calories this item contains.
         /// </summary>
-        public uint Calories => 602;
+        public override uint Calories => 602;
 
         /// <summary>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get {
                 var instructions = new List<string>();
