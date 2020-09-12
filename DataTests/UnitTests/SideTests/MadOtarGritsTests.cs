@@ -18,7 +18,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class MadOtarGritsTests
     {
         [Fact]
-        public void ImplementsIOrderItem()
+        public void ShouldImplementIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(new MadOtarGrits());
         }

@@ -16,7 +16,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class WarriorWaterTests
     {
         [Fact]
-        public void ImplementsIOrderItem()
+        public void ShouldImplementIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(new WarriorWater());
         }
