@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Cajun fries
     /// </summary>
-    public class DragonbornWaffleFries
+    public class DragonbornWaffleFries : IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.

@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Coffee
     /// </summary>
-    public class CandlehearthCoffee
+    public class CandlehearthCoffee : IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.

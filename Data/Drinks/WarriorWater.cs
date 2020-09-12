@@ -11,7 +11,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Water
     /// </summary>
-    public class WarriorWater
+    public class WarriorWater : IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.

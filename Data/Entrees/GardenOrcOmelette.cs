@@ -10,7 +10,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Vegetarian omelette
     /// </summary>
-    public class GardenOrcOmelette
+    public class GardenOrcOmelette : IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.

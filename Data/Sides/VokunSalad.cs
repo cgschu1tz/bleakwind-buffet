@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// A fruit salad
     /// </summary>
-    public class VokunSalad
+    public class VokunSalad : IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.

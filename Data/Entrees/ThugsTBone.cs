@@ -10,7 +10,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// T-Bone steak
     /// </summary>
-    public class ThugsTBone
+    public class ThugsTBone : IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.

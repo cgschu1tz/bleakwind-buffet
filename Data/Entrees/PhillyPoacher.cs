@@ -10,7 +10,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Philly cheesesteak sandwich
     /// </summary>
-    public class PhillyPoacher
+    public class PhillyPoacher : IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.

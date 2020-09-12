@@ -8,6 +8,7 @@ using Xunit;
 
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
@@ -16,6 +17,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     /// </summary>
     public class FriedMiraakTests
     {
+        [Fact]
+        public void ImplementsIOrderItem()
+        {
+            Assert.IsAssignableFrom<IOrderItem>(new FriedMiraak());
+        }
+
         [Fact]
         public void ShouldBeSmallByDefault()
         {

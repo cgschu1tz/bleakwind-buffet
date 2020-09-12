@@ -10,7 +10,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// A 1lb burger
     /// </summary>
-    public class ThalmorTriple
+    public class ThalmorTriple : IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.

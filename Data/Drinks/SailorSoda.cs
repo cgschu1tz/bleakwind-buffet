@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Old-fashioned soda
     /// </summary>
-    public class SailorSoda
+    public class SailorSoda : IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.

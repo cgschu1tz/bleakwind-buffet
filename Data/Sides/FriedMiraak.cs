@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Hash brown pancakes
     /// </summary>
-    public class FriedMiraak
+    public class FriedMiraak : IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.

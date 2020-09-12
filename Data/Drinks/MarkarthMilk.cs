@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// 2% milk
     /// </summary>
-    public class MarkarthMilk
+    public class MarkarthMilk : IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.

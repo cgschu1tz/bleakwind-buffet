@@ -10,7 +10,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// Breakfast combo
     /// </summary>
-    public class SmokehouseSkeleton
+    public class SmokehouseSkeleton : IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.

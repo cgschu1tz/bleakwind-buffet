@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Cheesy grits
     /// </summary>
-    public class MadOtarGrits
+    public class MadOtarGrits : IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.
