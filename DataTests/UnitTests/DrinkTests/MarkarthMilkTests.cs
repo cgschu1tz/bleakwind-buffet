@@ -18,6 +18,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class MarkarthMilkTests
     {
         [Fact]
+        public void ShouldInheritDrink()
+        {
+            Assert.IsAssignableFrom<Drink>(new MarkarthMilk());
+        }
+
+        [Fact]
         public void ShouldImplementIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(new MarkarthMilk());

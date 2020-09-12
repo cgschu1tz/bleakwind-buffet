@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// 2% milk
     /// </summary>
-    public class MarkarthMilk : IOrderItem
+    public class MarkarthMilk : Drink, IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.
@@ -20,7 +20,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <exception cref="NotImplementedException">
         /// <see cref="Size"/> is not a valid size
         /// </exception>
-        public double Price
+        public override double Price
         {
             get {
                 switch (Size)
@@ -39,7 +39,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <exception cref="NotImplementedException">
         /// <see cref="Size"/> is not a valid size
         /// </exception>
-        public uint Calories
+        public override uint Calories
         {
             get {
                 switch (Size)
@@ -55,13 +55,13 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// The size of this item.
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        public override Size Size { get; set; } = Size.Small;
 
         /// <summary>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get {
                 var instructions = new List<string>();

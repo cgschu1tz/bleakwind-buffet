@@ -18,6 +18,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class CandlehearthCoffeeTests
     {
         [Fact]
+        public void ShouldInheritDrink()
+        {
+            Assert.IsAssignableFrom<Drink>(new CandlehearthCoffee());
+        }
+
+        [Fact]
         public void ShouldImplementIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(new CandlehearthCoffee());

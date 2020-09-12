@@ -11,28 +11,28 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// Water
     /// </summary>
-    public class WarriorWater : IOrderItem
+    public class WarriorWater : Drink, IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.
         /// </summary>
-        public double Price => 0.00;
+        public override double Price => 0.00;
 
         /// <summary>
         /// How many calories this item contains.
         /// </summary>
-        public uint Calories => 0;
+        public override uint Calories => 0;
 
         /// <summary>
         /// The size of this item.
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        public override Size Size { get; set; } = Size.Small;
 
         /// <summary>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get {
                 var instructions = new List<string>();
