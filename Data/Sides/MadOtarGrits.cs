@@ -12,7 +12,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// Cheesy grits
     /// </summary>
-    public class MadOtarGrits : IOrderItem
+    public class MadOtarGrits : Side, IOrderItem
     {
         /// <summary>
         /// The price of this item in USD.
@@ -20,7 +20,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <exception cref="NotImplementedException">
         /// <see cref="Size"/> is not a valid size
         /// </exception>
-        public double Price
+        public override double Price
         {
             get {
                 switch (Size)
@@ -39,7 +39,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <exception cref="NotImplementedException">
         /// <see cref="Size"/> is not a valid size
         /// </exception>
-        public uint Calories
+        public override uint Calories
         {
             get {
                 switch (Size)
@@ -55,13 +55,13 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// The size of this item.
         /// </summary>
-        public Size Size { get; set; } = Size.Small;
+        public override Size Size { get; set; } = Size.Small;
 
         /// <summary>
         /// A list of instructions to follow when preparing this item
         /// (e.g. "Hold mayo" or "Hold ice").
         /// </summary>
-        public List<string> SpecialInstructions => new List<string>();
+        public override List<string> SpecialInstructions => new List<string>();
 
         /// <summary>
         /// Converts this item to its string representation.
