@@ -1,0 +1,250 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+interface BleakwindBuffet.Data.IOrderItem {
+    Price : double <<get>>
+    Calories : uint <<get>>
+    SpecialInstructions : List<string> <<get>>
+}
+
+class BleakwindBuffet.Data.Menu <<static>> {
+    - {static} <<readonly>> sizes : Size[]
+    + {static} Entrees() : IEnumerable<IOrderItem>
+    + {static} Sides() : IEnumerable<IOrderItem>
+    + {static} Drinks() : IEnumerable<IOrderItem>
+    + {static} FullMenu() : IEnumerable<IOrderItem>
+}
+
+class BleakwindBuffet.Data.Drinks.AretinoAppleJuice {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> Size : Size <<get>> <<set>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + Ice : bool <<get>> <<set>> = false
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Drinks.Drink<|-- BleakwindBuffet.Data.Drinks.AretinoAppleJuice
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Drinks.AretinoAppleJuice
+
+class BleakwindBuffet.Data.Drinks.CandlehearthCoffee {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> Size : Size <<get>> <<set>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + Ice : bool <<get>> <<set>> = false
+    + RoomForCream : bool <<get>> <<set>> = false
+    + Decaf : bool <<get>> <<set>> = false
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Drinks.Drink<|-- BleakwindBuffet.Data.Drinks.CandlehearthCoffee
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Drinks.CandlehearthCoffee
+
+abstract class BleakwindBuffet.Data.Drinks.Drink{
+    + {abstract} Size : Size <<get>> <<set>>
+    + {abstract} Price : double <<get>>
+    + {abstract} Calories : uint <<get>>
+    + {abstract} SpecialInstructions : List<string> <<get>>
+}
+
+class BleakwindBuffet.Data.Drinks.MarkarthMilk {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> Size : Size <<get>> <<set>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + Ice : bool <<get>> <<set>> = false
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Drinks.Drink<|-- BleakwindBuffet.Data.Drinks.MarkarthMilk
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Drinks.MarkarthMilk
+
+class BleakwindBuffet.Data.Drinks.SailorSoda {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> Size : Size <<get>> <<set>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + Ice : bool <<get>> <<set>> = true
+    + Flavor : SodaFlavor <<get>> <<set>>
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Drinks.Drink<|-- BleakwindBuffet.Data.Drinks.SailorSoda
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Drinks.SailorSoda
+
+class BleakwindBuffet.Data.Drinks.WarriorWater {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> Size : Size <<get>> <<set>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + Ice : bool <<get>> <<set>> = true
+    + Lemon : bool <<get>> <<set>> = false
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Drinks.Drink<|-- BleakwindBuffet.Data.Drinks.WarriorWater
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Drinks.WarriorWater
+
+class BleakwindBuffet.Data.Entrees.BriarheartBurger {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + Bun : bool <<get>> <<set>> = true
+    + Ketchup : bool <<get>> <<set>> = true
+    + Mustard : bool <<get>> <<set>> = true
+    + Pickle : bool <<get>> <<set>> = true
+    + Cheese : bool <<get>> <<set>> = true
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Entrees.Entree<|-- BleakwindBuffet.Data.Entrees.BriarheartBurger
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.BriarheartBurger
+
+class BleakwindBuffet.Data.Entrees.DoubleDraugr {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + Bun : bool <<get>> <<set>> = true
+    + Ketchup : bool <<get>> <<set>> = true
+    + Mustard : bool <<get>> <<set>> = true
+    + Pickle : bool <<get>> <<set>> = true
+    + Cheese : bool <<get>> <<set>> = true
+    + Tomato : bool <<get>> <<set>> = true
+    + Lettuce : bool <<get>> <<set>> = true
+    + Mayo : bool <<get>> <<set>> = true
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Entrees.Entree<|-- BleakwindBuffet.Data.Entrees.DoubleDraugr
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.DoubleDraugr
+
+abstract class BleakwindBuffet.Data.Entrees.Entree{
+    + {abstract} Price : double <<get>>
+    + {abstract} Calories : uint <<get>>
+    + {abstract} SpecialInstructions : List<string> <<get>>
+}
+
+class BleakwindBuffet.Data.Entrees.GardenOrcOmelette {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + Broccoli : bool <<get>> <<set>> = true
+    + Mushrooms : bool <<get>> <<set>> = true
+    + Tomato : bool <<get>> <<set>> = true
+    + Cheddar : bool <<get>> <<set>> = true
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Entrees.Entree<|-- BleakwindBuffet.Data.Entrees.GardenOrcOmelette
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.GardenOrcOmelette
+
+class BleakwindBuffet.Data.Entrees.PhillyPoacher {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + Sirloin : bool <<get>> <<set>> = true
+    + Onion : bool <<get>> <<set>> = true
+    + Roll : bool <<get>> <<set>> = true
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Entrees.Entree<|-- BleakwindBuffet.Data.Entrees.PhillyPoacher
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.PhillyPoacher
+
+class BleakwindBuffet.Data.Entrees.SmokehouseSkeleton {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + SausageLink : bool <<get>> <<set>> = true
+    + Egg : bool <<get>> <<set>> = true
+    + HashBrowns : bool <<get>> <<set>> = true
+    + Pancake : bool <<get>> <<set>> = true
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Entrees.Entree<|-- BleakwindBuffet.Data.Entrees.SmokehouseSkeleton
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.SmokehouseSkeleton
+
+class BleakwindBuffet.Data.Entrees.ThalmorTriple {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + Bun : bool <<get>> <<set>> = true
+    + Ketchup : bool <<get>> <<set>> = true
+    + Mustard : bool <<get>> <<set>> = true
+    + Pickle : bool <<get>> <<set>> = true
+    + Cheese : bool <<get>> <<set>> = true
+    + Tomato : bool <<get>> <<set>> = true
+    + Lettuce : bool <<get>> <<set>> = true
+    + Mayo : bool <<get>> <<set>> = true
+    + Bacon : bool <<get>> <<set>> = true
+    + Egg : bool <<get>> <<set>> = true
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Entrees.Entree<|-- BleakwindBuffet.Data.Entrees.ThalmorTriple
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.ThalmorTriple
+
+class BleakwindBuffet.Data.Entrees.ThugsTBone {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Entrees.Entree<|-- BleakwindBuffet.Data.Entrees.ThugsTBone
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.ThugsTBone
+
+enum BleakwindBuffet.Data.Enums.Size {
+    Small,
+    Medium,
+    Large,
+}
+
+enum BleakwindBuffet.Data.Enums.SodaFlavor {
+    Blackberry,
+    Cherry,
+    Grapefruit,
+    Lemon,
+    Peach,
+    Watermelon,
+}
+
+class BleakwindBuffet.Data.Sides.DragonbornWaffleFries {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> Size : Size <<get>> <<set>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Sides.Side <|-- BleakwindBuffet.Data.Sides.DragonbornWaffleFries
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Sides.DragonbornWaffleFries
+
+class BleakwindBuffet.Data.Sides.FriedMiraak {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> Size : Size <<get>> <<set>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Sides.Side <|-- BleakwindBuffet.Data.Sides.FriedMiraak
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Sides.FriedMiraak
+
+class BleakwindBuffet.Data.Sides.MadOtarGrits {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> Size : Size <<get>> <<set>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Sides.Side <|-- BleakwindBuffet.Data.Sides.MadOtarGrits
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Sides.MadOtarGrits
+
+abstract class BleakwindBuffet.Data.Sides.Side {
+    + {abstract} Size : Size <<get>> <<set>>
+    + {abstract} Price : double <<get>>
+    + {abstract} Calories : uint <<get>>
+    + {abstract} SpecialInstructions : List<string> <<get>>
+}
+
+class BleakwindBuffet.Data.Sides.VokunSalad {
+    + <<override>> Price : double <<get>>
+    + <<override>> Calories : uint <<get>>
+    + <<override>> Size : Size <<get>> <<set>>
+    + <<override>> SpecialInstructions : List<string> <<get>>
+    + <<override>> ToString() : string
+}
+BleakwindBuffet.Data.Sides.Side <|-- BleakwindBuffet.Data.Sides.VokunSalad
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Sides.VokunSalad
+
+@enduml
