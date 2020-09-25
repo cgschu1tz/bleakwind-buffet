@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace BleakwindBuffet.PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizeVokunSaladComponent.xaml
+    /// Interaction logic for SizeControl.xaml
     /// </summary>
-    public partial class SideCustomizationComponent : UserControl
+    public partial class SizeControl : UserControl
     {
-        public SideCustomizationComponent()
+        public SizeControl()
         {
             InitializeComponent();
         }

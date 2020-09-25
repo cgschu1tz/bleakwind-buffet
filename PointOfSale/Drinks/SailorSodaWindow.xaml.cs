@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace BleakwindBuffet.PointOfSale
 {
     /// <summary>
-    /// Interaction logic for AddOrCancelComponent.xaml
+    /// Interaction logic for CustomizeVokunSaladComponent.xaml
     /// </summary>
-    public partial class AddOrCancelComponent : UserControl
+    public partial class SailorSodaWindow : Window
     {
-        public AddOrCancelComponent()
+        public SailorSodaWindow()
         {
             InitializeComponent();
         }

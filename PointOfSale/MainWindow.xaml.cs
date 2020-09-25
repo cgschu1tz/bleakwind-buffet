@@ -24,5 +24,10 @@ namespace BleakwindBuffet.PointOfSale
         {
             InitializeComponent();
         }
+
+        private void SailorSoda_Click(object sender, RoutedEventArgs e)
+        {
+            new SailorSodaWindow().ShowDialog();
+        }
     }
 }

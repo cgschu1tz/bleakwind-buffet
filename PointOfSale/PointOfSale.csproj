@@ -7,4 +7,8 @@
     <RootNamespace>BleakwindBuffet.PointOfSale</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj" />
+  </ItemGroup>
+
 </Project>
