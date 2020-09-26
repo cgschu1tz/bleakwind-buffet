@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BleakwindBuffet.PointOfSale.Enums
+namespace BleakwindBuffet.PointOfSale.Sides
 {
     /// <summary>
-    /// Interaction logic for SizeControl.xaml
+    /// Interaction logic for FriedMiraakControl.xaml
     /// </summary>
-    public partial class SizeControl : UserControl
+    public partial class FriedMiraakControl : UserControl
     {
-        public SizeControl()
+        public FriedMiraakControl()
         {
             InitializeComponent();
         }

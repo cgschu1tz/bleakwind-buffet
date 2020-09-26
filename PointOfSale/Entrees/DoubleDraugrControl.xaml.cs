@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BleakwindBuffet.PointOfSale.Enums
+namespace BleakwindBuffet.PointOfSale.Entrees
 {
     /// <summary>
-    /// Interaction logic for SizeControl.xaml
+    /// Interaction logic for DoubleDraugrControl.xaml
     /// </summary>
-    public partial class SizeControl : UserControl
+    public partial class DoubleDraugrControl : UserControl
     {
-        public SizeControl()
+        public DoubleDraugrControl()
         {
             InitializeComponent();
         }

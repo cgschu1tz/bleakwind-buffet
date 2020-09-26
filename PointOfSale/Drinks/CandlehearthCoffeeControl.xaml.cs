@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BleakwindBuffet.PointOfSale.Enums
+namespace BleakwindBuffet.PointOfSale.Drinks
 {
     /// <summary>
-    /// Interaction logic for SizeControl.xaml
+    /// Interaction logic for CandlehearthCoffeeControl.xaml
     /// </summary>
-    public partial class SizeControl : UserControl
+    public partial class CandlehearthCoffeeControl : UserControl
     {
-        public SizeControl()
+        public CandlehearthCoffeeControl()
         {
             InitializeComponent();
         }

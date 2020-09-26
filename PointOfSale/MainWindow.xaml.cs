@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.PointOfSale.Drinks;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -25,9 +17,20 @@ namespace BleakwindBuffet.PointOfSale
             InitializeComponent();
         }
 
-        private void SailorSoda_Click(object sender, RoutedEventArgs e)
+        private void MenuItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            new SailorSodaWindow().ShowDialog();
+            var menuItems = (ListBox)sender;
+            if (menuItems.SelectedItem == null)
+            {
+                // Nothing is selected, so clear the customization control.
+                CustomizationControl.Children.Clear();
+            }
+            else 
+            {
+                var selectedItem = (ListBoxItem)menuItems.SelectedItem;
+                CustomizationControl.Children.Clear();
+                CustomizationControl.Children.Add((UIElement)Activator.CreateInstance((Type)selectedItem.Tag));
+            }
         }
     }
 }

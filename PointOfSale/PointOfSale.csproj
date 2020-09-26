@@ -11,4 +11,40 @@
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Entrees\DoubleDraugrControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Entrees\ThalmorTripleControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Sides\MadOtarGritsControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Sides\FriedMiraakControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Sides\DragonbornWaffleFriesControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Entrees\ThalmorTripleControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Entrees\DoubleDraugrControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Sides\MadOtarGritsControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Sides\DragonbornWaffleFriesControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Sides\FriedMiraakControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>

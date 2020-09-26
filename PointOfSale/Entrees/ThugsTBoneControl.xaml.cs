@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BleakwindBuffet.PointOfSale
+namespace BleakwindBuffet.PointOfSale.Entrees
 {
     /// <summary>
-    /// Interaction logic for CustomizeVokunSaladComponent.xaml
+    /// Interaction logic for ThugsTBoneControl.xaml
     /// </summary>
-    public partial class SailorSodaWindow : Window
+    public partial class ThugsTBoneControl : UserControl
     {
-        public SailorSodaWindow()
+        public ThugsTBoneControl()
         {
             InitializeComponent();
         }
