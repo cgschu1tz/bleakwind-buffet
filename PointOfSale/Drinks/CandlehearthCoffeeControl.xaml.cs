@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Chris Schultz
+ * Class name: CandlehearthCoffeeControl.xaml.cs
+ * Purpose: Defines interaction logic for CandlehearthCoffeeControl.xaml
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

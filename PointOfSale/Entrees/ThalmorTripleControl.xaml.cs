@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Chris Schultz
+ * Class name: ThalmorTripleControl.xaml.cs
+ * Purpose: Defines interaction logic for ThalmorTripleControl.xaml
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

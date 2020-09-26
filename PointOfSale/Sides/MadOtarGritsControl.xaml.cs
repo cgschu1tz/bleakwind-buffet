@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Chris Schultz
+ * Class name: MadOtarGritsControl.xaml.cs
+ * Purpose: Defines interaction logic for MadOtarGritsControl.xaml
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

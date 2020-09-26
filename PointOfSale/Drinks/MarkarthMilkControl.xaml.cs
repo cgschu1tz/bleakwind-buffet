@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Chris Schultz
+ * Class name: MarkarthMilkControl.xaml.cs
+ * Purpose: Defines interaction logic for MarkarthMilkControl.xaml
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Chris Schultz
+ * Class name: AretinoAppleJuiceControl.xaml.cs
+ * Purpose: Defines interaction logic for AretinoAppleJuiceControl.xaml
+ */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

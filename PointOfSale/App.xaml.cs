@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * Author: Chris Schultz
+ * Class name: App.xaml.cs
+ * Purpose: Defines interaction logic for App.xaml
+ */
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;

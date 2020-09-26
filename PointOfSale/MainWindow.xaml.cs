@@ -1,4 +1,9 @@
-﻿using BleakwindBuffet.Data.Drinks;
+﻿/*
+ * Author: Chris Schultz
+ * Class name: MainWindow.xaml.cs
+ * Purpose: Defines interaction logic for MainWindow.xaml
+ */
+using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.PointOfSale.Drinks;
 using System;
@@ -17,6 +22,12 @@ namespace BleakwindBuffet.PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Fires when the menu item selection changes and
+        /// updates the customization controls accordingly.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MenuItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var menuItems = (ListBox)sender;
