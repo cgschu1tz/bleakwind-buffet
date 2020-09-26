@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="Bleakwind Buffet POS"
         Height="700" Width="1400"
-        FontSize="28">
+        FontSize="32">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
@@ -25,7 +25,8 @@
 
         <!-- List of all menu items -->
         <ListBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
-                 Name="MenuItems" SelectionChanged="MenuItems_SelectionChanged">
+                 Name="MenuItems"
+                 SelectionChanged="MenuItems_SelectionChanged">
             <ListBoxItem Tag="{x:Type entrees:BriarheartBurgerControl}">Briarheart Burger</ListBoxItem>
             <ListBoxItem Tag="{x:Type entrees:DoubleDraugrControl}">Double Draugr</ListBoxItem>
             <ListBoxItem Tag="{x:Type entrees:ThalmorTripleControl}">Thalmor Triple</ListBoxItem>
@@ -44,14 +45,26 @@
             <ListBoxItem Tag="{x:Type sides:DragonbornWaffleFriesControl}">Dragonborn Waffle Fries</ListBoxItem>
         </ListBox>
 
-        <Button Grid.Row="1" Grid.Column="2"
-                Name="ProcessPayment" IsEnabled="False">
-            Process Payment
-        </Button>
+        <StackPanel Grid.Row="1" Grid.Column="1"
+                Orientation="Horizontal">
+            <Button Name="Add" IsEnabled="False">
+                Add to order
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="2"
+                    Orientation="Horizontal">
+            <Button Name="ProcessPayment" IsEnabled="False">
+                Process Payment
+            </Button>
+            <Button Name="CancelOrder" IsEnabled="False">
+                Cancel Order
+            </Button>
+        </StackPanel>
 
         <!-- This shows the customization options for the currently
         selected menu item. -->
-        <Grid Grid.Row="0" Grid.Column="1"
+        <Border Grid.Row="0" Grid.Column="1"
                      Name="CustomizationControl"/>
 
         <DockPanel Grid.Row="0" Grid.Column="2">

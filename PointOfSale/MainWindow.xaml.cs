@@ -23,13 +23,12 @@ namespace BleakwindBuffet.PointOfSale
             if (menuItems.SelectedItem == null)
             {
                 // Nothing is selected, so clear the customization control.
-                CustomizationControl.Children.Clear();
+                CustomizationControl.Child = null;
             }
             else 
             {
                 var selectedItem = (ListBoxItem)menuItems.SelectedItem;
-                CustomizationControl.Children.Clear();
-                CustomizationControl.Children.Add((UIElement)Activator.CreateInstance((Type)selectedItem.Tag));
+                CustomizationControl.Child = (UIElement)Activator.CreateInstance((Type)selectedItem.Tag);
             }
         }
     }
