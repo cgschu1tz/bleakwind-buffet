@@ -1,0 +1,402 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+
+interface BleakwindBuffet.Data.IOrderItem {
+	Price : double <<get>>
+	Calories : uint <<get>>
+	SpecialInstructions : List<string> <<get>>
+}
+
+class BleakwindBuffet.Data.Menu <<static>> {
+	- {static} <<readonly>> sizes : BleakwindBuffet.Data.Enums.Size[]
+	+ Entrees() : IEnumerable<BleakwindBuffet.Data.IOrderItem>
+	+ Sides() : IEnumerable<BleakwindBuffet.Data.IOrderItem>
+	+ Drinks() : IEnumerable<BleakwindBuffet.Data.IOrderItem>
+	+ FullMenu() : IEnumerable<BleakwindBuffet.Data.IOrderItem>
+}
+BleakwindBuffet.Data.Menu "1" o-- "0..*" BleakwindBuffet.Data.IOrderItem
+
+class BleakwindBuffet.Data.Sides.DragonbornWaffleFries {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> Size : BleakwindBuffet.Data.Enums.Size <<get>> <<set>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Sides.DragonbornWaffleFries
+BleakwindBuffet.Data.Sides.Side <|-- BleakwindBuffet.Data.Sides.DragonbornWaffleFries
+
+class BleakwindBuffet.Data.Sides.FriedMiraak {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> Size : BleakwindBuffet.Data.Enums.Size <<get>> <<set>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Sides.FriedMiraak
+BleakwindBuffet.Data.Sides.Side <|-- BleakwindBuffet.Data.Sides.FriedMiraak
+
+class BleakwindBuffet.Data.Sides.MadOtarGrits {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> Size : BleakwindBuffet.Data.Enums.Size <<get>> <<set>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Sides.MadOtarGrits
+BleakwindBuffet.Data.Sides.Side <|-- BleakwindBuffet.Data.Sides.MadOtarGrits
+
+abstract class BleakwindBuffet.Data.Sides.Side {
+	+ Size : BleakwindBuffet.Data.Enums.Size <<get>> <<set>>
+	+ Price : double <<get>>
+	+ Calories : uint <<get>>
+	+ SpecialInstructions : List<string> <<get>>
+}
+
+class BleakwindBuffet.Data.Sides.VokunSalad {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> Size : BleakwindBuffet.Data.Enums.Size <<get>> <<set>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Sides.VokunSalad
+BleakwindBuffet.Data.Sides.Side <|-- BleakwindBuffet.Data.Sides.VokunSalad
+
+enum BleakwindBuffet.Data.Enums.Size {
+	Small,
+	Medium,
+	Large,
+}
+
+enum BleakwindBuffet.Data.Enums.SodaFlavor {
+	Blackberry,
+	Cherry,
+	Grapefruit,
+	Lemon,
+	Peach,
+	Watermelon,
+}
+
+class BleakwindBuffet.Data.Entrees.BriarheartBurger {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ Bun : bool <<get>> <<set>>
+	+ Ketchup : bool <<get>> <<set>>
+	+ Mustard : bool <<get>> <<set>>
+	+ Pickle : bool <<get>> <<set>>
+	+ Cheese : bool <<get>> <<set>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.BriarheartBurger
+BleakwindBuffet.Data.Entrees.Entree <|-- BleakwindBuffet.Data.Entrees.BriarheartBurger
+
+class BleakwindBuffet.Data.Entrees.DoubleDraugr {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ Bun : bool <<get>> <<set>>
+	+ Ketchup : bool <<get>> <<set>>
+	+ Mustard : bool <<get>> <<set>>
+	+ Pickle : bool <<get>> <<set>>
+	+ Cheese : bool <<get>> <<set>>
+	+ Tomato : bool <<get>> <<set>>
+	+ Lettuce : bool <<get>> <<set>>
+	+ Mayo : bool <<get>> <<set>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.DoubleDraugr
+BleakwindBuffet.Data.Entrees.Entree <|-- BleakwindBuffet.Data.Entrees.DoubleDraugr
+
+abstract class BleakwindBuffet.Data.Entrees.Entree {
+	+ Price : double <<get>>
+	+ Calories : uint <<get>>
+	+ SpecialInstructions : List<string> <<get>>
+}
+
+class BleakwindBuffet.Data.Entrees.GardenOrcOmelette {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ Broccoli : bool <<get>> <<set>>
+	+ Mushrooms : bool <<get>> <<set>>
+	+ Tomato : bool <<get>> <<set>>
+	+ Cheddar : bool <<get>> <<set>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.GardenOrcOmelette
+BleakwindBuffet.Data.Entrees.Entree <|-- BleakwindBuffet.Data.Entrees.GardenOrcOmelette
+
+class BleakwindBuffet.Data.Entrees.PhillyPoacher {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ Sirloin : bool <<get>> <<set>>
+	+ Onion : bool <<get>> <<set>>
+	+ Roll : bool <<get>> <<set>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.PhillyPoacher
+BleakwindBuffet.Data.Entrees.Entree <|-- BleakwindBuffet.Data.Entrees.PhillyPoacher
+
+class BleakwindBuffet.Data.Entrees.SmokehouseSkeleton {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ SausageLink : bool <<get>> <<set>>
+	+ Egg : bool <<get>> <<set>>
+	+ HashBrowns : bool <<get>> <<set>>
+	+ Pancake : bool <<get>> <<set>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.SmokehouseSkeleton
+BleakwindBuffet.Data.Entrees.Entree <|-- BleakwindBuffet.Data.Entrees.SmokehouseSkeleton
+
+class BleakwindBuffet.Data.Entrees.ThalmorTriple {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ Bun : bool <<get>> <<set>>
+	+ Ketchup : bool <<get>> <<set>>
+	+ Mustard : bool <<get>> <<set>>
+	+ Pickle : bool <<get>> <<set>>
+	+ Cheese : bool <<get>> <<set>>
+	+ Tomato : bool <<get>> <<set>>
+	+ Lettuce : bool <<get>> <<set>>
+	+ Mayo : bool <<get>> <<set>>
+	+ Bacon : bool <<get>> <<set>>
+	+ Egg : bool <<get>> <<set>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.ThalmorTriple
+BleakwindBuffet.Data.Entrees.Entree <|-- BleakwindBuffet.Data.Entrees.ThalmorTriple
+
+class BleakwindBuffet.Data.Entrees.ThugsTBone {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Entrees.ThugsTBone
+BleakwindBuffet.Data.Entrees.Entree <|-- BleakwindBuffet.Data.Entrees.ThugsTBone
+
+class BleakwindBuffet.Data.Drinks.AretinoAppleJuice {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> Size : BleakwindBuffet.Data.Enums.Size <<get>> <<set>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ Ice : bool <<get>> <<set>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Drinks.AretinoAppleJuice
+BleakwindBuffet.Data.Drinks.Drink <|-- BleakwindBuffet.Data.Drinks.AretinoAppleJuice
+
+class BleakwindBuffet.Data.Drinks.CandlehearthCoffee {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> Size : BleakwindBuffet.Data.Enums.Size <<get>> <<set>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ Ice : bool <<get>> <<set>>
+	+ RoomForCream : bool <<get>> <<set>>
+	+ Decaf : bool <<get>> <<set>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Drinks.CandlehearthCoffee
+BleakwindBuffet.Data.Drinks.Drink <|-- BleakwindBuffet.Data.Drinks.CandlehearthCoffee
+
+abstract class BleakwindBuffet.Data.Drinks.Drink {
+	+ Size : BleakwindBuffet.Data.Enums.Size <<get>> <<set>>
+	+ Price : double <<get>>
+	+ Calories : uint <<get>>
+	+ SpecialInstructions : List<string> <<get>>
+}
+
+class BleakwindBuffet.Data.Drinks.MarkarthMilk {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> Size : BleakwindBuffet.Data.Enums.Size <<get>> <<set>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ Ice : bool <<get>> <<set>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Drinks.MarkarthMilk
+BleakwindBuffet.Data.Drinks.Drink <|-- BleakwindBuffet.Data.Drinks.MarkarthMilk
+
+class BleakwindBuffet.Data.Drinks.SailorSoda {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> Size : BleakwindBuffet.Data.Enums.Size <<get>> <<set>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ Ice : bool <<get>> <<set>>
+	+ Flavor : BleakwindBuffet.Data.Enums.SodaFlavor <<get>> <<set>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Drinks.SailorSoda
+BleakwindBuffet.Data.Drinks.Drink <|-- BleakwindBuffet.Data.Drinks.SailorSoda
+
+class BleakwindBuffet.Data.Drinks.WarriorWater {
+	+ <<override>> Price : double <<get>>
+	+ <<override>> Calories : uint <<get>>
+	+ <<override>> Size : BleakwindBuffet.Data.Enums.Size <<get>> <<set>>
+	+ <<override>> SpecialInstructions : List<string> <<get>>
+	+ Ice : bool <<get>> <<set>>
+	+ Lemon : bool <<get>> <<set>>
+	+ <<override>> ToString() : string
+}
+BleakwindBuffet.Data.IOrderItem <|.. BleakwindBuffet.Data.Drinks.WarriorWater
+BleakwindBuffet.Data.Drinks.Drink <|-- BleakwindBuffet.Data.Drinks.WarriorWater
+
+
+
+
+
+
+class BleakwindBuffet.PointOfSale.App {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+	+ Main() : void
+}
+
+class BleakwindBuffet.PointOfSale.MainWindow {
+	- MenuItems : ListBox
+	- Add : Button
+	- ProcessPayment : Button
+	- CancelOrder : Button
+	- CustomizationControl : Border
+	- Subtotal : Label
+	- Tax : Label
+	- Total : Label
+	- OrderContents : ListBox
+	- _contentLoaded : bool
+	- MenuItems_SelectionChanged(sender : object, e : SelectionChangedEventArgs) : void
+	+ InitializeComponent() : void
+}
+
+class BleakwindBuffet.PointOfSale.Sides.DragonbornWaffleFriesControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Sides.DragonbornWaffleFriesControl
+BleakwindBuffet.PointOfSale.Sides.DragonbornWaffleFriesControl "1" *-- "1" BleakwindBuffet.PointOfSale.Enums.SizeControl
+
+class BleakwindBuffet.PointOfSale.Sides.FriedMiraakControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Sides.FriedMiraakControl
+BleakwindBuffet.PointOfSale.Sides.FriedMiraakControl "1" *-- "1" BleakwindBuffet.PointOfSale.Enums.SizeControl
+
+class BleakwindBuffet.PointOfSale.Sides.MadOtarGritsControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Sides.MadOtarGritsControl
+BleakwindBuffet.PointOfSale.Sides.MadOtarGritsControl "1" *-- "1" BleakwindBuffet.PointOfSale.Enums.SizeControl
+
+class BleakwindBuffet.PointOfSale.Sides.VokunSaladControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Sides.VokunSaladControl
+BleakwindBuffet.PointOfSale.Sides.VokunSaladControl "1" *-- "1" BleakwindBuffet.PointOfSale.Enums.SizeControl
+
+
+
+
+class BleakwindBuffet.PointOfSale.Enums.SizeControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+
+class BleakwindBuffet.PointOfSale.Enums.SodaFlavorControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+
+
+
+
+class BleakwindBuffet.PointOfSale.Entrees.BriarheartBurgerControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Entrees.BriarheartBurgerControl
+
+class BleakwindBuffet.PointOfSale.Entrees.DoubleDraugrControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Entrees.DoubleDraugrControl
+
+class BleakwindBuffet.PointOfSale.Entrees.GardenOrcOmeletteControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Entrees.GardenOrcOmeletteControl
+
+class BleakwindBuffet.PointOfSale.Entrees.PhillyPoacherControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Entrees.PhillyPoacherControl
+
+class BleakwindBuffet.PointOfSale.Entrees.SmokehouseSkeletonControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Entrees.SmokehouseSkeletonControl
+
+class BleakwindBuffet.PointOfSale.Entrees.ThalmorTripleControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Entrees.ThalmorTripleControl
+
+class BleakwindBuffet.PointOfSale.Entrees.ThugsTBoneControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Entrees.ThugsTBoneControl
+
+
+
+
+class BleakwindBuffet.PointOfSale.Drinks.AretinoAppleJuiceControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Drinks.AretinoAppleJuiceControl
+BleakwindBuffet.PointOfSale.Drinks.AretinoAppleJuiceControl "1" *-- "1" BleakwindBuffet.PointOfSale.Enums.SizeControl
+
+class BleakwindBuffet.PointOfSale.Drinks.CandlehearthCoffeeControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Drinks.CandlehearthCoffeeControl
+BleakwindBuffet.PointOfSale.Drinks.CandlehearthCoffeeControl "1" *-- "1" BleakwindBuffet.PointOfSale.Enums.SizeControl
+
+class BleakwindBuffet.PointOfSale.Drinks.MarkarthMilkControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Drinks.MarkarthMilkControl
+BleakwindBuffet.PointOfSale.Drinks.MarkarthMilkControl "1" *-- "1" BleakwindBuffet.PointOfSale.Enums.SizeControl
+
+class BleakwindBuffet.PointOfSale.Drinks.SailorSodaControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Drinks.SailorSodaControl
+BleakwindBuffet.PointOfSale.Drinks.SailorSodaControl "1" *-- "1" BleakwindBuffet.PointOfSale.Enums.SizeControl
+BleakwindBuffet.PointOfSale.Drinks.SailorSodaControl "1" *-- "1" BleakwindBuffet.PointOfSale.Enums.SodaFlavorControl
+
+class BleakwindBuffet.PointOfSale.Drinks.WarriorWaterControl {
+	- _contentLoaded : bool
+	+ InitializeComponent() : void
+}
+BleakwindBuffet.PointOfSale.MainWindow "1" *-- "0..1" BleakwindBuffet.PointOfSale.Drinks.WarriorWaterControl
+BleakwindBuffet.PointOfSale.Drinks.WarriorWaterControl "1" *-- "1" BleakwindBuffet.PointOfSale.Enums.SizeControl
+
+@enduml
