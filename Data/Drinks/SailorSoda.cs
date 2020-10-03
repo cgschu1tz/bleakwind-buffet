@@ -111,9 +111,21 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         /// <summary>
+        /// The backing variable for the soda flavor.
+        /// </summary>
+        private SodaFlavor flavor = SodaFlavor.Cherry;
+
+        /// <summary>
         /// The flavor of syrup to mix in this drink.
         /// </summary>
-        public SodaFlavor Flavor { get; set; } = SodaFlavor.Cherry;
+        public SodaFlavor Flavor
+        {
+            get => flavor;
+            set {
+                flavor = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Flavor)));
+            }
+        }
 
         /// <summary>
         /// Converts this item to its string representation.
