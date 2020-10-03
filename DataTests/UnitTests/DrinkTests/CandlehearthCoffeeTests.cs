@@ -19,6 +19,24 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class CandlehearthCoffeeTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var c = new CandlehearthCoffee();
+            Assert.PropertyChanged(c, "Size", () => c.Size = Size.Medium);
+            Assert.PropertyChanged(c, "Price", () => c.Size = Size.Medium);
+            Assert.PropertyChanged(c, "Calories", () => c.Size = Size.Medium);
+
+            Assert.PropertyChanged(c, "Ice", () => c.Ice = true);
+            Assert.PropertyChanged(c, "SpecialInstructions", () => c.Ice = true);
+
+            Assert.PropertyChanged(c, "RoomForCream", () => c.RoomForCream = true);
+            Assert.PropertyChanged(c, "SpecialInstructions", () => c.RoomForCream = true);
+
+            Assert.PropertyChanged(c, "Decaf", () => c.Decaf = true);
+            Assert.PropertyChanged(c, "SpecialInstructions", () => c.Decaf = true);
+        }
+
+        [Fact]
         public void ShouldInheritDrink()
         {
             Assert.IsAssignableFrom<Drink>(new CandlehearthCoffee());

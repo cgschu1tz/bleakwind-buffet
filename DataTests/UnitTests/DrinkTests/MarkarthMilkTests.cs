@@ -19,6 +19,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class MarkarthMilkTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var m = new MarkarthMilk();
+            Assert.PropertyChanged(m, "Size", () => m.Size = Size.Medium);
+            Assert.PropertyChanged(m, "Price", () => m.Size = Size.Medium);
+            Assert.PropertyChanged(m, "Calories", () => m.Size = Size.Medium);
+
+            Assert.PropertyChanged(m, "Ice", () => m.Ice = true);
+            Assert.PropertyChanged(m, "SpecialInstructions", () => m.Ice = true);
+        }
+
+        [Fact]
         public void ShouldInheritDrink()
         {
             Assert.IsAssignableFrom<Drink>(new MarkarthMilk());

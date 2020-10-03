@@ -18,6 +18,24 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class GardenOrcOmeletteTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var g = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(g, "Broccoli", () => g.Broccoli = true);
+            Assert.PropertyChanged(g, "SpecialInstructions", () => g.Broccoli = true);
+
+            Assert.PropertyChanged(g, "Mushrooms", () => g.Mushrooms = true);
+            Assert.PropertyChanged(g, "SpecialInstructions", () => g.Mushrooms = true);
+
+            Assert.PropertyChanged(g, "Tomato", () => g.Tomato = true);
+            Assert.PropertyChanged(g, "SpecialInstructions", () => g.Tomato = true);
+
+            Assert.PropertyChanged(g, "Cheddar", () => g.Cheddar = true);
+            Assert.PropertyChanged(g, "SpecialInstructions", () => g.Cheddar = true);
+        }
+
+        [Fact]
         public void ShouldInheritEntree()
         {
             Assert.IsAssignableFrom<Entree>(new GardenOrcOmelette());

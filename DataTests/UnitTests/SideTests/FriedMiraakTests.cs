@@ -19,10 +19,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class FriedMiraakTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var f = new FriedMiraak();
+            Assert.PropertyChanged(f, "Size", () => f.Size = Size.Medium);
+            Assert.PropertyChanged(f, "Price", () => f.Size = Size.Medium);
+            Assert.PropertyChanged(f, "Calories", () => f.Size = Size.Medium);
+        }
+
+        [Fact]
         public void ShouldInheritSide()
         {
             Assert.IsAssignableFrom<Side>(new FriedMiraak());
         }
+
         [Fact]
         public void ShouldImplementIOrderItem()
         {

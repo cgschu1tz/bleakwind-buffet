@@ -18,6 +18,20 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class SailorSodaTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var s = new SailorSoda();
+            Assert.PropertyChanged(s, "Size", () => s.Size = Size.Medium);
+            Assert.PropertyChanged(s, "Price", () => s.Size = Size.Medium);
+            Assert.PropertyChanged(s, "Calories", () => s.Size = Size.Medium);
+
+            Assert.PropertyChanged(s, "Ice", () => s.Ice = true);
+            Assert.PropertyChanged(s, "SpecialInstructions", () => s.Ice = true);
+
+            Assert.PropertyChanged(s, "Flavor", () => s.Flavor = SodaFlavor.Blackberry);
+        }
+
+        [Fact]
         public void ShouldInheritDrink()
         {
             Assert.IsAssignableFrom<Drink>(new SailorSoda());

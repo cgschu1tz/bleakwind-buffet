@@ -18,6 +18,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class PhillyPoacherTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var p = new PhillyPoacher();
+
+            Assert.PropertyChanged(p, "Sirloin", () => p.Sirloin = true);
+            Assert.PropertyChanged(p, "SpecialInstructions", () => p.Sirloin = true);
+
+            Assert.PropertyChanged(p, "Onion", () => p.Onion = true);
+            Assert.PropertyChanged(p, "SpecialInstructions", () => p.Onion = true);
+
+            Assert.PropertyChanged(p, "Roll", () => p.Roll = true);
+            Assert.PropertyChanged(p, "SpecialInstructions", () => p.Roll = true);
+        }
+
+        [Fact]
         public void ShouldInheritEntree()
         {
             Assert.IsAssignableFrom<Entree>(new PhillyPoacher());

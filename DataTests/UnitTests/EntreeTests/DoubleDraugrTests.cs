@@ -18,6 +18,36 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class DoubleDraugrTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var d = new DoubleDraugr();
+
+            Assert.PropertyChanged(d, "Bun", () => d.Bun = true);
+            Assert.PropertyChanged(d, "SpecialInstructions", () => d.Bun = true);
+
+            Assert.PropertyChanged(d, "Ketchup", () => d.Ketchup = true);
+            Assert.PropertyChanged(d, "SpecialInstructions", () => d.Ketchup = true);
+
+            Assert.PropertyChanged(d, "Mustard", () => d.Mustard = true);
+            Assert.PropertyChanged(d, "SpecialInstructions", () => d.Mustard = true);
+
+            Assert.PropertyChanged(d, "Pickle", () => d.Pickle = true);
+            Assert.PropertyChanged(d, "SpecialInstructions", () => d.Pickle = true);
+
+            Assert.PropertyChanged(d, "Cheese", () => d.Cheese = true);
+            Assert.PropertyChanged(d, "SpecialInstructions", () => d.Cheese = true);
+
+            Assert.PropertyChanged(d, "Tomato", () => d.Tomato = true);
+            Assert.PropertyChanged(d, "SpecialInstructions", () => d.Tomato = true);
+
+            Assert.PropertyChanged(d, "Lettuce", () => d.Lettuce = true);
+            Assert.PropertyChanged(d, "SpecialInstructions", () => d.Lettuce = true);
+
+            Assert.PropertyChanged(d, "Mayo", () => d.Mayo = true);
+            Assert.PropertyChanged(d, "SpecialInstructions", () => d.Mayo = true);
+        }
+
+        [Fact]
         public void ShouldInheritEntree()
         {
             Assert.IsAssignableFrom<Entree>(new DoubleDraugr());

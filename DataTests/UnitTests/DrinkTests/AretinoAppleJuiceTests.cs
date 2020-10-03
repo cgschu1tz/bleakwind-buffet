@@ -19,6 +19,18 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class AretinoAppleJuiceTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var a = new AretinoAppleJuice();
+            Assert.PropertyChanged(a, "Size", () => a.Size = Size.Medium);
+            Assert.PropertyChanged(a, "Price", () => a.Size = Size.Medium);
+            Assert.PropertyChanged(a, "Calories", () => a.Size = Size.Medium);
+
+            Assert.PropertyChanged(a, "Ice", () => a.Ice = true);
+            Assert.PropertyChanged(a, "SpecialInstructions", () => a.Ice = true);
+        }
+
+        [Fact]
         public void ShouldInheritDrink()
         {
             Assert.IsAssignableFrom<Drink>(new AretinoAppleJuice());

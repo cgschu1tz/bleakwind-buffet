@@ -19,6 +19,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class VokunSaladTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var v = new VokunSalad();
+            Assert.PropertyChanged(v, "Size", () => v.Size = Size.Medium);
+            Assert.PropertyChanged(v, "Price", () => v.Size = Size.Medium);
+            Assert.PropertyChanged(v, "Calories", () => v.Size = Size.Medium);
+        }
+
+        [Fact]
         public void ShouldInheritSide()
         {
             Assert.IsAssignableFrom<Side>(new VokunSalad());

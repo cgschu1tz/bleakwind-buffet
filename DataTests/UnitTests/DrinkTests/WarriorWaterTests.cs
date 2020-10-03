@@ -17,6 +17,19 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class WarriorWaterTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var w = new WarriorWater();
+            Assert.PropertyChanged(w, "Size", () => w.Size = Size.Medium);
+
+            Assert.PropertyChanged(w, "Ice", () => w.Ice = true);
+            Assert.PropertyChanged(w, "SpecialInstructions", () => w.Ice = true);
+
+            Assert.PropertyChanged(w, "Lemon", () => w.Lemon = true);
+            Assert.PropertyChanged(w, "SpecialInstructions", () => w.Lemon = true);
+        }
+
+        [Fact]
         public void ShouldInheritDrink()
         {
             Assert.IsAssignableFrom<Drink>(new WarriorWater());

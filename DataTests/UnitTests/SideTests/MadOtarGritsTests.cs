@@ -19,6 +19,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class MadOtarGritsTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var m = new MadOtarGrits();
+            Assert.PropertyChanged(m, "Size", () => m.Size = Size.Medium);
+            Assert.PropertyChanged(m, "Price", () => m.Size = Size.Medium);
+            Assert.PropertyChanged(m, "Calories", () => m.Size = Size.Medium);
+        }
+
+        [Fact]
         public void ShouldInheritSide()
         {
             Assert.IsAssignableFrom<Side>(new MadOtarGrits());

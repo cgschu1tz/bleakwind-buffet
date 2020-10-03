@@ -18,6 +18,42 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class ThalmorTripleTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var t = new ThalmorTriple();
+
+            Assert.PropertyChanged(t, "Bun", () => t.Bun = true);
+            Assert.PropertyChanged(t, "SpecialInstructions", () => t.Bun = true);
+
+            Assert.PropertyChanged(t, "Ketchup", () => t.Ketchup = true);
+            Assert.PropertyChanged(t, "SpecialInstructions", () => t.Ketchup = true);
+
+            Assert.PropertyChanged(t, "Mustard", () => t.Mustard = true);
+            Assert.PropertyChanged(t, "SpecialInstructions", () => t.Mustard = true);
+
+            Assert.PropertyChanged(t, "Pickle", () => t.Pickle = true);
+            Assert.PropertyChanged(t, "SpecialInstructions", () => t.Pickle = true);
+
+            Assert.PropertyChanged(t, "Cheese", () => t.Cheese = true);
+            Assert.PropertyChanged(t, "SpecialInstructions", () => t.Cheese = true);
+
+            Assert.PropertyChanged(t, "Tomato", () => t.Tomato = true);
+            Assert.PropertyChanged(t, "SpecialInstructions", () => t.Tomato = true);
+
+            Assert.PropertyChanged(t, "Lettuce", () => t.Lettuce = true);
+            Assert.PropertyChanged(t, "SpecialInstructions", () => t.Lettuce = true);
+
+            Assert.PropertyChanged(t, "Mayo", () => t.Mayo = true);
+            Assert.PropertyChanged(t, "SpecialInstructions", () => t.Mayo = true);
+
+            Assert.PropertyChanged(t, "Bacon", () => t.Bacon = true);
+            Assert.PropertyChanged(t, "SpecialInstructions", () => t.Bacon = true);
+
+            Assert.PropertyChanged(t, "Egg", () => t.Egg = true);
+            Assert.PropertyChanged(t, "SpecialInstructions", () => t.Egg = true);
+        }
+
+        [Fact]
         public void ShouldInheritEntree()
         {
             Assert.IsAssignableFrom<Entree>(new ThalmorTriple());

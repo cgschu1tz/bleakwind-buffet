@@ -18,6 +18,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class BriarheartBurgerTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var b = new BriarheartBurger();
+
+            Assert.PropertyChanged(b, "Bun", () => b.Bun = true);
+            Assert.PropertyChanged(b, "SpecialInstructions", () => b.Bun = true);
+
+            Assert.PropertyChanged(b, "Ketchup", () => b.Ketchup = true);
+            Assert.PropertyChanged(b, "SpecialInstructions", () => b.Ketchup = true);
+
+            Assert.PropertyChanged(b, "Mustard", () => b.Mustard = true);
+            Assert.PropertyChanged(b, "SpecialInstructions", () => b.Mustard = true);
+
+            Assert.PropertyChanged(b, "Pickle", () => b.Pickle = true);
+            Assert.PropertyChanged(b, "SpecialInstructions", () => b.Pickle = true);
+
+            Assert.PropertyChanged(b, "Cheese", () => b.Cheese = true);
+            Assert.PropertyChanged(b, "SpecialInstructions", () => b.Cheese = true);
+        }
+
+        [Fact]
         public void ShouldInheritEntree()
         {
             Assert.IsAssignableFrom<Entree>(new BriarheartBurger());

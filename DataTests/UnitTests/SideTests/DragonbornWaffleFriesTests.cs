@@ -18,6 +18,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class DragonbornWaffleFriesTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var d = new DragonbornWaffleFries();
+            Assert.PropertyChanged(d, "Size", () => d.Size = Size.Medium);
+            Assert.PropertyChanged(d, "Price", () => d.Size = Size.Medium);
+            Assert.PropertyChanged(d, "Calories", () => d.Size = Size.Medium);
+        }
+
+        [Fact]
         public void ShouldInheritSide()
         {
             Assert.IsAssignableFrom<Side>(new DragonbornWaffleFries());

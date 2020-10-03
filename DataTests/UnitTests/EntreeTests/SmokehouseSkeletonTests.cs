@@ -18,6 +18,24 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class SmokehouseSkeletonTests
     {
         [Fact]
+        public void ShouldInvokePropertyChangedEvent()
+        {
+            var s = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(s, "SausageLink", () => s.SausageLink = true);
+            Assert.PropertyChanged(s, "SpecialInstructions", () => s.SausageLink = true);
+
+            Assert.PropertyChanged(s, "Egg", () => s.Egg = true);
+            Assert.PropertyChanged(s, "SpecialInstructions", () => s.Egg = true);
+
+            Assert.PropertyChanged(s, "HashBrowns", () => s.HashBrowns = true);
+            Assert.PropertyChanged(s, "SpecialInstructions", () => s.HashBrowns = true);
+
+            Assert.PropertyChanged(s, "Pancake", () => s.Pancake = true);
+            Assert.PropertyChanged(s, "SpecialInstructions", () => s.Pancake = true);
+        }
+
+        [Fact]
         public void ShouldInheritEntree()
         {
             Assert.IsAssignableFrom<Entree>(new SmokehouseSkeleton());
