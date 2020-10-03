@@ -4,14 +4,20 @@
  * Purpose: Defines a class for the Philly Poacher
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// Philly cheesesteak sandwich
     /// </summary>
-    public class PhillyPoacher : Entree, IOrderItem
+    public class PhillyPoacher : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Invoked when a property of this item changes.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The price of this item in USD.
         /// </summary>
@@ -40,19 +46,58 @@ namespace BleakwindBuffet.Data.Entrees
         }
 
         /// <summary>
-        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// A backing variable for an ingredient.
         /// </summary>
-        public bool Sirloin { get; set; } = true;
+        private bool sirloin = true;
 
         /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
         /// </summary>
-        public bool Onion { get; set; } = true;
+        public bool Sirloin
+        {
+            get => sirloin;
+            set {
+                sirloin = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Sirloin)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+            }
+        }
+
+        /// <summary>
+        /// A backing variable for an ingredient.
+        /// </summary>
+        private bool onion = true;
 
         /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
         /// </summary>
-        public bool Roll { get; set; } = true;
+        public bool Onion
+        {
+            get => onion;
+            set {
+                onion = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Onion)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+            }
+        }
+
+        /// <summary>
+        /// A backing variable for an ingredient.
+        /// </summary>
+        private bool roll = true;
+
+        /// <summary>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </summary>
+        public bool Roll
+        {
+            get => roll;
+            set {
+                roll = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Roll)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+            }
+        }
 
         /// <summary>
         /// Converts this item to its string representation.

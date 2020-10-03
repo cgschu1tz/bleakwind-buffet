@@ -4,14 +4,20 @@
  * Purpose: Defines a class for the Double Draugr
  */
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// A 1/2lb burger
     /// </summary>
-    public class DoubleDraugr : Entree, IOrderItem
+    public class DoubleDraugr : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Invoked when a property of this item changes.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The price of this item in USD.
         /// </summary>
@@ -45,44 +51,148 @@ namespace BleakwindBuffet.Data.Entrees
         }
 
         /// <summary>
-        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// The backing variable for an ingredient.
         /// </summary>
-        public bool Bun { get; set; } = true;
+        private bool bun = true;
 
         /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        public bool Bun
+        {
+            get => bun;
+            set {
+                bun = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Bun)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+            }
+        }
+
+        /// <summary>
+        /// The backing variable for an ingredient.
+        /// </summary>
+        private bool ketchup = true;
 
         /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        public bool Ketchup
+        {
+            get => ketchup;
+            set {
+                ketchup = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Ketchup)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+            }
+        }
+
+        /// <summary>
+        /// The backing variable for an ingredient.
+        /// </summary>
+        private bool mustard = true;
 
         /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Mustard
+        {
+            get => mustard;
+            set {
+                mustard = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Mustard)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+            }
+        }
+
+        /// <summary>
+        /// The backing variable for an ingredient.
+        /// </summary>
+        private bool pickle = true;
 
         /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
         /// </summary>
-        public bool Cheese { get; set; } = true;
+        public bool Pickle
+        {
+            get => pickle;
+            set {
+                pickle = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Pickle)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+            }
+        }
+
+        /// <summary>
+        /// The backing variable for an ingredient.
+        /// </summary>
+        private bool cheese = true;
 
         /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
         /// </summary>
-        public bool Tomato { get; set; } = true;
+        public bool Cheese
+        {
+            get => cheese;
+            set {
+                cheese = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Cheese)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+            }
+        }
+
+        /// <summary>
+        /// The backing variable for an ingredient.
+        /// </summary>
+        private bool tomato = true;
 
         /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
         /// </summary>
-        public bool Lettuce { get; set; } = true;
+        public bool Tomato
+        {
+            get => tomato;
+            set {
+                tomato = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Tomato)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+            }
+        }
+
+        /// <summary>
+        /// The backing variable for an ingredient.
+        /// </summary>
+        private bool lettuce = true;
 
         /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
         /// </summary>
-        public bool Mayo { get; set; } = true;
+        public bool Lettuce
+        {
+            get => lettuce;
+            set {
+                lettuce = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Lettuce)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+            }
+        }
+
+        /// <summary>
+        /// The backing variable for an ingredient.
+        /// </summary>
+        private bool mayo = true;
+
+        /// <summary>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </summary>
+        public bool Mayo
+        {
+            get => mayo;
+            set {
+                mayo = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Mayo)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+            }
+        }
 
         /// <summary>
         /// Converts this item to its string representation.

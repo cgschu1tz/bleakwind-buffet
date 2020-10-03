@@ -5,14 +5,20 @@
  */
 using BleakwindBuffet.Data.Enums;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Water
     /// </summary>
-    public class WarriorWater : Drink, IOrderItem
+    public class WarriorWater : Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Invoked when a property of this item changes.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The price of this item in USD.
         /// </summary>
@@ -24,9 +30,21 @@ namespace BleakwindBuffet.Data.Drinks
         public override uint Calories => 0;
 
         /// <summary>
+        /// The backing variable for the size.
+        /// </summary>
+        private Size size = Size.Small;
+
+        /// <summary>
         /// The size of this item.
         /// </summary>
-        public override Size Size { get; set; } = Size.Small;
+        public override Size Size
+        {
+            get => size;
+            set {
+                size = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Size)));
+            }
+        }
 
         /// <summary>
         /// A list of instructions to follow when preparing this item
@@ -45,14 +63,40 @@ namespace BleakwindBuffet.Data.Drinks
         }
 
         /// <summary>
-        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// A backing variable for an ingredient.
         /// </summary>
-        public bool Ice { get; set; } = true;
+        private bool ice = true;
 
         /// <summary>
         /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Ice
+        {
+            get => ice;
+            set {
+                ice = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Ice)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+            }
+        }
+
+        /// <summary>
+        /// A backing variable for an ingredient.
+        /// </summary>
+        private bool lemon = false;
+
+        /// <summary>
+        /// <c>true</c> if this ingredient is to be included and <c>false</c> if it is to be excluded.
+        /// </summary>
+        public bool Lemon
+        {
+            get => lemon;
+            set {
+                lemon = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Lemon)));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+            }
+        }
 
         /// <summary>
         /// Converts this item to its string representation.
