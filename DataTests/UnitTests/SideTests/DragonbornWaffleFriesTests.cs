@@ -7,6 +7,7 @@
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
+using System.ComponentModel;
 using Xunit;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
@@ -25,6 +26,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         public void ShouldImplementIOrderItem()
         {
             Assert.IsAssignableFrom<IOrderItem>(new DragonbornWaffleFries());
+        }
+
+        [Fact]
+        public void ShouldImplementINotifyPropertyChanged()
+        {
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(new DragonbornWaffleFries());
         }
 
         [Fact]
