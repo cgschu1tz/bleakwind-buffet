@@ -11,6 +11,6 @@
         <enums:SizeControl/>
 
         <Label>Options:</Label>
-        <CheckBox>Ice</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Ice}">Ice</CheckBox>
     </StackPanel>
 </UserControl>

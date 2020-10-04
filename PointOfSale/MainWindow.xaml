@@ -4,9 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BleakwindBuffet.PointOfSale"
-        xmlns:drinks="clr-namespace:BleakwindBuffet.PointOfSale.Drinks"
-        xmlns:entrees="clr-namespace:BleakwindBuffet.PointOfSale.Entrees"
-        xmlns:sides="clr-namespace:BleakwindBuffet.PointOfSale.Sides"
+        xmlns:drinkControls="clr-namespace:BleakwindBuffet.PointOfSale.Drinks"
+        xmlns:entreeControls="clr-namespace:BleakwindBuffet.PointOfSale.Entrees"
+        xmlns:sideControls="clr-namespace:BleakwindBuffet.PointOfSale.Sides"
+        xmlns:entrees="clr-namespace:BleakwindBuffet.Data.Entrees;assembly=Data"
+        xmlns:sides="clr-namespace:BleakwindBuffet.Data.Sides;assembly=Data"
+        xmlns:drinks="clr-namespace:BleakwindBuffet.Data.Drinks;assembly=Data"
         mc:Ignorable="d"
         Title="Bleakwind Buffet POS"
         Height="700" Width="1400"
@@ -27,22 +30,22 @@
         <ListBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
                  Name="MenuItems"
                  SelectionChanged="MenuItems_SelectionChanged">
-            <ListBoxItem Tag="{x:Type entrees:BriarheartBurgerControl}">Briarheart Burger</ListBoxItem>
-            <ListBoxItem Tag="{x:Type entrees:DoubleDraugrControl}">Double Draugr</ListBoxItem>
-            <ListBoxItem Tag="{x:Type entrees:ThalmorTripleControl}">Thalmor Triple</ListBoxItem>
-            <ListBoxItem Tag="{x:Type entrees:SmokehouseSkeletonControl}">Smokehouse Skeleton</ListBoxItem>
-            <ListBoxItem Tag="{x:Type entrees:GardenOrcOmeletteControl}">Garden Orc Omelette</ListBoxItem>
-            <ListBoxItem Tag="{x:Type entrees:PhillyPoacherControl}">Philly Poacher</ListBoxItem>
-            <ListBoxItem Tag="{x:Type entrees:ThugsTBoneControl}">Thugs T-Bone</ListBoxItem>
-            <ListBoxItem Tag="{x:Type drinks:SailorSodaControl}">Sailor Soda</ListBoxItem>
-            <ListBoxItem Tag="{x:Type drinks:MarkarthMilkControl}">Markarth Milk</ListBoxItem>
-            <ListBoxItem Tag="{x:Type drinks:AretinoAppleJuiceControl}">Aretino Apple Juice</ListBoxItem>
-            <ListBoxItem Tag="{x:Type drinks:CandlehearthCoffeeControl}">Candlehearth Coffee</ListBoxItem>
-            <ListBoxItem Tag="{x:Type drinks:WarriorWaterControl}">Warrior Water</ListBoxItem>
-            <ListBoxItem Tag="{x:Type sides:VokunSaladControl}">Vokun Salad</ListBoxItem>
-            <ListBoxItem Tag="{x:Type sides:FriedMiraakControl}">Fried Miraak</ListBoxItem>
-            <ListBoxItem Tag="{x:Type sides:MadOtarGritsControl}">Mad Otar Grits</ListBoxItem>
-            <ListBoxItem Tag="{x:Type sides:DragonbornWaffleFriesControl}">Dragonborn Waffle Fries</ListBoxItem>
+            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:BriarheartBurgerControl}" MenuItem="{x:Type entrees:BriarheartBurger}">Briarheart Burger</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:DoubleDraugrControl}" MenuItem="{x:Type entrees:DoubleDraugr}">Double Draugr</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:ThalmorTripleControl}" MenuItem="{x:Type entrees:ThalmorTriple}">Thalmor Triple</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:SmokehouseSkeletonControl}" MenuItem="{x:Type entrees:SmokehouseSkeleton}">Smokehouse Skeleton</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:GardenOrcOmeletteControl}" MenuItem="{x:Type entrees:GardenOrcOmelette}">Garden Orc Omelette</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:PhillyPoacherControl}" MenuItem="{x:Type entrees:PhillyPoacher}">Philly Poacher</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:ThugsTBoneControl}" MenuItem="{x:Type entrees:ThugsTBone}">Thugs T-Bone</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type drinkControls:SailorSodaControl}" MenuItem="{x:Type drinks:SailorSoda}">Sailor Soda</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type drinkControls:MarkarthMilkControl}" MenuItem="{x:Type drinks:MarkarthMilk}">Markarth Milk</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type drinkControls:AretinoAppleJuiceControl}" MenuItem="{x:Type drinks:AretinoAppleJuice}">Aretino Apple Juice</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type drinkControls:CandlehearthCoffeeControl}" MenuItem="{x:Type drinks:CandlehearthCoffee}">Candlehearth Coffee</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type drinkControls:WarriorWaterControl}" MenuItem="{x:Type drinks:WarriorWater}">Warrior Water</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type sideControls:VokunSaladControl}" MenuItem="{x:Type sides:VokunSalad}">Vokun Salad</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type sideControls:FriedMiraakControl}" MenuItem="{x:Type sides:FriedMiraak}">Fried Miraak</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type sideControls:MadOtarGritsControl}" MenuItem="{x:Type sides:MadOtarGrits}">Mad Otar Grits</local:MenuItemControl>
+            <local:MenuItemControl CustomizationControl="{x:Type sideControls:DragonbornWaffleFriesControl}" MenuItem="{x:Type sides:DragonbornWaffleFries}">Dragonborn Waffle Fries</local:MenuItemControl>
         </ListBox>
 
         <StackPanel Grid.Row="1" Grid.Column="1"

@@ -8,9 +8,9 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
         <Label>Options:</Label>
-        <CheckBox>Sausage link</CheckBox>
-        <CheckBox>Egg </CheckBox>
-        <CheckBox>Hash browns</CheckBox>
-        <CheckBox>Pancake</CheckBox>
+        <CheckBox IsChecked="{Binding Path=SausageLink}">Sausage link</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Egg}">Egg </CheckBox>
+        <CheckBox IsChecked="{Binding Path=HashBrowns}">Hash browns</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Pancake}">Pancake</CheckBox>
     </StackPanel>
 </UserControl>

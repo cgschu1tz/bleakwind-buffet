@@ -3,9 +3,6 @@
  * Class name: MainWindow.xaml.cs
  * Purpose: Defines interaction logic for MainWindow.xaml
  */
-using BleakwindBuffet.Data.Drinks;
-using BleakwindBuffet.Data.Entrees;
-using BleakwindBuffet.PointOfSale.Drinks;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,13 +30,15 @@ namespace BleakwindBuffet.PointOfSale
             var menuItems = (ListBox)sender;
             if (menuItems.SelectedItem == null)
             {
-                // Nothing is selected, so clear the customization control.
+                // Nothing is selected, so clear the customization control and its data context.
                 CustomizationControl.Child = null;
+                CustomizationControl.DataContext = null;
             }
             else 
             {
-                var selectedItem = (ListBoxItem)menuItems.SelectedItem;
-                CustomizationControl.Child = (UIElement)Activator.CreateInstance((Type)selectedItem.Tag);
+                var selectedItem = (MenuItemControl)menuItems.SelectedItem;
+                CustomizationControl.Child = (UIElement)Activator.CreateInstance(selectedItem.CustomizationControl);
+                CustomizationControl.DataContext = Activator.CreateInstance(selectedItem.MenuItem);
             }
         }
     }

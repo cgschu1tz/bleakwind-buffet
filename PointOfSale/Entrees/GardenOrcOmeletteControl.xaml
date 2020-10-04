@@ -8,9 +8,9 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
         <Label>Options:</Label>
-        <CheckBox>Broccoli</CheckBox>
-        <CheckBox>Mushrooms</CheckBox>
-        <CheckBox>Tomato</CheckBox>
-        <CheckBox>Cheddar</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Broccoli}">Broccoli</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Mushrooms}">Mushrooms</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Tomato}">Tomato</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Cheddar}">Cheddar</CheckBox>
     </StackPanel>
 </UserControl>

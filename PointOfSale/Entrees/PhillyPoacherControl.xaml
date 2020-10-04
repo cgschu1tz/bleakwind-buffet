@@ -8,8 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
         <Label>Options:</Label>
-        <CheckBox>Sirloin</CheckBox>
-        <CheckBox>Onion</CheckBox>
-        <CheckBox>Roll</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Sirloin}">Sirloin</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Onion}">Onion</CheckBox>
+        <CheckBox IsChecked="{Binding Path=Roll}">Roll</CheckBox>
     </StackPanel>
 </UserControl>
