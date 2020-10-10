@@ -3,6 +3,7 @@
  * Class name: MockEntree.cs
  * Purpose: Defines a class for mocking entrees
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Enums;
@@ -15,7 +16,7 @@ namespace BleakwindBuffet.DataTests.UnitTests
     /// <summary>
     /// A mock entree
     /// </summary>
-    class MockEntree : Entree
+    class MockEntree : Entree, IOrderItem
     {
         /// <summary>
         /// Fires the PropertyChanged event

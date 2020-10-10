@@ -3,6 +3,7 @@
  * Class name: MockSide.cs
  * Purpose: Defines a class for mocking sides
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
@@ -15,7 +16,7 @@ namespace BleakwindBuffet.DataTests.UnitTests
     /// <summary>
     /// A mock side
     /// </summary>
-    class MockSide : Side
+    class MockSide : Side, IOrderItem
     {
         /// <summary>
         /// Fires the PropertyChanged event

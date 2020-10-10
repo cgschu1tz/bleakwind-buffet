@@ -3,6 +3,7 @@
  * Class name: MockDrink.cs
  * Purpose: Defines a class for mocking drinks
  */
+using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Enums;
 using System;
@@ -14,7 +15,7 @@ namespace BleakwindBuffet.DataTests.UnitTests
     /// <summary>
     /// A mock drink
     /// </summary>
-    class MockDrink : Drink
+    class MockDrink : Drink, IOrderItem
     {
         /// <summary>
         /// Fires the PropertyChanged event
