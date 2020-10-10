@@ -5,14 +5,20 @@
  */
 using BleakwindBuffet.Data.Enums;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// Abstract base class for all drinks
     /// </summary>
-    public abstract class Drink
+    public abstract class Drink : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Invoked when a property of this item changes.
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// The size of this item.
         /// </summary>
@@ -33,5 +39,15 @@ namespace BleakwindBuffet.Data.Drinks
         /// (e.g. "Hold mayo" or "Hold ice").
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// Invokes the <see cref="PropertyChanged"/> event with the 
+        /// name of the property that changed.
+        /// </summary>
+        /// <param name="propertyName">the name of the property that changed</param>
+        protected void OnPropertyChanged(string propertyName)
+        {
+            OnPropertyChanged(propertyName);
+        }
     }
 }

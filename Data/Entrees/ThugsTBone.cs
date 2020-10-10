@@ -13,14 +13,6 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class ThugsTBone : Entree, IOrderItem, INotifyPropertyChanged
     {
-#pragma warning disable CS0067
-        /// <summary>
-        /// Invoked when a property of this item changes.
-        /// This event is intentionally left unused.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-#pragma warning restore
-
         /// <summary>
         /// The price of this item in USD.
         /// </summary>

@@ -14,11 +14,6 @@ namespace BleakwindBuffet.Data.Entrees
     public class SmokehouseSkeleton : Entree, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
-        /// Invoked when a property of this item changes.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
         /// The price of this item in USD.
         /// </summary>
         public override double Price => 5.62;
@@ -59,8 +54,8 @@ namespace BleakwindBuffet.Data.Entrees
             get => sausageLink;
             set {
                 sausageLink = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SausageLink)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+                OnPropertyChanged(nameof(SausageLink));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 
@@ -77,8 +72,8 @@ namespace BleakwindBuffet.Data.Entrees
             get => egg;
             set {
                 egg = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Egg)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+                OnPropertyChanged(nameof(Egg));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 
@@ -95,8 +90,8 @@ namespace BleakwindBuffet.Data.Entrees
             get => hashBrowns;
             set {
                 hashBrowns = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(HashBrowns)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+                OnPropertyChanged(nameof(HashBrowns));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 
@@ -113,8 +108,8 @@ namespace BleakwindBuffet.Data.Entrees
             get => pancake;
             set {
                 pancake = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Pancake)));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+                OnPropertyChanged(nameof(Pancake));
+                OnPropertyChanged(nameof(SpecialInstructions));
             }
         }
 
