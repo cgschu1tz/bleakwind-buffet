@@ -47,7 +47,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <param name="propertyName">the name of the property that changed</param>
         protected void OnPropertyChanged(string propertyName)
         {
-            OnPropertyChanged(propertyName);
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
