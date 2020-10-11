@@ -23,12 +23,12 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <!-- List of all menu items -->
         <ListBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
-                 Name="MenuItems"
+                 Name="menuItems"
                  SelectionChanged="MenuItems_SelectionChanged">
             <local:MenuItemControl CustomizationControl="{x:Type entreeControls:BriarheartBurgerControl}" MenuItem="{x:Type entrees:BriarheartBurger}">Briarheart Burger</local:MenuItemControl>
             <local:MenuItemControl CustomizationControl="{x:Type entreeControls:DoubleDraugrControl}" MenuItem="{x:Type entrees:DoubleDraugr}">Double Draugr</local:MenuItemControl>
@@ -50,17 +50,17 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1"
                 Orientation="Horizontal">
-            <Button Name="Add" IsEnabled="False">
+            <Button Click="addBtn_Click" Name="addBtn" IsEnabled="False">
                 Add to order
             </Button>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="2"
                     Orientation="Horizontal">
-            <Button Name="ProcessPayment" IsEnabled="False">
+            <Button Name="processPaymentBtn" IsEnabled="False">
                 Process Payment
             </Button>
-            <Button Name="CancelOrder" IsEnabled="False">
+            <Button Name="cancelOrderBtn" Click="cancelOrderBtn_Click">
                 Cancel Order
             </Button>
         </StackPanel>
@@ -68,26 +68,48 @@
         <!-- This shows the customization options for the currently
         selected menu item. -->
         <Border Grid.Row="0" Grid.Column="1"
-                     Name="CustomizationControl"/>
+                     Name="customizationControl"/>
+        
+        <!-- List of items in the order -->
+        <DockPanel Grid.Row="0" Grid.Column="2"
+                   Name="orderControl"
+                   local:OrderItemControl.RemoveClicked="orderControl_RemoveClicked">
+            <TextBlock DockPanel.Dock="Top" Text="{Binding Path=Number, StringFormat=Order #{0}}" TextAlignment="Center"/>
 
-        <DockPanel Grid.Row="0" Grid.Column="2">
-            <!-- Money stuff -->
-            <UniformGrid DockPanel.Dock="Bottom" Rows="3" Columns="2">
-                <Label>Subtotal:</Label>
-                <Label Name="Subtotal" HorizontalAlignment="Right">$0.00</Label>
+            <Grid DockPanel.Dock="Bottom">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Row="0" Grid.Column="0">Subtotal:</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="0">Tax:</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="0">Total:</TextBlock>
 
-                <Label>Tax:</Label>
-                <Label Name="Tax" HorizontalAlignment="Right">$0.00</Label>
+                <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Subtotal, StringFormat={}{0:C2}}"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Tax, StringFormat={}{0:C2}}"/>
+                <TextBlock Grid.Row="2" Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Total, StringFormat={}{0:C2}}"/>
+            </Grid>
 
-                <Label>Total:</Label>
-                <Label Name="Total" HorizontalAlignment="Right">$0.00</Label>
-            </UniformGrid>
-
-            <!-- Shows the contents of the order in progress (not functional yet). -->
-            <ListBox Name="OrderContents">
-                <ListBoxItem>Some menu item</ListBoxItem>
-                <ListBoxItem>Another menu item</ListBoxItem>
-            </ListBox>
+            <ListView ItemsSource="{Binding}" Name="orderItems" SelectionChanged="orderItems_SelectionChanged">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <local:OrderItemControl/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </DockPanel>
     </Grid>
 </Window>

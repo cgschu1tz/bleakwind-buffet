@@ -35,7 +35,9 @@ namespace BleakwindBuffet.Data
             OnItemChanged(null, null);
         }
 
-
+        /// <summary>
+        /// Clears the order
+        /// </summary>
         public new void Clear() {
             foreach(var item in this)
             {
@@ -48,14 +50,23 @@ namespace BleakwindBuffet.Data
             OnItemChanged(null, null);
         }
 
+        /// <summary>
+        /// Removes an item from the order
+        /// </summary>
+        /// <param name="item">the item to remove</param>
+        /// <returns>
+        /// <c>true</c> if the item was successfully removed,
+        /// <c>false</c> otherwise
+        /// </returns>
         public new bool Remove(IOrderItem item)
         {
-            OnItemChanged(null, null);
+            var result = base.Remove(item);
             if (item is INotifyPropertyChanged i)
             {
                 i.PropertyChanged -= OnItemChanged;
             }
-            return base.Remove(item);
+            OnItemChanged(null, null);
+            return result;
         }
 
         /// <summary>
