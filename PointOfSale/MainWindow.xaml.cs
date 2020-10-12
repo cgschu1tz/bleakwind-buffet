@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace BleakwindBuffet.PointOfSale
 {
@@ -61,7 +62,7 @@ namespace BleakwindBuffet.PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MenuItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void MenuItems_SelectionChanged(object sender, MouseEventArgs e)
         {
             if (menuItems.SelectedItem == null)
             {
@@ -115,7 +116,7 @@ namespace BleakwindBuffet.PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void orderItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void orderItems_SelectionChanged(object sender, MouseEventArgs e)
         {
             if (orderItems.SelectedItem == null)
             {

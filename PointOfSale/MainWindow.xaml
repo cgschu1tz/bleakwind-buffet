@@ -29,7 +29,7 @@
         <!-- List of all menu items -->
         <ListBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
                  Name="menuItems"
-                 SelectionChanged="MenuItems_SelectionChanged">
+                 MouseUp="MenuItems_SelectionChanged">
             <local:MenuItemControl CustomizationControl="{x:Type entreeControls:BriarheartBurgerControl}" MenuItem="{x:Type entrees:BriarheartBurger}">Briarheart Burger</local:MenuItemControl>
             <local:MenuItemControl CustomizationControl="{x:Type entreeControls:DoubleDraugrControl}" MenuItem="{x:Type entrees:DoubleDraugr}">Double Draugr</local:MenuItemControl>
             <local:MenuItemControl CustomizationControl="{x:Type entreeControls:ThalmorTripleControl}" MenuItem="{x:Type entrees:ThalmorTriple}">Thalmor Triple</local:MenuItemControl>
@@ -97,7 +97,7 @@
                 <TextBlock Grid.Row="2" Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Total, StringFormat={}{0:C2}}"/>
             </Grid>
 
-            <ListView ItemsSource="{Binding}" Name="orderItems" SelectionChanged="orderItems_SelectionChanged">
+            <ListView ItemsSource="{Binding}" Name="orderItems" MouseUp="orderItems_SelectionChanged">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment" Value="Stretch" />
