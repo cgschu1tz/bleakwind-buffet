@@ -17,7 +17,8 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding}"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Path=Name}"/>
+
         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=Price, StringFormat={}{0:C2}}" TextAlignment="Right"/>
 
         <ListView Grid.Row="1" Grid.Column="0" IsEnabled="False" ItemsSource="{Binding Path=SpecialInstructions}"/>

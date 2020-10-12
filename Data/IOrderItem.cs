@@ -27,5 +27,10 @@ namespace BleakwindBuffet.Data
         /// (e.g. "Hold mayo" or "Hold ice").
         /// </summary>
         List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// The name of the item.
+        /// </summary>
+        string Name { get; }
     }
 }

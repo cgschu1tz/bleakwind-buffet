@@ -19,6 +19,11 @@ namespace BleakwindBuffet.Data
     public class Combo : IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// The name of this item.
+        /// </summary>
+        public string Name => ToString();
+
+        /// <summary>
         /// The drink in this combo
         /// </summary>
         private Drink drink;
@@ -150,6 +155,8 @@ namespace BleakwindBuffet.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Price)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Calories)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SpecialInstructions)));
+
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
         }
 
         /// <summary>

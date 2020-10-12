@@ -64,6 +64,8 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         private void MenuItems_SelectionChanged(object sender, MouseEventArgs e)
         {
+            orderItems.SelectedItem = null;
+
             if (menuItems.SelectedItem == null)
             {
                 // Nothing is selected, so clear the customization control and its data context.
@@ -108,6 +110,8 @@ namespace BleakwindBuffet.PointOfSale
                 MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 orderControl.DataContext = new Order();
+                customizationControl.Child = null;
+                customizationControl.DataContext = null;
             }
         }
 
@@ -118,6 +122,8 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         private void orderItems_SelectionChanged(object sender, MouseEventArgs e)
         {
+            menuItems.SelectedItem = null;
+
             if (orderItems.SelectedItem == null)
             {
                 // Nothing is selected, so clear the customization control and its data context.
@@ -144,6 +150,12 @@ namespace BleakwindBuffet.PointOfSale
             var order = (Order)orderControl.DataContext;
             var item = (OrderItemControl)e.OriginalSource;
             order.Remove((IOrderItem)item.DataContext);
+
+            if (order.Count == 0)
+            {
+                customizationControl.Child = null;
+                customizationControl.DataContext = null;
+            }
         }
     }
 }

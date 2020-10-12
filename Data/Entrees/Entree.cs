@@ -14,6 +14,11 @@ namespace BleakwindBuffet.Data.Entrees
     public abstract class Entree : INotifyPropertyChanged
     {
         /// <summary>
+        /// The name of this item.
+        /// </summary>
+        public string Name => ToString();
+
+        /// <summary>
         /// Invoked when a property of this item changes.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
@@ -42,6 +47,7 @@ namespace BleakwindBuffet.Data.Entrees
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
         }
     }
 }

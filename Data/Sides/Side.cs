@@ -15,6 +15,11 @@ namespace BleakwindBuffet.Data.Sides
     public abstract class Side : INotifyPropertyChanged
     {
         /// <summary>
+        /// The name of this item.
+        /// </summary>
+        public string Name => ToString();
+
+        /// <summary>
         /// Invoked when a property of this item changes.
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
@@ -48,6 +53,7 @@ namespace BleakwindBuffet.Data.Sides
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
         }
     }
 }
