@@ -22,6 +22,9 @@ namespace BleakwindBuffet.PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// The customization controls associated with the menu items
+        /// </summary>
         private static readonly Dictionary<Type, Type> customizationControls = new Dictionary<Type, Type>
         {
             {typeof(BriarheartBurger), typeof(BriarheartBurgerControl)},
@@ -42,6 +45,9 @@ namespace BleakwindBuffet.PointOfSale
             {typeof(DragonbornWaffleFries), typeof(DragonbornWaffleFriesControl)},
         };
 
+        /// <summary>
+        /// Creates the window
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -73,6 +79,11 @@ namespace BleakwindBuffet.PointOfSale
             }
         }
 
+        /// <summary>
+        /// Raised when the user clicks the "Add to order" button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addBtn_Click(object sender, RoutedEventArgs e)
         {
             var order = (Order)orderControl.DataContext;
@@ -83,6 +94,11 @@ namespace BleakwindBuffet.PointOfSale
             addBtn.IsEnabled = false;
         }
 
+        /// <summary>
+        /// Raised when the user clicks the "Cancel order" button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cancelOrderBtn_Click(object sender, RoutedEventArgs e)
         {
             if (MessageBox.Show(
@@ -94,6 +110,11 @@ namespace BleakwindBuffet.PointOfSale
             }
         }
 
+        /// <summary>
+        /// Raised when the selection changes inside the order panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void orderItems_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (orderItems.SelectedItem == null)
@@ -112,6 +133,11 @@ namespace BleakwindBuffet.PointOfSale
             }
         }
 
+        /// <summary>
+        /// Raised when the user clicks "Remove" on one of the items in the order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void orderControl_RemoveClicked(object sender, RoutedEventArgs e)
         {
             var order = (Order)orderControl.DataContext;
