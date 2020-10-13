@@ -12,8 +12,70 @@
         xmlns:drinks="clr-namespace:BleakwindBuffet.Data.Drinks;assembly=Data"
         mc:Ignorable="d"
         Title="Bleakwind Buffet POS"
-        Height="700" Width="1400"
+        ResizeMode="CanMinimize"
+        WindowState="Maximized"
         FontSize="32">
+    <Window.Resources>
+        <!-- These dictate which controls are bound to what type of order item. -->
+        <DataTemplate DataType="{x:Type entrees:BriarheartBurger}">
+            <entreeControls:BriarheartBurgerControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type entrees:DoubleDraugr}">
+            <entreeControls:DoubleDraugrControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type entrees:ThalmorTriple}">
+            <entreeControls:ThalmorTripleControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type entrees:SmokehouseSkeleton}">
+            <entreeControls:SmokehouseSkeletonControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type entrees:GardenOrcOmelette}">
+            <entreeControls:GardenOrcOmeletteControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type entrees:PhillyPoacher}">
+            <entreeControls:PhillyPoacherControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type entrees:ThugsTBone}">
+            <entreeControls:ThugsTBoneControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type drinks:SailorSoda}">
+            <drinkControls:SailorSodaControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type drinks:MarkarthMilk}">
+            <drinkControls:MarkarthMilkControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type drinks:AretinoAppleJuice}">
+            <drinkControls:AretinoAppleJuiceControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type drinks:CandlehearthCoffee}">
+            <drinkControls:CandlehearthCoffeeControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type drinks:WarriorWater}">
+            <drinkControls:WarriorWaterControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sides:VokunSalad}">
+            <sideControls:VokunSaladControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sides:FriedMiraak}">
+            <sideControls:FriedMiraakControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sides:MadOtarGrits}">
+            <sideControls:MadOtarGritsControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sides:DragonbornWaffleFries}">
+            <sideControls:DragonbornWaffleFriesControl/>
+        </DataTemplate>
+
+        <!-- Style for disabling buttons when the order is empty -->
+        <Style TargetType="Button" x:Key="nonEmptyOrder" BasedOn="{StaticResource {x:Type Button}}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Count}" Value="0">
+                    <Setter Property="Button.IsEnabled" Value="False"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="8*"/>
@@ -23,87 +85,72 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1.5*"/>
         </Grid.ColumnDefinitions>
 
         <!-- List of all menu items -->
-        <ListBox Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
-                 Name="menuItems"
-                 MouseUp="MenuItems_SelectionChanged">
-            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:BriarheartBurgerControl}" MenuItem="{x:Type entrees:BriarheartBurger}">Briarheart Burger</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:DoubleDraugrControl}" MenuItem="{x:Type entrees:DoubleDraugr}">Double Draugr</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:ThalmorTripleControl}" MenuItem="{x:Type entrees:ThalmorTriple}">Thalmor Triple</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:SmokehouseSkeletonControl}" MenuItem="{x:Type entrees:SmokehouseSkeleton}">Smokehouse Skeleton</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:GardenOrcOmeletteControl}" MenuItem="{x:Type entrees:GardenOrcOmelette}">Garden Orc Omelette</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:PhillyPoacherControl}" MenuItem="{x:Type entrees:PhillyPoacher}">Philly Poacher</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type entreeControls:ThugsTBoneControl}" MenuItem="{x:Type entrees:ThugsTBone}">Thugs T-Bone</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type drinkControls:SailorSodaControl}" MenuItem="{x:Type drinks:SailorSoda}">Sailor Soda</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type drinkControls:MarkarthMilkControl}" MenuItem="{x:Type drinks:MarkarthMilk}">Markarth Milk</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type drinkControls:AretinoAppleJuiceControl}" MenuItem="{x:Type drinks:AretinoAppleJuice}">Aretino Apple Juice</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type drinkControls:CandlehearthCoffeeControl}" MenuItem="{x:Type drinks:CandlehearthCoffee}">Candlehearth Coffee</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type drinkControls:WarriorWaterControl}" MenuItem="{x:Type drinks:WarriorWater}">Warrior Water</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type sideControls:VokunSaladControl}" MenuItem="{x:Type sides:VokunSalad}">Vokun Salad</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type sideControls:FriedMiraakControl}" MenuItem="{x:Type sides:FriedMiraak}">Fried Miraak</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type sideControls:MadOtarGritsControl}" MenuItem="{x:Type sides:MadOtarGrits}">Mad Otar Grits</local:MenuItemControl>
-            <local:MenuItemControl CustomizationControl="{x:Type sideControls:DragonbornWaffleFriesControl}" MenuItem="{x:Type sides:DragonbornWaffleFries}">Dragonborn Waffle Fries</local:MenuItemControl>
-        </ListBox>
-
-        <StackPanel Grid.Row="1" Grid.Column="1"
-                Orientation="Horizontal">
-            <Button Click="addBtn_Click" Name="addBtn" IsEnabled="False">
-                Add to order
-            </Button>
-        </StackPanel>
+        <WrapPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"
+                 Button.Click="menuItem_Click">
+            <Button Tag="{x:Type entrees:BriarheartBurger}">Briarheart Burger</Button>
+            <Button Tag="{x:Type entrees:DoubleDraugr}">Double Draugr</Button>
+            <Button Tag="{x:Type entrees:ThalmorTriple}">Thalmor Triple</Button>
+            <Button Tag="{x:Type entrees:SmokehouseSkeleton}">Smokehouse Skeleton</Button>
+            <Button Tag="{x:Type entrees:GardenOrcOmelette}">Garden Orc Omelette</Button>
+            <Button Tag="{x:Type entrees:PhillyPoacher}">Philly Poacher</Button>
+            <Button Tag="{x:Type entrees:ThugsTBone}">Thugs T-Bone</Button>
+            <Button Tag="{x:Type drinks:SailorSoda}">Sailor Soda</Button>
+            <Button Tag="{x:Type drinks:MarkarthMilk}">Markarth Milk</Button>
+            <Button Tag="{x:Type drinks:AretinoAppleJuice}">Aretino Apple Juice</Button>
+            <Button Tag="{x:Type drinks:CandlehearthCoffee}">Candlehearth Coffee</Button>
+            <Button Tag="{x:Type drinks:WarriorWater}">Warrior Water</Button>
+            <Button Tag="{x:Type sides:VokunSalad}">Vokun Salad</Button>
+            <Button Tag="{x:Type sides:FriedMiraak}">Fried Miraak</Button>
+            <Button Tag="{x:Type sides:MadOtarGrits}">Mad Otar Grits</Button>
+            <Button Tag="{x:Type sides:DragonbornWaffleFries}">Dragonborn Waffle Fries</Button>
+        </WrapPanel>
 
         <StackPanel Grid.Row="1" Grid.Column="2"
                     Orientation="Horizontal">
-            <Button Name="processPaymentBtn" IsEnabled="False">
-                Process Payment
-            </Button>
-            <Button Name="cancelOrderBtn" Click="cancelOrderBtn_Click">
+            <Button Name="processPaymentBtn"
+                    Style="{StaticResource nonEmptyOrder}">Process Payment</Button>
+            <Button Name="cancelOrderBtn"
+                    Click="cancelOrderBtn_Click">
+                <Button.Style>
+                    <Style TargetType="Button" BasedOn="{StaticResource nonEmptyOrder}">
+                        <Setter Property="Background" Value="OrangeRed"/>
+                    </Style>
+                </Button.Style>
                 Cancel Order
             </Button>
         </StackPanel>
 
-        <!-- This shows the customization options for the currently
-        selected menu item. -->
-        <Border Grid.Row="0" Grid.Column="1"
-                     Name="customizationControl"/>
-        
-        <!-- List of items in the order -->
+        <!-- This shows the customization options for the currently selected menu item. -->
+        <ContentControl Grid.Row="0" Grid.Column="1"
+                        Name="customizationControl"                          
+                        Content="{Binding Path=/}"/>
+
         <DockPanel Grid.Row="0" Grid.Column="2"
-                   Name="orderControl"
-                   local:OrderItemControl.RemoveClicked="orderControl_RemoveClicked">
+                   Button.Click="orderControl_RemoveClicked">
+            <!-- Order number -->
             <TextBlock DockPanel.Dock="Top" Text="{Binding Path=Number, StringFormat=Order #{0}}" TextAlignment="Center"/>
 
-            <Grid DockPanel.Dock="Bottom">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                
-                <TextBlock Grid.Row="0" Grid.Column="0">Subtotal:</TextBlock>
-                <TextBlock Grid.Row="1" Grid.Column="0">Tax:</TextBlock>
-                <TextBlock Grid.Row="2" Grid.Column="0">Total:</TextBlock>
+            <!-- Money stuff -->
+            <UniformGrid Rows="3" Columns="2" DockPanel.Dock="Bottom">
+                <TextBlock>Subtotal:</TextBlock>
+                <TextBlock TextAlignment="Right" Text="{Binding Path=Subtotal, StringFormat={}{0:C2}}"/>
 
-                <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Subtotal, StringFormat={}{0:C2}}"/>
-                <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Tax, StringFormat={}{0:C2}}"/>
-                <TextBlock Grid.Row="2" Grid.Column="1" TextAlignment="Right" Text="{Binding Path=Total, StringFormat={}{0:C2}}"/>
-            </Grid>
+                <TextBlock>Tax:</TextBlock>
+                <TextBlock TextAlignment="Right" Text="{Binding Path=Tax, StringFormat={}{0:C2}}"/>
 
-            <ListView ItemsSource="{Binding}" Name="orderItems" MouseUp="orderItems_SelectionChanged">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                    </Style>
-                </ListView.ItemContainerStyle>
-                
+                <TextBlock>Total:</TextBlock>
+                <TextBlock TextAlignment="Right" Text="{Binding Path=Total, StringFormat={}{0:C2}}"/>
+            </UniformGrid>
+
+            <!-- List of items in the order -->
+            <ListView ItemsSource="{Binding}"
+                      Name="orderItems"
+                      IsSynchronizedWithCurrentItem="True"
+                      HorizontalContentAlignment="Stretch">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <local:OrderItemControl/>

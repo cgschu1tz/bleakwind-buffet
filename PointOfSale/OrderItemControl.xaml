@@ -21,8 +21,20 @@
 
         <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=Price, StringFormat={}{0:C2}}" TextAlignment="Right"/>
 
-        <ListView Grid.Row="1" Grid.Column="0" IsEnabled="False" ItemsSource="{Binding Path=SpecialInstructions}"/>
+        <Border Grid.Row="1" Grid.Column="0"
+                BorderThickness="1"
+                BorderBrush="Black"
+                Margin="{StaticResource margin}">
+            <ItemsControl ItemsSource="{Binding Path=SpecialInstructions}"/>
+        </Border>
 
-        <Button Grid.Row="1" Grid.Column="1" x:Name="removeBtn" Click="removeBtn_Click">Remove</Button>
+        <Button Grid.Row="1" Grid.Column="1">
+            <Button.Style>
+                <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
+                    <Setter Property="Background" Value="OrangeRed"/>
+                </Style>
+            </Button.Style>
+            Remove
+        </Button>
     </Grid>
 </UserControl>
