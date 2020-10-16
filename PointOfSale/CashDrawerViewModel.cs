@@ -181,6 +181,7 @@ namespace BleakwindBuffet.PointOfSale
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(AmountStillOwed)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ChangeDue)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SaleAmount)));
         }
 
         /// <summary>

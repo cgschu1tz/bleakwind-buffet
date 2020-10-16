@@ -126,7 +126,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             var a = new AretinoAppleJuice();
             a.Size = size;
-            Assert.Equal(name, a.ToString());
+            Assert.Equal(name, a.Name);
         }
     }
 }

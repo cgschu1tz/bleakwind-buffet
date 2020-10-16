@@ -99,7 +99,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             var d = new DragonbornWaffleFries();
             d.Size = size;
-            Assert.Equal(name, d.ToString());
+            Assert.Equal(name, d.Name);
         }
     }
 }

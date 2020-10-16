@@ -4,6 +4,10 @@
  * Purpose: Test the Order.cs class in the Data library
  */
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Sides;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -104,6 +108,31 @@ namespace BleakwindBuffet.DataTests.UnitTests
             o.Add(d);
             o.Clear();
             Assert.Empty(o);
+        }
+
+        [Fact]
+        public void ShouldDoTheMathRight()
+        {
+            // It wouldn't let me do a [Theory] because C# doesn't let you pass user-defined
+            // objects as attribute parameters, so this is the next best thing.
+            var o = new Order();
+            o.Add(new BriarheartBurger());
+            o.Add(new SailorSoda() { Size = Size.Medium });
+            o.Add(new VokunSalad() { Size = Size.Small });
+            o.SalesTaxRate = 0.09;
+
+            Assert.Equal(6.32 + 1.74 + 0.93, o.Subtotal, 2);
+            Assert.Equal(0.09 * (6.32 + 1.74 + 0.93), o.Tax, 2);
+            Assert.Equal(0.09 * (6.32 + 1.74 + 0.93) + (6.32 + 1.74 + 0.93), o.Total, 2);
+            Assert.Equal(743 + 153 + 41, (int)o.Calories);
+        }
+
+        [Fact]
+        public void UniqueInstancesShouldHaveDifferentNumbers()
+        {
+            var a = new Order();
+            var b = new Order();
+            Assert.NotEqual(a.Number, b.Number);
         }
     }
 }

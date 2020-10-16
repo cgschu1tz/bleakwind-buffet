@@ -14,6 +14,7 @@ using System.Text;
 using BleakwindBuffet.Data.Entrees;
 using System.Linq;
 using System.ComponentModel;
+using BleakwindBuffet.Data.Sides;
 
 namespace BleakwindBuffet.DataTests.UnitTests
 {
@@ -123,6 +124,23 @@ namespace BleakwindBuffet.DataTests.UnitTests
             Assert.PropertyChanged(c, "SpecialInstructions", () => s.ChangeProperty("SpecialInstructions"));
             Assert.PropertyChanged(c, "SpecialInstructions", () => d.ChangeProperty("SpecialInstructions"));
             Assert.PropertyChanged(c, "SpecialInstructions", () => e.ChangeProperty("SpecialInstructions"));
+        }
+
+        [Fact]
+        public void ShouldDoTheMathRight()
+        {
+            // It wouldn't let me do a [Theory] because C# doesn't let you pass user-defined
+            // objects as attribute parameters, so this is the next best thing.
+            var c = new Combo(new SailorSoda() { Size = Size.Medium }, new BriarheartBurger(), new VokunSalad() { Size = Size.Small });
+
+            Assert.Equal(6.32 + 1.74 + 0.93 - 1.00, c.Price, 2); // Don't forget the discount
+            Assert.Equal(743 + 153 + 41, (int)c.Calories);
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectName()
+        {
+            Assert.Equal("Combo", new Combo(new SailorSoda() { Size = Size.Medium }, new BriarheartBurger(), new VokunSalad() { Size = Size.Small }).Name);
         }
     }
 }

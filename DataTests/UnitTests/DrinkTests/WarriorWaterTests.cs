@@ -140,7 +140,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             var w = new WarriorWater();
             w.Size = size;
-            Assert.Equal(name, w.ToString());
+            Assert.Equal(name, w.Name);
         }
     }
 }

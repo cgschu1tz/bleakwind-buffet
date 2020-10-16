@@ -153,7 +153,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectToString()
         {
-            Assert.Equal("Garden Orc Omelette", new GardenOrcOmelette().ToString());
+            Assert.Equal("Garden Orc Omelette", new GardenOrcOmelette().Name);
         }
     }
 }

@@ -100,7 +100,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             var v = new VokunSalad();
             v.Size = size;
-            Assert.Equal(name, v.ToString());
+            Assert.Equal(name, v.Name);
         }
     }
 }

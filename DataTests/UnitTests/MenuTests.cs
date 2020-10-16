@@ -58,46 +58,46 @@ namespace BleakwindBuffet.DataTests.UnitTests
         {
             Assert.Equal(numDrinks, Menu.Drinks().Count());
 
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Small Blackberry Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Small Cherry Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Small Grapefruit Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Small Lemon Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Small Peach Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Small Watermelon Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Small Blackberry Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Small Cherry Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Small Grapefruit Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Small Lemon Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Small Peach Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Small Watermelon Sailor Soda");
 
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Medium Blackberry Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Medium Cherry Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Medium Grapefruit Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Medium Lemon Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Medium Peach Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Medium Watermelon Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Medium Blackberry Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Medium Cherry Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Medium Grapefruit Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Medium Lemon Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Medium Peach Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Medium Watermelon Sailor Soda");
 
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Large Blackberry Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Large Cherry Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Large Grapefruit Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Large Lemon Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Large Peach Sailor Soda");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Large Watermelon Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Large Blackberry Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Large Cherry Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Large Grapefruit Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Large Lemon Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Large Peach Sailor Soda");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Large Watermelon Sailor Soda");
 
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Small Markarth Milk");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Medium Markarth Milk");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Large Markarth Milk");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Small Markarth Milk");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Medium Markarth Milk");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Large Markarth Milk");
 
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Small Aretino Apple Juice");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Medium Aretino Apple Juice");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Large Aretino Apple Juice");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Small Aretino Apple Juice");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Medium Aretino Apple Juice");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Large Aretino Apple Juice");
 
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Small Candlehearth Coffee");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Medium Candlehearth Coffee");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Large Candlehearth Coffee");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Small Candlehearth Coffee");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Medium Candlehearth Coffee");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Large Candlehearth Coffee");
 
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Small Decaf Candlehearth Coffee");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Medium Decaf Candlehearth Coffee");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Large Decaf Candlehearth Coffee");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Small Decaf Candlehearth Coffee");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Medium Decaf Candlehearth Coffee");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Large Decaf Candlehearth Coffee");
 
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Small Warrior Water");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Medium Warrior Water");
-            Assert.Contains(Menu.Drinks(), item => item.ToString() == "Large Warrior Water");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Small Warrior Water");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Medium Warrior Water");
+            Assert.Contains(Menu.Drinks(), item => item.Name == "Large Warrior Water");
         }
 
         [Fact]
@@ -105,21 +105,21 @@ namespace BleakwindBuffet.DataTests.UnitTests
         {
             Assert.Equal(numSides, Menu.Sides().Count());
 
-            Assert.Contains(Menu.Sides(), item => item.ToString() == "Small Vokun Salad");
-            Assert.Contains(Menu.Sides(), item => item.ToString() == "Medium Vokun Salad");
-            Assert.Contains(Menu.Sides(), item => item.ToString() == "Large Vokun Salad");
+            Assert.Contains(Menu.Sides(), item => item.Name == "Small Vokun Salad");
+            Assert.Contains(Menu.Sides(), item => item.Name == "Medium Vokun Salad");
+            Assert.Contains(Menu.Sides(), item => item.Name == "Large Vokun Salad");
 
-            Assert.Contains(Menu.Sides(), item => item.ToString() == "Small Fried Miraak");
-            Assert.Contains(Menu.Sides(), item => item.ToString() == "Medium Fried Miraak");
-            Assert.Contains(Menu.Sides(), item => item.ToString() == "Large Fried Miraak");
+            Assert.Contains(Menu.Sides(), item => item.Name == "Small Fried Miraak");
+            Assert.Contains(Menu.Sides(), item => item.Name == "Medium Fried Miraak");
+            Assert.Contains(Menu.Sides(), item => item.Name == "Large Fried Miraak");
 
-            Assert.Contains(Menu.Sides(), item => item.ToString() == "Small Mad Otar Grits");
-            Assert.Contains(Menu.Sides(), item => item.ToString() == "Medium Mad Otar Grits");
-            Assert.Contains(Menu.Sides(), item => item.ToString() == "Large Mad Otar Grits");
+            Assert.Contains(Menu.Sides(), item => item.Name == "Small Mad Otar Grits");
+            Assert.Contains(Menu.Sides(), item => item.Name == "Medium Mad Otar Grits");
+            Assert.Contains(Menu.Sides(), item => item.Name == "Large Mad Otar Grits");
 
-            Assert.Contains(Menu.Sides(), item => item.ToString() == "Small Dragonborn Waffle Fries");
-            Assert.Contains(Menu.Sides(), item => item.ToString() == "Medium Dragonborn Waffle Fries");
-            Assert.Contains(Menu.Sides(), item => item.ToString() == "Large Dragonborn Waffle Fries");
+            Assert.Contains(Menu.Sides(), item => item.Name == "Small Dragonborn Waffle Fries");
+            Assert.Contains(Menu.Sides(), item => item.Name == "Medium Dragonborn Waffle Fries");
+            Assert.Contains(Menu.Sides(), item => item.Name == "Large Dragonborn Waffle Fries");
         }
 
         [Fact]
@@ -135,62 +135,62 @@ namespace BleakwindBuffet.DataTests.UnitTests
             Assert.Contains(Menu.FullMenu(), item => item is PhillyPoacher);
             Assert.Contains(Menu.FullMenu(), item => item is ThugsTBone);
 
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Blackberry Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Cherry Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Grapefruit Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Lemon Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Peach Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Watermelon Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Blackberry Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Cherry Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Grapefruit Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Lemon Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Peach Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Watermelon Sailor Soda");
 
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Blackberry Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Cherry Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Grapefruit Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Lemon Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Peach Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Watermelon Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Blackberry Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Cherry Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Grapefruit Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Lemon Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Peach Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Watermelon Sailor Soda");
 
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Blackberry Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Cherry Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Grapefruit Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Lemon Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Peach Sailor Soda");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Watermelon Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Blackberry Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Cherry Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Grapefruit Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Lemon Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Peach Sailor Soda");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Watermelon Sailor Soda");
 
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Markarth Milk");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Markarth Milk");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Markarth Milk");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Markarth Milk");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Markarth Milk");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Markarth Milk");
 
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Aretino Apple Juice");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Aretino Apple Juice");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Aretino Apple Juice");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Aretino Apple Juice");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Aretino Apple Juice");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Aretino Apple Juice");
 
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Candlehearth Coffee");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Candlehearth Coffee");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Candlehearth Coffee");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Candlehearth Coffee");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Candlehearth Coffee");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Candlehearth Coffee");
 
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Decaf Candlehearth Coffee");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Decaf Candlehearth Coffee");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Decaf Candlehearth Coffee");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Decaf Candlehearth Coffee");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Decaf Candlehearth Coffee");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Decaf Candlehearth Coffee");
 
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Warrior Water");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Warrior Water");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Warrior Water");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Warrior Water");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Warrior Water");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Warrior Water");
 
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Vokun Salad");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Vokun Salad");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Vokun Salad");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Vokun Salad");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Vokun Salad");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Vokun Salad");
 
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Fried Miraak");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Fried Miraak");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Fried Miraak");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Fried Miraak");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Fried Miraak");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Fried Miraak");
 
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Mad Otar Grits");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Mad Otar Grits");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Mad Otar Grits");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Mad Otar Grits");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Mad Otar Grits");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Mad Otar Grits");
 
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Small Dragonborn Waffle Fries");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Medium Dragonborn Waffle Fries");
-            Assert.Contains(Menu.FullMenu(), item => item.ToString() == "Large Dragonborn Waffle Fries");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Small Dragonborn Waffle Fries");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Medium Dragonborn Waffle Fries");
+            Assert.Contains(Menu.FullMenu(), item => item.Name == "Large Dragonborn Waffle Fries");
         }
     }
 }

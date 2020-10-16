@@ -174,7 +174,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectToString()
         {
-            Assert.Equal("Briarheart Burger", new BriarheartBurger().ToString());
+            Assert.Equal("Briarheart Burger", new BriarheartBurger().Name);
         }
     }
 }

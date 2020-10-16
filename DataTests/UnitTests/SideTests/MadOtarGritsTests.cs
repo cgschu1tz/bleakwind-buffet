@@ -99,7 +99,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             var m = new MadOtarGrits();
             m.Size = size;
-            Assert.Equal(name, m.ToString());
+            Assert.Equal(name, m.Name);
         }
     }
 }

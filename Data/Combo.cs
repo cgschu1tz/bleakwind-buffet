@@ -171,5 +171,7 @@ namespace BleakwindBuffet.Data
             Entree = entree;
             Side = side;
         }
+
+        public override string ToString() => "Combo";
     }
 }

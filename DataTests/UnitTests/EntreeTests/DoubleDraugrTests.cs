@@ -239,7 +239,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectToString()
         {
-            Assert.Equal("Double Draugr", new DoubleDraugr().ToString());
+            Assert.Equal("Double Draugr", new DoubleDraugr().Name);
         }
     }
 }

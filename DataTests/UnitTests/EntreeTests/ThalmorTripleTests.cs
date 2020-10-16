@@ -283,7 +283,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectToString()
         {
-            Assert.Equal("Thalmor Triple", new ThalmorTriple().ToString());
+            Assert.Equal("Thalmor Triple", new ThalmorTriple().Name);
         }
     }
 }

@@ -126,7 +126,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         {
             var m = new MarkarthMilk();
             m.Size = size;
-            Assert.Equal(name, m.ToString());
+            Assert.Equal(name, m.Name);
         }
     }
 }

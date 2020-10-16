@@ -56,7 +56,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectToString()
         {
-            Assert.Equal("Thugs T-Bone", new ThugsTBone().ToString());
+            Assert.Equal("Thugs T-Bone", new ThugsTBone().Name);
         }
     }
 }

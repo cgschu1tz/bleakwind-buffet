@@ -101,7 +101,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         {
             var f = new FriedMiraak();
             f.Size = size;
-            Assert.Equal(name, f.ToString());
+            Assert.Equal(name, f.Name);
         }
     }
 }
