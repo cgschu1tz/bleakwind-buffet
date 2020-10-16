@@ -109,10 +109,12 @@
             <Button Tag="{x:Type sides:DragonbornWaffleFries}">Dragonborn Waffle Fries</Button>
         </WrapPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="2"
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
                     Orientation="Horizontal">
-            <Button Name="processPaymentBtn"
-                    Style="{StaticResource nonEmptyOrder}">Process Payment</Button>
+            <Button Name="payCashBtn"
+                    Style="{StaticResource nonEmptyOrder}">Pay with Cash</Button>
+            <Button Name="payCardBtn"
+                    Style="{StaticResource nonEmptyOrder}">Pay with Credit/Debit</Button>
             <Button Name="cancelOrderBtn"
                     Click="cancelOrderBtn_Click">
                 <Button.Style>

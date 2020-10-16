@@ -4,6 +4,9 @@
  * Purpose: Defines interaction logic for MainWindow.xaml
  */
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Sides;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,6 +36,7 @@ namespace BleakwindBuffet.PointOfSale
         {
             InitializeComponent();
             Order = new Order();
+            Order.Add(new Combo(new SailorSoda(), new BriarheartBurger(), new VokunSalad()));
         }
 
         private void menuItem_Click(object sender, RoutedEventArgs e)
