@@ -28,8 +28,7 @@ namespace BleakwindBuffet.Data.Sides
                 {
                     case Size.Small: return 0.93;
                     case Size.Medium: return 1.28;
-                    case Size.Large: return 1.82;
-                    default: throw new NotImplementedException();
+                    case Size.Large: default: return 1.82;
                 }
             }
         }
@@ -47,8 +46,7 @@ namespace BleakwindBuffet.Data.Sides
                 {
                     case Size.Small: return 41;
                     case Size.Medium: return 52;
-                    case Size.Large: return 73;
-                    default: throw new NotImplementedException();
+                    case Size.Large: default: return 73;
                 }
             }
         }

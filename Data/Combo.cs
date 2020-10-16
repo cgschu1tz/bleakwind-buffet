@@ -63,13 +63,22 @@ namespace BleakwindBuffet.Data
                 var instructions = new List<string>();
 
                 instructions.Add(Entree.ToString());
-                instructions.AddRange(Entree.SpecialInstructions);
+                foreach(var instruction in Entree.SpecialInstructions)
+                {
+                    instructions.Add("* " + instruction);
+                }
 
                 instructions.Add(Side.ToString());
-                instructions.AddRange(Side.SpecialInstructions);
+                foreach (var instruction in Side.SpecialInstructions)
+                {
+                    instructions.Add("* " + instruction);
+                }
 
                 instructions.Add(Drink.ToString());
-                instructions.AddRange(Drink.SpecialInstructions);
+                foreach (var instruction in Drink.SpecialInstructions)
+                {
+                    instructions.Add("* " + instruction);
+                }
 
                 return instructions;
             }

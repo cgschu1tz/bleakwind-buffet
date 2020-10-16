@@ -25,7 +25,7 @@ namespace BleakwindBuffet.Data
         /// Adds an item to the order
         /// </summary>
         /// <param name="item">the item to add</param>
-        public new void Add(IOrderItem item) 
+        public new void Add(IOrderItem item)
         {
             base.Add(item);
             if (item is INotifyPropertyChanged i)
@@ -38,8 +38,9 @@ namespace BleakwindBuffet.Data
         /// <summary>
         /// Clears the order
         /// </summary>
-        public new void Clear() {
-            foreach(var item in this)
+        public new void Clear()
+        {
+            foreach (var item in this)
             {
                 if (item is INotifyPropertyChanged i)
                 {

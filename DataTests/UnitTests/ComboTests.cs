@@ -129,12 +129,28 @@ namespace BleakwindBuffet.DataTests.UnitTests
         [Fact]
         public void ShouldDoTheMathRight()
         {
-            // It wouldn't let me do a [Theory] because C# doesn't let you pass user-defined
+            // I can't do a [Theory] because C# doesn't let you pass user-defined
             // objects as attribute parameters, so this is the next best thing.
             var c = new Combo(new SailorSoda() { Size = Size.Medium }, new BriarheartBurger(), new VokunSalad() { Size = Size.Small });
 
             Assert.Equal(6.32 + 1.74 + 0.93 - 1.00, c.Price, 2); // Don't forget the discount
             Assert.Equal(743 + 153 + 41, (int)c.Calories);
+        }
+
+        [Fact]
+        public void ShouldHaveCorrectSpecialInstructions()
+        {
+            var c = new Combo(new SailorSoda() { Size = Size.Medium, Ice = false, Flavor = SodaFlavor.Lemon },
+                new BriarheartBurger() { Cheese = false },
+                new VokunSalad() { Size = Size.Small });
+
+            Assert.Contains("Medium Lemon Sailor Soda", c.SpecialInstructions);
+            Assert.Contains("* Hold ice", c.SpecialInstructions);
+
+            Assert.Contains("Briarheart Burger", c.SpecialInstructions);
+            Assert.Contains("* Hold cheese", c.SpecialInstructions);
+
+            Assert.Contains("Small Vokun Salad", c.SpecialInstructions);
         }
 
         [Fact]

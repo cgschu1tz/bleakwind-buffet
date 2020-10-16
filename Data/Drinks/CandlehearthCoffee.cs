@@ -28,8 +28,7 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     case Size.Small: return 0.75;
                     case Size.Medium: return 1.25;
-                    case Size.Large: return 1.75;
-                    default: throw new NotImplementedException();
+                    case Size.Large: default: return 1.75;
                 }
             }
         }
@@ -47,8 +46,7 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     case Size.Small: return 7;
                     case Size.Medium: return 10;
-                    case Size.Large: return 20;
-                    default: throw new NotImplementedException();
+                    case Size.Large: default: return 20;
                 }
             }
         }

@@ -113,8 +113,6 @@ namespace BleakwindBuffet.DataTests.UnitTests
         [Fact]
         public void ShouldDoTheMathRight()
         {
-            // It wouldn't let me do a [Theory] because C# doesn't let you pass user-defined
-            // objects as attribute parameters, so this is the next best thing.
             var o = new Order();
             o.Add(new BriarheartBurger());
             o.Add(new SailorSoda() { Size = Size.Medium });
