@@ -114,7 +114,8 @@
             <Button Name="payCashBtn"
                     Style="{StaticResource nonEmptyOrder}">Pay with Cash</Button>
             <Button Name="payCardBtn"
-                    Style="{StaticResource nonEmptyOrder}">Pay with Credit/Debit</Button>
+                    Style="{StaticResource nonEmptyOrder}"
+                    Click="payCardBtn_Click">Pay with Credit/Debit</Button>
             <Button Name="cancelOrderBtn"
                     Click="cancelOrderBtn_Click">
                 <Button.Style>

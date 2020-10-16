@@ -78,5 +78,34 @@ namespace BleakwindBuffet.PointOfSale
                 Order.Remove(b.DataContext as IOrderItem);
             }
         }
+
+        private void payCardBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var result = RoundRegister.CardReader.RunCard(Order.Total);
+            switch (result)
+            {
+                case RoundRegister.CardTransactionResult.Approved:
+                    ReceiptPrinter.PrintReceipt(Order, PaymentMethod.CreditDebit);
+                    MessageBox.Show("Transaction approved");
+                    Order = new Order();
+                    break;
+
+                case RoundRegister.CardTransactionResult.Declined:
+                    MessageBox.Show("Card declined");
+                    break;
+
+                case RoundRegister.CardTransactionResult.ReadError:
+                    MessageBox.Show("Card failed to read.  Please try again.");
+                    break;
+
+                case RoundRegister.CardTransactionResult.InsufficientFunds:
+                    MessageBox.Show("Insufficient funds on card");
+                    break;
+
+                case RoundRegister.CardTransactionResult.IncorrectPin:
+                    MessageBox.Show("The PIN that was entered is incorrect.");
+                    break;
+            }
+        }
     }
 }

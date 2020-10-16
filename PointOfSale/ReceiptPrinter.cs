@@ -45,9 +45,9 @@ namespace BleakwindBuffet.PointOfSale
                 RoundRegister.RecieptPrinter.PrintLine("");
             }
 
-            RoundRegister.RecieptPrinter.PrintLine($"Subtotal: {order.Subtotal,maxLength:C2}");
-            RoundRegister.RecieptPrinter.PrintLine($"Tax: {order.Tax,maxLength:C2}");
-            RoundRegister.RecieptPrinter.PrintLine($"Total: {order.Subtotal,maxLength:C2}");
+            RoundRegister.RecieptPrinter.PrintLine($"Subtotal: {order.Subtotal,maxLength - 10:C2}");
+            RoundRegister.RecieptPrinter.PrintLine($"Tax: {order.Tax,maxLength - 5:C2}");
+            RoundRegister.RecieptPrinter.PrintLine($"Total: {order.Subtotal,maxLength - 7:C2}");
             RoundRegister.RecieptPrinter.PrintLine("");
 
             switch (paymentMethod)
