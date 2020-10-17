@@ -7,7 +7,7 @@
              xmlns:enums="clr-namespace:BleakwindBuffet.PointOfSale.Enums"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
+    <WrapPanel>
         <enums:SizeControl/>
-    </StackPanel>
+    </WrapPanel>
 </UserControl>

@@ -79,6 +79,11 @@ namespace BleakwindBuffet.PointOfSale
             }
         }
 
+        /// <summary>
+        /// Raised when the user clicks "Pay with Credit/Debit"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void payCardBtn_Click(object sender, RoutedEventArgs e)
         {
             var result = RoundRegister.CardReader.RunCard(Order.Total);
@@ -105,6 +110,21 @@ namespace BleakwindBuffet.PointOfSale
                 case RoundRegister.CardTransactionResult.IncorrectPin:
                     MessageBox.Show("The PIN that was entered is incorrect.");
                     break;
+            }
+        }
+
+        /// <summary>
+        /// Raised when the user clicks "Pay with Cash"
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void payCashBtn_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new CashDrawerWindow() { Owner = this };
+            ((CashDrawerViewModel)dialog.DataContext).SaleAmount = Order.Total;
+            if(dialog.ShowDialog() == true)
+            {
+                Order = new Order();
             }
         }
     }

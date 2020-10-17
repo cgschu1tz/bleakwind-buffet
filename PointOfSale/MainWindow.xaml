@@ -14,7 +14,7 @@
         Title="Bleakwind Buffet POS"
         ResizeMode="CanMinimize"
         WindowState="Maximized"
-        FontSize="32">
+        FontSize="{StaticResource fontSize}">
     <Window.Resources>
         <!-- These dictate which controls are bound to what type of order item. -->
         <DataTemplate DataType="{x:Type entrees:BriarheartBurger}">
@@ -112,7 +112,8 @@
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
                     Orientation="Horizontal">
             <Button Name="payCashBtn"
-                    Style="{StaticResource nonEmptyOrder}">Pay with Cash</Button>
+                    Style="{StaticResource nonEmptyOrder}"
+                    Click="payCashBtn_Click">Pay with Cash</Button>
             <Button Name="payCardBtn"
                     Style="{StaticResource nonEmptyOrder}"
                     Click="payCardBtn_Click">Pay with Credit/Debit</Button>

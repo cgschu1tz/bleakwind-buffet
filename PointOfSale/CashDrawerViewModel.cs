@@ -3,11 +3,8 @@
  * Class name: CashDrawerViewModel.cs
  * Purpose: Defines a class to wrap the cash drawer logic for GUI binding
  */
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
 using RoundRegister;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.PointOfSale
 {

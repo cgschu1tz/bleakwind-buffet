@@ -6,12 +6,12 @@
              xmlns:local="clr-namespace:BleakwindBuffet.PointOfSale.Entrees"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel>
+    <WrapPanel>
         <Label>Options:</Label>
         <CheckBox IsChecked="{Binding Path=Bun}">Bun</CheckBox>
         <CheckBox IsChecked="{Binding Path=Ketchup}">Ketchup</CheckBox>
         <CheckBox IsChecked="{Binding Path=Mustard}">Mustard</CheckBox>
         <CheckBox IsChecked="{Binding Path=Pickle}">Pickle</CheckBox>
         <CheckBox IsChecked="{Binding Path=Cheese}">Cheese</CheckBox>
-    </StackPanel>
+    </WrapPanel>
 </UserControl>

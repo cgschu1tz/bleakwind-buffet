@@ -4,7 +4,6 @@
  * Purpose: Test the CashDrawerViewModelTests.cs class in the PointOfSale library
  */
 using BleakwindBuffet.PointOfSale;
-using System;
 using System.ComponentModel;
 using Xunit;
 
@@ -17,17 +16,6 @@ namespace PointOfSaleTests
     {
         [Theory]
         [InlineData(0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
             0,
             0,
             0,
@@ -53,18 +41,33 @@ namespace PointOfSaleTests
             0,
             0
             )]
-        public void ShouldMakeCorrectChange(int penniesInDrawer,
-            int nickelsInDrawer,
-            int dimesInDrawer,
-            int quartersInDrawer,
-            int onesInDrawer,
-            int twosInDrawer,
-            int fivesInDrawer,
-            int tensInDrawer,
-            int twentiesInDrawer,
-            int fiftiesInDrawer,
-            int hundredsInDrawer,
-            int penniesFromCustomer,
+        [InlineData(0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,  // $10 from customer
+            0,
+            0,
+            0,
+            8.59,
+            -1.41,
+            1.41,
+            1,  // 1c
+            1,  // 5c
+            1,  // 10c
+            1,  // 25c
+            1,  // $1
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+            )]
+        public void ShouldMakeCorrectChange(int penniesFromCustomer,
             int nickelsFromCustomer,
             int dimesFromCustomer,
             int quartersFromCustomer,
@@ -93,18 +96,6 @@ namespace PointOfSaleTests
         {
             var c = new CashDrawerViewModel();
             RoundRegister.CashDrawer.ResetDrawer();
-
-            RoundRegister.CashDrawer.Pennies = penniesInDrawer;
-            RoundRegister.CashDrawer.Nickels = nickelsInDrawer;
-            RoundRegister.CashDrawer.Dimes = dimesInDrawer;
-            RoundRegister.CashDrawer.Quarters = quartersInDrawer;
-            RoundRegister.CashDrawer.Ones = onesInDrawer;
-            RoundRegister.CashDrawer.Twos = twosInDrawer;
-            RoundRegister.CashDrawer.Fives = fivesInDrawer;
-            RoundRegister.CashDrawer.Tens = tensInDrawer;
-            RoundRegister.CashDrawer.Twenties = twentiesInDrawer;
-            RoundRegister.CashDrawer.Fifties = fiftiesInDrawer;
-            RoundRegister.CashDrawer.Hundreds = hundredsInDrawer;
 
             c.PenniesFromCustomer = penniesFromCustomer;
             c.NickelsFromCustomer = nickelsFromCustomer;

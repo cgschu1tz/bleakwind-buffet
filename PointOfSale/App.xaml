@@ -7,6 +7,7 @@
     <Application.Resources>
         <!-- Some padding makes everything look better. -->
         <Thickness x:Key="margin">6</Thickness>
+        <system:Double x:Key="fontSize">32</system:Double>
         <Style TargetType="Button">
             <Setter Property="Margin" Value="{StaticResource margin}"/>
             <Setter Property="Padding" Value="{StaticResource margin}"/>
