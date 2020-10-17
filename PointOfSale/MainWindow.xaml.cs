@@ -4,9 +4,6 @@
  * Purpose: Defines interaction logic for MainWindow.xaml
  */
 using BleakwindBuffet.Data;
-using BleakwindBuffet.Data.Drinks;
-using BleakwindBuffet.Data.Entrees;
-using BleakwindBuffet.Data.Sides;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,7 +33,7 @@ namespace BleakwindBuffet.PointOfSale
         {
             InitializeComponent();
             Order = new Order();
-            Order.Add(new Combo(new SailorSoda(), new BriarheartBurger(), new VokunSalad()));
+            Order.Add(new Combo());
         }
 
         private void menuItem_Click(object sender, RoutedEventArgs e)
@@ -86,7 +83,7 @@ namespace BleakwindBuffet.PointOfSale
         /// <param name="e"></param>
         private void payCardBtn_Click(object sender, RoutedEventArgs e)
         {
-            var result = RoundRegister.CardReader.RunCard(Order.Total);
+            var result = RoundRegister.CardReader.RunCard(Convert.ToDouble(Order.Total));
             switch (result)
             {
                 case RoundRegister.CardTransactionResult.Approved:
@@ -122,8 +119,12 @@ namespace BleakwindBuffet.PointOfSale
         {
             var dialog = new CashDrawerWindow() { Owner = this };
             ((CashDrawerViewModel)dialog.DataContext).SaleAmount = Order.Total;
-            if(dialog.ShowDialog() == true)
+            RoundRegister.CashDrawer.OpenDrawer();
+            if (dialog.ShowDialog() == true)
             {
+                ReceiptPrinter.PrintReceipt(Order,
+                    PaymentMethod.Cash,
+                    ((CashDrawerViewModel)dialog.DataContext).SaleAmount + ((CashDrawerViewModel)dialog.DataContext).ChangeDue);
                 Order = new Order();
             }
         }

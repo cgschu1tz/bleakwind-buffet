@@ -139,7 +139,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
-            Assert.Equal(6.32, new BriarheartBurger().Price);
+            Assert.Equal(6.32m, new BriarheartBurger().Price);
         }
 
         [Fact]

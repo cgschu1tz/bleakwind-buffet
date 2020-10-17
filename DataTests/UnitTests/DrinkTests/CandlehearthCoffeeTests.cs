@@ -128,7 +128,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Small, 0.75)]
         [InlineData(Size.Medium, 1.25)]
         [InlineData(Size.Large, 1.75)]
-        public void ShouldHaveCorrectPriceForSize(Size size, double price)
+        public void ShouldHaveCorrectPriceForSize(Size size, decimal price)
         {
             var c = new CandlehearthCoffee();
             c.Size = size;

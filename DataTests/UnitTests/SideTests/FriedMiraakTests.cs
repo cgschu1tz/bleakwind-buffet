@@ -75,7 +75,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Small, 1.78)]
         [InlineData(Size.Medium, 2.01)]
         [InlineData(Size.Large, 2.88)]
-        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
+        public void ShouldReturnCorrectPriceBasedOnSize(Size size, decimal price)
         {
             var f = new FriedMiraak();
             f.Size = size;

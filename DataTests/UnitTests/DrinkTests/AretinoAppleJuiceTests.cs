@@ -88,7 +88,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Small, 0.62)]
         [InlineData(Size.Medium, 0.87)]
         [InlineData(Size.Large, 1.01)]
-        public void ShouldHaveCorrectPriceForSize(Size size, double price)
+        public void ShouldHaveCorrectPriceForSize(Size size, decimal price)
         {
             var a = new AretinoAppleJuice();
             a.Size = size;

@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="BleakwindBuffet.PointOfSale.ComboControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BleakwindBuffet.PointOfSale"
+             xmlns:entrees="clr-namespace:BleakwindBuffet.Data.Entrees;assembly=Data"
+             xmlns:sides="clr-namespace:BleakwindBuffet.Data.Sides;assembly=Data"
+             xmlns:drinks="clr-namespace:BleakwindBuffet.Data.Drinks;assembly=Data"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock>Entree: </TextBlock>
+            <ComboBox Name="entree" SelectionChanged="entree_SelectionChanged">
+                <ComboBoxItem Tag="{x:Type entrees:BriarheartBurger}">Briarheart Burger</ComboBoxItem>
+                <ComboBoxItem Tag="{x:Type entrees:DoubleDraugr}">Double Draugr</ComboBoxItem>
+                <ComboBoxItem Tag="{x:Type entrees:ThalmorTriple}">Thalmor Triple</ComboBoxItem>
+                <ComboBoxItem Tag="{x:Type entrees:SmokehouseSkeleton}">Smokehouse Skeleton</ComboBoxItem>
+                <ComboBoxItem Tag="{x:Type entrees:GardenOrcOmelette}">Garden Orc Omelette</ComboBoxItem>
+                <ComboBoxItem Tag="{x:Type entrees:PhillyPoacher}">Philly Poacher</ComboBoxItem>
+                <ComboBoxItem Tag="{x:Type entrees:ThugsTBone}">Thugs T-Bone</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+        <Border BorderThickness="1" BorderBrush="Black"
+                Margin="{StaticResource margin}">
+            <ContentControl Content="{Binding Path=Entree}"/>
+        </Border>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock>Side: </TextBlock>
+            <ComboBox Name="side" SelectionChanged="side_SelectionChanged">
+                <ComboBoxItem Tag="{x:Type sides:VokunSalad}">Vokun Salad</ComboBoxItem>
+                <ComboBoxItem Tag="{x:Type sides:FriedMiraak}">Fried Miraak</ComboBoxItem>
+                <ComboBoxItem Tag="{x:Type sides:MadOtarGrits}">Mad Otar Grits</ComboBoxItem>
+                <ComboBoxItem Tag="{x:Type sides:DragonbornWaffleFries}">Dragonborn Waffle Fries</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <Border BorderThickness="1" BorderBrush="Black"
+                Margin="{StaticResource margin}">
+            <ContentControl Content="{Binding Path=Side}"/>
+        </Border>
+
+        <StackPanel Orientation="Horizontal">
+            <TextBlock>Drink: </TextBlock>
+            <ComboBox Name="drink" SelectionChanged="drink_SelectionChanged">
+                <ComboBoxItem Tag="{x:Type drinks:SailorSoda}">Sailor Soda</ComboBoxItem>
+                <ComboBoxItem Tag="{x:Type drinks:MarkarthMilk}">Markarth Milk</ComboBoxItem>
+                <ComboBoxItem Tag="{x:Type drinks:AretinoAppleJuice}">Aretino Apple Juice</ComboBoxItem>
+                <ComboBoxItem Tag="{x:Type drinks:CandlehearthCoffee}">Candlehearth Coffee</ComboBoxItem>
+                <ComboBoxItem Tag="{x:Type drinks:WarriorWater}">Warrior Water</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <Border BorderThickness="1" BorderBrush="Black"
+                Margin="{StaticResource margin}">
+            <ContentControl Content="{Binding Path=Drink}"/>
+        </Border>
+    </StackPanel>
+</UserControl>

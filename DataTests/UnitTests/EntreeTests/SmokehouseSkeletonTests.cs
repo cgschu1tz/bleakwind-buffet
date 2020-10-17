@@ -120,7 +120,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
-            Assert.Equal(5.62, new SmokehouseSkeleton().Price);
+            Assert.Equal(5.62m, new SmokehouseSkeleton().Price);
         }
 
         [Fact]

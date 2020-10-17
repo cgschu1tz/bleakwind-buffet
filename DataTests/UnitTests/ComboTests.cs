@@ -133,7 +133,7 @@ namespace BleakwindBuffet.DataTests.UnitTests
             // objects as attribute parameters, so this is the next best thing.
             var c = new Combo(new SailorSoda() { Size = Size.Medium }, new BriarheartBurger(), new VokunSalad() { Size = Size.Small });
 
-            Assert.Equal(6.32 + 1.74 + 0.93 - 1.00, c.Price, 2); // Don't forget the discount
+            Assert.Equal(6.32m + 1.74m + 0.93m - 1.00m, c.Price, 2); // Don't forget the discount
             Assert.Equal(743 + 153 + 41, (int)c.Calories);
         }
 

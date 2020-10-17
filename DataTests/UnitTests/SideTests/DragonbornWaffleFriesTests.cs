@@ -73,7 +73,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Small, 0.42)]
         [InlineData(Size.Medium, 0.76)]
         [InlineData(Size.Large, 0.96)]
-        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
+        public void ShouldReturnCorrectPriceBasedOnSize(Size size, decimal price)
         {
             var d = new DragonbornWaffleFries();
             d.Size = size;

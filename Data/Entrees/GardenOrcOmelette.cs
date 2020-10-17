@@ -16,7 +16,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// The price of this item in USD.
         /// </summary>
-        public override double Price => 4.57;
+        public override decimal Price => 4.57m;
 
         /// <summary>
         /// How many calories this item contains.

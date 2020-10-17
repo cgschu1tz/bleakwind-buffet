@@ -101,7 +101,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
-            Assert.Equal(7.23, new PhillyPoacher().Price);
+            Assert.Equal<decimal>(7.23m, new PhillyPoacher().Price);
         }
 
         [Fact]

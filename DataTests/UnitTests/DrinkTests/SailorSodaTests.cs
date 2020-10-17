@@ -114,7 +114,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Small, 1.42)]
         [InlineData(Size.Medium, 1.74)]
         [InlineData(Size.Large, 2.07)]
-        public void ShouldHaveCorrectPriceForSize(Size size, double price)
+        public void ShouldHaveCorrectPriceForSize(Size size, decimal price)
         {
             var s = new SailorSoda();
             s.Size = size;

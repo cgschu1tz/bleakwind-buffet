@@ -23,7 +23,7 @@ namespace BleakwindBuffet.PointOfSale
         /// This is used to calculate the change owed.
         /// This parameter is ignored if <paramref name="paymentMethod"/> is not <see cref="PaymentMethod.Cash"/>.
         /// </param>
-        public static void PrintReceipt(Order order, PaymentMethod paymentMethod, double cashGiven = 0)
+        public static void PrintReceipt(Order order, PaymentMethod paymentMethod, decimal cashGiven = 0)
         {
             const int maxLength = 40;
             const string gap = "  ";
@@ -54,8 +54,8 @@ namespace BleakwindBuffet.PointOfSale
             {
                 case PaymentMethod.Cash:
                     RoundRegister.RecieptPrinter.PrintLine("Payment method: cash");
-                    RoundRegister.RecieptPrinter.PrintLine($"Cash received: {cashGiven,maxLength:C2}");
-                    RoundRegister.RecieptPrinter.PrintLine($"Change owed: {cashGiven - order.Total,maxLength:C2}");
+                    RoundRegister.RecieptPrinter.PrintLine($"Cash received: {cashGiven,maxLength - 15:C2}");
+                    RoundRegister.RecieptPrinter.PrintLine($"Change owed: {cashGiven - order.Total,maxLength - 13:C2}");
                     break;
                 case PaymentMethod.CreditDebit:
                     RoundRegister.RecieptPrinter.PrintLine("Payment method: card");

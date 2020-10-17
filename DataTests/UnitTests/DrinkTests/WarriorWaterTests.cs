@@ -97,7 +97,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Small, 0.00)]
         [InlineData(Size.Medium, 0.00)]
         [InlineData(Size.Large, 0.00)]
-        public void ShouldHaveCorrectPriceForSize(Size size, double price)
+        public void ShouldHaveCorrectPriceForSize(Size size, decimal price)
         {
             var w = new WarriorWater();
             w.Size = size;

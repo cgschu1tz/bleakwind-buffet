@@ -12,38 +12,34 @@
     <Window.Resources>
         <local:LessThanOrEqualZeroConverter x:Key="lessThanOrEqualZero"/>
     </Window.Resources>
-    
-    <WrapPanel>
-        <local:CurrencyControl Label="$100" CustomerQuantity="{Binding Path=HundredsFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=HundredsAsChange}"/>
-        <local:CurrencyControl Label="$50" CustomerQuantity="{Binding Path=FiftiesFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=FiftiesAsChange}"/>
-        <local:CurrencyControl Label="$20" CustomerQuantity="{Binding Path=TwentiesFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=TwentiesAsChange}"/>
-        <local:CurrencyControl Label="$10" CustomerQuantity="{Binding Path=TensFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=TensAsChange}"/>
-        <local:CurrencyControl Label="$5" CustomerQuantity="{Binding Path=FivesFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=FivesAsChange}"/>
-        <local:CurrencyControl Label="$2" CustomerQuantity="{Binding Path=TwosFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=TwosAsChange}"/>
-        <local:CurrencyControl Label="$1" CustomerQuantity="{Binding Path=OnesFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=OnesAsChange}"/>
-        <local:CurrencyControl Label="25¢" CustomerQuantity="{Binding Path=QuartersFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=QuartersAsChange}"/>
-        <local:CurrencyControl Label="10¢" CustomerQuantity="{Binding Path=DimesFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=DimesAsChange}"/>
-        <local:CurrencyControl Label="5¢" CustomerQuantity="{Binding Path=NickelsFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=NickelsAsChange}"/>
-        <local:CurrencyControl Label="1¢" CustomerQuantity="{Binding Path=PenniesFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=PenniesAsChange}"/>
 
-        <TextBlock Text="{Binding Path=SaleAmount,StringFormat='Sale Amount: {0:C2}'}"/>
-        <TextBlock Text="{Binding Path=AmountStillOwed,StringFormat='Amount Remaining: {0:C2}'}"/>
-        <TextBlock Text="{Binding Path=ChangeDue,StringFormat='Change Due: {0:C2}'}"/>
-
-        <Button Name="finalizeSale" Click="finalizeSale_Click">
-            <Button.Style>
-                <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding Path=AmountStillOwed,Converter={StaticResource lessThanOrEqualZero}}"
-                                 Value="true">
-                            <Setter Property="Button.IsEnabled" Value="True"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Button.Style>
-            Finalize Sale
-        </Button>
+    <StackPanel Orientation="Horizontal">
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <local:CurrencyControl Label="$100" CustomerQuantity="{Binding Path=HundredsFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=HundredsAsChange}"/>
+            <local:CurrencyControl Label="$50" CustomerQuantity="{Binding Path=FiftiesFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=FiftiesAsChange}"/>
+            <local:CurrencyControl Label="$20" CustomerQuantity="{Binding Path=TwentiesFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=TwentiesAsChange}"/>
+            <local:CurrencyControl Label="$10" CustomerQuantity="{Binding Path=TensFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=TensAsChange}"/>
+            <local:CurrencyControl Label="$5" CustomerQuantity="{Binding Path=FivesFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=FivesAsChange}"/>
+            <local:CurrencyControl Label="$2" CustomerQuantity="{Binding Path=TwosFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=TwosAsChange}"/>
+            <local:CurrencyControl Label="$1" CustomerQuantity="{Binding Path=OnesFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=OnesAsChange}"/>
+            <local:CurrencyControl Label="25¢" CustomerQuantity="{Binding Path=QuartersFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=QuartersAsChange}"/>
+            <local:CurrencyControl Label="10¢" CustomerQuantity="{Binding Path=DimesFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=DimesAsChange}"/>
+            <local:CurrencyControl Label="5¢" CustomerQuantity="{Binding Path=NickelsFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=NickelsAsChange}"/>
+            <local:CurrencyControl Label="1¢" CustomerQuantity="{Binding Path=PenniesFromCustomer,Mode=TwoWay}" ChangeQuantity="{Binding Path=PenniesAsChange}"/>
+        </StackPanel>
         
-        <Button Name="returnToOrder" Click="returnToOrder_Click">Return To Order</Button>
-    </WrapPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1">
+            <TextBlock Text="{Binding Path=SaleAmount,StringFormat='Sale Amount: {0:C2}'}"/>
+            <TextBlock Text="{Binding Path=AmountStillOwed,StringFormat='Amount Remaining: {0:C2}'}"/>
+            <TextBlock Text="{Binding Path=ChangeDue,StringFormat='Change Due: {0:C2}'}"/>
+
+            <Button Name="finalizeSale"
+                Click="finalizeSale_Click"
+                IsEnabled="{Binding Path=AmountStillOwed,Converter={StaticResource lessThanOrEqualZero}}">
+                Finalize Sale
+            </Button>
+
+            <Button Name="returnToOrder" Click="returnToOrder_Click">Return To Order</Button>
+        </StackPanel>
+    </StackPanel>
 </Window>

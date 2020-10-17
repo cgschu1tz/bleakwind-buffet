@@ -46,12 +46,20 @@ namespace BleakwindBuffet.Data
         /// <summary>
         /// The price of this item in USD.
         /// </summary>
-        public double Price => Drink.Price + Entree.Price + Side.Price - 1.00;
+        public decimal Price
+        {
+            get {
+                if (Drink == null &&
+                    Entree == null &&
+                    Side == null) return 0;
+                else return Math.Max(0, (Drink?.Price ?? 0) + (Entree?.Price ?? 0) + (Side?.Price ?? 0) - 1.00m);
+            }
+        }
 
         /// <summary>
         /// How many calories this item contains.
         /// </summary>
-        public uint Calories => Drink.Calories + Entree.Calories + Side.Calories;
+        public uint Calories => (Drink?.Calories ?? 0) + (Entree?.Calories ?? 0) + (Side?.Calories ?? 0);
 
         /// <summary>
         /// A list of instructions to follow when preparing this item
@@ -62,22 +70,31 @@ namespace BleakwindBuffet.Data
             get {
                 var instructions = new List<string>();
 
-                instructions.Add(Entree.ToString());
-                foreach(var instruction in Entree.SpecialInstructions)
+                if (Entree != null)
                 {
-                    instructions.Add("* " + instruction);
+                    instructions.Add(Entree.ToString());
+                    foreach (var instruction in Entree.SpecialInstructions)
+                    {
+                        instructions.Add("* " + instruction);
+                    }
                 }
 
-                instructions.Add(Side.ToString());
-                foreach (var instruction in Side.SpecialInstructions)
+                if (Side != null)
                 {
-                    instructions.Add("* " + instruction);
+                    instructions.Add(Side.ToString());
+                    foreach (var instruction in Side.SpecialInstructions)
+                    {
+                        instructions.Add("* " + instruction);
+                    }
                 }
 
-                instructions.Add(Drink.ToString());
-                foreach (var instruction in Drink.SpecialInstructions)
+                if (Drink != null)
                 {
-                    instructions.Add("* " + instruction);
+                    instructions.Add(Drink.ToString());
+                    foreach (var instruction in Drink.SpecialInstructions)
+                    {
+                        instructions.Add("* " + instruction);
+                    }
                 }
 
                 return instructions;
@@ -94,7 +111,6 @@ namespace BleakwindBuffet.Data
         {
             get => drink;
             set {
-                if (value == null) throw new InvalidOperationException();
                 if (drink != value)
                 {
                     if (drink != null) drink.PropertyChanged -= OnItemChanged;
@@ -116,7 +132,6 @@ namespace BleakwindBuffet.Data
         {
             get => entree;
             set {
-                if (value == null) throw new InvalidOperationException();
                 if (entree != value)
                 {
                     if (entree != null) entree.PropertyChanged -= OnItemChanged;
@@ -138,7 +153,6 @@ namespace BleakwindBuffet.Data
         {
             get => side;
             set {
-                if (value == null) throw new InvalidOperationException();
                 if (side != value)
                 {
                     if (side != null) side.PropertyChanged -= OnItemChanged;
@@ -168,6 +182,8 @@ namespace BleakwindBuffet.Data
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
         }
 
+        public override string ToString() => "Combo";
+
         /// <summary>
         /// Creates a combo
         /// </summary>
@@ -181,6 +197,9 @@ namespace BleakwindBuffet.Data
             Side = side;
         }
 
-        public override string ToString() => "Combo";
+        /// <summary>
+        /// Creates an empty combo
+        /// </summary>
+        public Combo() { }
     }
 }

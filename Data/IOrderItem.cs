@@ -15,7 +15,7 @@ namespace BleakwindBuffet.Data
         /// <summary>
         /// The price of the item in USD.
         /// </summary>
-        double Price { get; }
+        decimal Price { get; }
 
         /// <summary>
         /// How many calories the item contains.

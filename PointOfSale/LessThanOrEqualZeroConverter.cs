@@ -10,13 +10,13 @@ using System.Windows.Data;
 namespace BleakwindBuffet.PointOfSale
 {
     /// <summary>
-    /// Converts a <see cref="double"/> to a <see cref="bool"/> based on whether it is less than or equal to 0.
+    /// Converts a <see cref="decimal"/> to a <see cref="bool"/> based on whether it is less than or equal to 0.
     /// </summary>
     public class LessThanOrEqualZeroConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return ((double)value) <= 0;
+            return ((decimal)value) <= 0;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

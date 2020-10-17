@@ -21,14 +21,14 @@ namespace BleakwindBuffet.Data.Sides
         /// <exception cref="NotImplementedException">
         /// <see cref="Size"/> is not a valid size
         /// </exception>
-        public override double Price
+        public override decimal Price
         {
             get {
                 switch (Size)
                 {
-                    case Size.Small: return 0.42;
-                    case Size.Medium: return 0.76;
-                    case Size.Large: default: return 0.96;
+                    case Size.Small: return 0.42m;
+                    case Size.Medium: return 0.76m;
+                    case Size.Large: default: return 0.96m;
                 }
             }
         }

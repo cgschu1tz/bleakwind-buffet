@@ -73,7 +73,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Small, 1.22)]
         [InlineData(Size.Medium, 1.58)]
         [InlineData(Size.Large, 1.93)]
-        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
+        public void ShouldReturnCorrectPriceBasedOnSize(Size size, decimal price)
         {
             var m = new MadOtarGrits();
             m.Size = size;

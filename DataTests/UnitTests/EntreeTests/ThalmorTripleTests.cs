@@ -234,7 +234,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
-            Assert.Equal(8.32, new ThalmorTriple().Price);
+            Assert.Equal(8.32m, new ThalmorTriple().Price);
         }
 
         [Fact]

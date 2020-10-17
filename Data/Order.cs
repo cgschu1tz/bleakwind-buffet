@@ -3,6 +3,7 @@
  * Class name: Order.cs
  * Purpose: Defines a class representing an order
  */
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -78,15 +79,15 @@ namespace BleakwindBuffet.Data
         /// <summary>
         /// The sales tax rate
         /// </summary>
-        public double SalesTaxRate { get; set; } = 0.12;
+        public decimal SalesTaxRate { get; set; } = 0.12m;
 
         /// <summary>
         /// The total price of all the items in the order before tax
         /// </summary>
-        public double Subtotal
+        public decimal Subtotal
         {
             get {
-                double subtotal = 0;
+                decimal subtotal = 0;
                 foreach (var item in this)
                 {
                     subtotal += item.Price;
@@ -113,12 +114,12 @@ namespace BleakwindBuffet.Data
         /// <summary>
         /// The tax on the order
         /// </summary>
-        public double Tax => Subtotal * SalesTaxRate;
+        public decimal Tax => Math.Round(Subtotal * SalesTaxRate, 2);
 
         /// <summary>
         /// The total cost of the order (including tax)
         /// </summary>
-        public double Total => Subtotal + Tax;
+        public decimal Total => Subtotal + Tax;
 
         /// <summary>
         /// Creates a new order.

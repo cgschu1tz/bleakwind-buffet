@@ -7,12 +7,14 @@
              xmlns:enums="clr-namespace:BleakwindBuffet.PointOfSale.Enums"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <WrapPanel>
+    <StackPanel>
         <enums:SizeControl/>
 
         <enums:SodaFlavorControl/>
 
-        <Label>Options:</Label>
-        <CheckBox IsChecked="{Binding Path=Ice}">Ice</CheckBox>
-    </WrapPanel>
+        <WrapPanel>
+            <Label>Options:</Label>
+            <CheckBox IsChecked="{Binding Path=Ice}">Ice</CheckBox>
+        </WrapPanel>
+    </StackPanel>
 </UserControl>

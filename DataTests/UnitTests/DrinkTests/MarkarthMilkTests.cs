@@ -88,7 +88,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         [InlineData(Size.Small, 1.05)]
         [InlineData(Size.Medium, 1.11)]
         [InlineData(Size.Large, 1.22)]
-        public void ShouldHaveCorrectPriceForSize(Size size, double price)
+        public void ShouldHaveCorrectPriceForSize(Size size, decimal price)
         {
             var m = new MarkarthMilk();
             m.Size = size;

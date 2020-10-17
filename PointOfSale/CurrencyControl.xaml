@@ -6,14 +6,29 @@
              xmlns:local="clr-namespace:BleakwindBuffet.PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UniformGrid Rows="1" Columns="5">
-        <TextBlock Text="{Binding Path=Label,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:CurrencyControl}}"/>
+    <StackPanel Orientation="Horizontal">
+        <TextBlock MinWidth="80"
+                   TextAlignment="Right"
+                   VerticalAlignment="Center"
+                   Text="{Binding Path=Label,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:CurrencyControl}}"/>
 
-        <Button Name="plusBtn" Click="plusBtn_Click">+</Button>
+        <Button Name="plusBtn"
+                Click="plusBtn_Click"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center">
+            +
+        </Button>
 
-        <TextBlock Text="{Binding Path=CustomerQuantity,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:CurrencyControl}}"/>
+        <TextBox MinWidth="80"
+                 IsEnabled="False"
+                 TextAlignment="Center"
+                 VerticalAlignment="Center"
+                 Text="{Binding Path=CustomerQuantity,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:CurrencyControl}}"/>
 
-        <Button Name="minusBtn" Click="minusBtn_Click">
+        <Button Name="minusBtn"
+                Click="minusBtn_Click"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center">
             <Button.Style>
                 <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
                 <Style.Triggers>
@@ -27,6 +42,9 @@
             -
         </Button>
 
-        <TextBlock Text="{Binding Path=ChangeQuantity,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:CurrencyControl}}"/>
-    </UniformGrid>
+        <TextBlock MinWidth="80"
+                   TextAlignment="Left"
+                   VerticalAlignment="Center"
+                   Text="{Binding Path=ChangeQuantity,RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:CurrencyControl}}"/>
+    </StackPanel>
 </UserControl>

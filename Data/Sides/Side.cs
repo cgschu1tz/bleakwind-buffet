@@ -32,7 +32,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// The price of the item in USD.
         /// </summary>
-        public abstract double Price { get; }
+        public abstract decimal Price { get; }
 
         /// <summary>
         /// How many calories the item contains.

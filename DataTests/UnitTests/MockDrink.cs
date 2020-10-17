@@ -29,7 +29,7 @@ namespace BleakwindBuffet.DataTests.UnitTests
         /// <summary>
         /// The price of this item in USD.
         /// </summary>
-        public override double Price { get; }
+        public override decimal Price { get; }
 
         /// <summary>
         /// How many calories this item contains.

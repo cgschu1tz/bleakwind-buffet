@@ -117,11 +117,11 @@ namespace BleakwindBuffet.DataTests.UnitTests
             o.Add(new BriarheartBurger());
             o.Add(new SailorSoda() { Size = Size.Medium });
             o.Add(new VokunSalad() { Size = Size.Small });
-            o.SalesTaxRate = 0.09;
+            o.SalesTaxRate = 0.09m;
 
-            Assert.Equal(6.32 + 1.74 + 0.93, o.Subtotal, 2);
-            Assert.Equal(0.09 * (6.32 + 1.74 + 0.93), o.Tax, 2);
-            Assert.Equal(0.09 * (6.32 + 1.74 + 0.93) + (6.32 + 1.74 + 0.93), o.Total, 2);
+            Assert.Equal(6.32m + 1.74m + 0.93m, o.Subtotal, 2);
+            Assert.Equal(0.09m * (6.32m + 1.74m + 0.93m), o.Tax, 2);
+            Assert.Equal(0.09m * (6.32m + 1.74m + 0.93m) + (6.32m + 1.74m + 0.93m), o.Total, 2);
             Assert.Equal(743 + 153 + 41, (int)o.Calories);
         }
 

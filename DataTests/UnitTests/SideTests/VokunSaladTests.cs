@@ -74,7 +74,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Small, 0.93)]
         [InlineData(Size.Medium, 1.28)]
         [InlineData(Size.Large, 1.82)]
-        public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
+        public void ShouldReturnCorrectPriceBasedOnSize(Size size, decimal price)
         {
             var v = new VokunSalad();
             v.Size = size;

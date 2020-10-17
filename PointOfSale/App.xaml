@@ -3,12 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:BleakwindBuffet.PointOfSale"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:data="clr-namespace:BleakwindBuffet.Data;assembly=Data"
+             xmlns:entrees="clr-namespace:BleakwindBuffet.Data.Entrees;assembly=Data"
+             xmlns:sides="clr-namespace:BleakwindBuffet.Data.Sides;assembly=Data"
+             xmlns:drinks="clr-namespace:BleakwindBuffet.Data.Drinks;assembly=Data"
+             xmlns:drinkControls="clr-namespace:BleakwindBuffet.PointOfSale.Drinks"
+             xmlns:entreeControls="clr-namespace:BleakwindBuffet.PointOfSale.Entrees"
+             xmlns:sideControls="clr-namespace:BleakwindBuffet.PointOfSale.Sides"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <!-- Some padding makes everything look better. -->
         <Thickness x:Key="margin">6</Thickness>
-        <system:Double x:Key="fontSize">32</system:Double>
+        <system:Double x:Key="fontSize">26</system:Double>
+
+        <!-- Some padding makes everything look better. -->
         <Style TargetType="Button">
+            <Setter Property="Margin" Value="{StaticResource margin}"/>
+            <Setter Property="Padding" Value="{StaticResource margin}"/>
+        </Style>
+        <Style TargetType="TextBox">
             <Setter Property="Margin" Value="{StaticResource margin}"/>
             <Setter Property="Padding" Value="{StaticResource margin}"/>
         </Style>
@@ -21,5 +33,59 @@
         <Style TargetType="CheckBox">
             <Setter Property="Margin" Value="{StaticResource margin}"/>
         </Style>
+
+        <!-- These dictate which controls are bound to what type of order item. -->
+        <DataTemplate DataType="{x:Type entrees:BriarheartBurger}">
+            <entreeControls:BriarheartBurgerControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type entrees:DoubleDraugr}">
+            <entreeControls:DoubleDraugrControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type entrees:ThalmorTriple}">
+            <entreeControls:ThalmorTripleControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type entrees:SmokehouseSkeleton}">
+            <entreeControls:SmokehouseSkeletonControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type entrees:GardenOrcOmelette}">
+            <entreeControls:GardenOrcOmeletteControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type entrees:PhillyPoacher}">
+            <entreeControls:PhillyPoacherControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type entrees:ThugsTBone}">
+            <entreeControls:ThugsTBoneControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type drinks:SailorSoda}">
+            <drinkControls:SailorSodaControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type drinks:MarkarthMilk}">
+            <drinkControls:MarkarthMilkControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type drinks:AretinoAppleJuice}">
+            <drinkControls:AretinoAppleJuiceControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type drinks:CandlehearthCoffee}">
+            <drinkControls:CandlehearthCoffeeControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type drinks:WarriorWater}">
+            <drinkControls:WarriorWaterControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sides:VokunSalad}">
+            <sideControls:VokunSaladControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sides:FriedMiraak}">
+            <sideControls:FriedMiraakControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sides:MadOtarGrits}">
+            <sideControls:MadOtarGritsControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type sides:DragonbornWaffleFries}">
+            <sideControls:DragonbornWaffleFriesControl/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type data:Combo}">
+            <local:ComboControl/>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>

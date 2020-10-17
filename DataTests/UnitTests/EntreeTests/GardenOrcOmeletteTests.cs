@@ -120,7 +120,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
-            Assert.Equal(4.57, new GardenOrcOmelette().Price);
+            Assert.Equal<decimal>(4.57m, new GardenOrcOmelette().Price);
         }
 
         [Fact]

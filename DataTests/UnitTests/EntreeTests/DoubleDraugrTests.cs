@@ -196,7 +196,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
-            Assert.Equal(7.32, new DoubleDraugr().Price);
+            Assert.Equal<decimal>(7.32m, new DoubleDraugr().Price);
         }
 
         [Fact]

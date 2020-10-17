@@ -23,28 +23,28 @@ namespace BleakwindBuffet.PointOfSale
         /// </summary>
         public void FinalizeSale()
         {
-            CashDrawer.Pennies = PenniesFromCustomer - PenniesAsChange;
-            CashDrawer.Nickels = NickelsFromCustomer - NickelsAsChange;
-            CashDrawer.Dimes = DimesFromCustomer - DimesAsChange;
-            CashDrawer.Quarters = QuartersFromCustomer - QuartersAsChange;
-            CashDrawer.Ones = OnesFromCustomer - OnesAsChange;
-            CashDrawer.Twos = TwosFromCustomer - TwosAsChange;
-            CashDrawer.Fives = FivesFromCustomer - FivesAsChange;
-            CashDrawer.Tens = TensFromCustomer - TensAsChange;
-            CashDrawer.Twenties = TwentiesFromCustomer - TwentiesAsChange;
-            CashDrawer.Fifties = FiftiesFromCustomer - FiftiesAsChange;
-            CashDrawer.Hundreds = HundredsFromCustomer - HundredsAsChange;
+            CashDrawer.Pennies += PenniesFromCustomer - PenniesAsChange;
+            CashDrawer.Nickels += NickelsFromCustomer - NickelsAsChange;
+            CashDrawer.Dimes += DimesFromCustomer - DimesAsChange;
+            CashDrawer.Quarters += QuartersFromCustomer - QuartersAsChange;
+            CashDrawer.Ones += OnesFromCustomer - OnesAsChange;
+            CashDrawer.Twos += TwosFromCustomer - TwosAsChange;
+            CashDrawer.Fives += FivesFromCustomer - FivesAsChange;
+            CashDrawer.Tens += TensFromCustomer - TensAsChange;
+            CashDrawer.Twenties += TwentiesFromCustomer - TwentiesAsChange;
+            CashDrawer.Fifties += FiftiesFromCustomer - FiftiesAsChange;
+            CashDrawer.Hundreds += HundredsFromCustomer - HundredsAsChange;
         }
 
         /// <summary>
         /// Backing variable for <see cref="SaleAmount"/>
         /// </summary>
-        private double saleAmount;
+        private decimal saleAmount;
 
         /// <summary>
         /// The total amount that the customer owes.
         /// </summary>
-        public double SaleAmount
+        public decimal SaleAmount
         {
             get => saleAmount;
             set {
@@ -56,23 +56,23 @@ namespace BleakwindBuffet.PointOfSale
         /// <summary>
         /// The total amount that the customer owes, excluding the money they have already given us.
         /// </summary>
-        public double AmountStillOwed => saleAmount
-                - 0.01 * PenniesFromCustomer
-                - 0.05 * NickelsFromCustomer
-                - 0.10 * DimesFromCustomer
-                - 0.25 * QuartersFromCustomer
-                - 1.00 * OnesFromCustomer
-                - 2.00 * TwosFromCustomer
-                - 5.00 * FivesFromCustomer
-                - 10.00 * TensFromCustomer
-                - 20.00 * TwentiesFromCustomer
-                - 50.00 * FiftiesFromCustomer
-                - 100.00 * HundredsFromCustomer;
+        public decimal AmountStillOwed => saleAmount
+                - 0.01m * PenniesFromCustomer
+                - 0.05m * NickelsFromCustomer
+                - 0.10m * DimesFromCustomer
+                - 0.25m * QuartersFromCustomer
+                - 1.00m * OnesFromCustomer
+                - 2.00m * TwosFromCustomer
+                - 5.00m * FivesFromCustomer
+                - 10.00m * TensFromCustomer
+                - 20.00m * TwentiesFromCustomer
+                - 50.00m * FiftiesFromCustomer
+                - 100.00m * HundredsFromCustomer;
 
         /// <summary>
         /// The amount we owe the customer in change.
         /// </summary>
-        public double ChangeDue => (AmountStillOwed < 0) ? -AmountStillOwed : 0;
+        public decimal ChangeDue => (AmountStillOwed < 0) ? -AmountStillOwed : 0;
 
         /// <summary>
         /// Updates the AsChange properties so they reflect the correct amounts.
@@ -83,79 +83,79 @@ namespace BleakwindBuffet.PointOfSale
             var changeDue = ChangeDue;
 
             HundredsAsChange = 0;
-            while (changeDue - 100 > 0 && CashDrawer.Hundreds + HundredsFromCustomer > 0)
+            while (changeDue - 100 >= 0)
             {
                 changeDue -= 100;
                 HundredsAsChange++;
             }
 
             FiftiesAsChange = 0;
-            while (changeDue - 50 > 0 && CashDrawer.Fifties + FiftiesFromCustomer > 0)
+            while (changeDue - 50 >= 0)
             {
                 changeDue -= 50;
                 FiftiesAsChange++;
             }
 
             TwentiesAsChange = 0;
-            while (changeDue - 20 > 0 && CashDrawer.Twenties + TwentiesFromCustomer > 0)
+            while (changeDue - 20 >= 0)
             {
                 changeDue -= 20;
                 TwentiesAsChange++;
             }
 
             TensAsChange = 0;
-            while (changeDue - 10 > 0 && CashDrawer.Tens + TensFromCustomer > 0)
+            while (changeDue - 10 >= 0)
             {
                 changeDue -= 10;
                 TensAsChange++;
             }
 
             FivesAsChange = 0;
-            while (changeDue - 5 > 0 && CashDrawer.Fives + FivesFromCustomer > 0)
+            while (changeDue - 5 >= 0)
             {
                 changeDue -= 5;
                 FivesAsChange++;
             }
 
             TwosAsChange = 0;
-            while (changeDue - 2 > 0 && CashDrawer.Twos + TwosFromCustomer > 0)
+            while (changeDue - 2 >= 0)
             {
                 changeDue -= 2;
                 TwosAsChange++;
             }
 
             OnesAsChange = 0;
-            while (changeDue - 1 > 0 && CashDrawer.Ones + OnesFromCustomer > 0)
+            while (changeDue - 1 >= 0)
             {
                 changeDue -= 1;
                 OnesAsChange++;
             }
 
             QuartersAsChange = 0;
-            while (changeDue - 0.25 > 0 && CashDrawer.Quarters + QuartersFromCustomer > 0)
+            while (changeDue - 0.25m >= 0)
             {
-                changeDue -= 0.25;
+                changeDue -= 0.25m;
                 QuartersAsChange++;
             }
 
             DimesAsChange = 0;
-            while (changeDue - 0.10 > 0 && CashDrawer.Dimes + DimesFromCustomer > 0)
+            while (changeDue - 0.10m >= 0)
             {
-                changeDue -= 0.10;
+                changeDue -= 0.10m;
                 DimesAsChange++;
             }
 
             NickelsAsChange = 0;
-            while (changeDue - 0.05 > 0 && CashDrawer.Nickels + NickelsFromCustomer > 0)
+            while (changeDue - 0.05m >= 0)
             {
-                changeDue -= 0.05;
+                changeDue -= 0.05m;
                 NickelsAsChange++;
             }
 
             PenniesAsChange = 0;
-            while (changeDue - 0.01 > 0 && CashDrawer.Pennies + PenniesFromCustomer > 0)
+            while (changeDue - 0.01m >= 0)
             {
-                changeDue -= 0.01;
+                changeDue -= 0.01m;
                 PenniesAsChange++;
             }
         }

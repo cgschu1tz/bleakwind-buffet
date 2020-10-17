@@ -38,7 +38,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
         [Fact]
         public void ShouldReturnCorrectPrice()
         {
-            Assert.Equal(6.44, new ThugsTBone().Price);
+            Assert.Equal(6.44m, new ThugsTBone().Price);
         }
 
         [Fact]
