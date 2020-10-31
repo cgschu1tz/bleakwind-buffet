@@ -1,6 +1,6 @@
 using System;
 
-namespace Website.Models
+namespace BleakwindBuffet.Website.Models
 {
     public class ErrorViewModel
     {

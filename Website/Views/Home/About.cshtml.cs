@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Website.Views.Home
+namespace BleakwindBuffet.Website.Views.Home
 {
     public class AboutModel : PageModel
     {

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Website.Models;
+using BleakwindBuffet.Website.Models;
 
-namespace Website.Controllers
+namespace BleakwindBuffet.Website.Controllers
 {
     public class HomeController : Controller
     {

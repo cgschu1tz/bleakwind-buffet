@@ -1,8 +1,68 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@using BleakwindBuffet.Data;
+@using BleakwindBuffet.Data.Enums;
+@{
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Bleakwind Buffet</h1>
+<p>
+    We at Bleakwind Buffet are proud to bring you authentic fantasy meals
+    straight from the world of Skyrim. Shake the blood off your sword and
+    sate your thirst with one of our old-fashioned sailor sodas. Hack into
+    a Smokehouse Skeleton with your dagger. Or vanquish the the mighty
+    Thalmor Triple Burger! You’ve had a hard adventure and earned your loot,
+    so spend it with us!
+</p>
+
+<h1>Menu</h1>
+
+<h2>Entrees</h2>
+@foreach (var entree in Menu.Entrees())
+{
+    <div class="menu-item">
+        <h3>@entree.Name</h3>
+        <ul>
+            <li>Price: @entree.Price.ToString("C2")</li>
+            <li>Calories: @entree.Calories</li>
+        </ul>
+    </div>
+}
+
+<h2>Sides</h2>
+@foreach (var side in Menu.Sides())
+{
+    <div class="menu-item">
+        <h3>@side.Name</h3>
+        <ul>
+            <li>Price: @side.Price.ToString("C2")</li>
+            <li>Calories: @side.Calories</li>
+        </ul>
+    </div>
+}
+
+<h2>Drinks</h2>
+@foreach (var drink in Menu.Drinks())
+{
+    <div class="menu-item">
+        <h3>@drink.Name</h3>
+        <ul>
+            <li>Price: @drink.Price.ToString("C2")</li>
+            <li>Calories: @drink.Calories</li>
+        </ul>
+    </div>
+}
+
+<h2>Combos</h2>
+<p>
+    Any entree, side, and drink can be combined into a Combo.
+    The price of a Combo is the sum of the prices of its
+    entree, side, and drink, minus $1.00.
+</p>
+
+<h2>Sailor Soda Flavors</h2>
+<ul>
+    @foreach (SodaFlavor flavor in Enum.GetValues(typeof(SodaFlavor)))
+    {
+        <li>@flavor</li>
+    }
+</ul>
