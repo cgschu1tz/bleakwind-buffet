@@ -29,7 +29,7 @@ namespace BleakwindBuffet.PointOfSale
             const string gap = "  ";
 
             RoundRegister.RecieptPrinter.PrintLine(FormatLine($"Order #{order.Number}", maxLength));
-            RoundRegister.RecieptPrinter.PrintLine(FormatLine($"Date: {DateTime.Today:d}", maxLength));
+            RoundRegister.RecieptPrinter.PrintLine(FormatLine($"Date: {DateTime.Now:MM/dd/yyyy hh:mm tt}", maxLength));
             RoundRegister.RecieptPrinter.PrintLine("");
 
             foreach (var item in order)
