@@ -51,7 +51,7 @@
 <h1>Menu</h1>
 
 <h2>Entrees</h2>
-@foreach (var entree in Menu.Entrees())
+@foreach (var entree in Model.Entrees)
 {
     <div class="menu-item">
         <h4>@entree.Name</h4>
@@ -63,7 +63,7 @@
 }
 
 <h2>Sides</h2>
-@foreach (var side in Menu.Sides())
+@foreach (var side in Model.Sides)
 {
     <div class="menu-item">
         <h4>@side.Name</h4>
@@ -75,7 +75,7 @@
 }
 
 <h2>Drinks</h2>
-@foreach (var drink in Menu.Drinks())
+@foreach (var drink in Model.Drinks)
 {
     <div class="menu-item">
         <h4>@drink.Name</h4>

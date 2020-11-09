@@ -21,6 +21,342 @@ namespace BleakwindBuffet.DataTests.UnitTests
     /// </summary>
     public class MenuTests
     {
+        [Theory]
+        [InlineData("", new[] {
+            "Briarheart Burger",
+            "Double Draugr",
+            "Thalmor Triple",
+            "Smokehouse Skeleton",
+            "Garden Orc Omelette",
+            "Philly Poacher",
+            "Thugs T-Bone",
+
+            "Small Blackberry Sailor Soda",
+            "Small Cherry Sailor Soda",
+            "Small Grapefruit Sailor Soda",
+            "Small Lemon Sailor Soda",
+            "Small Peach Sailor Soda",
+            "Small Watermelon Sailor Soda",
+
+            "Medium Blackberry Sailor Soda",
+            "Medium Cherry Sailor Soda",
+            "Medium Grapefruit Sailor Soda",
+            "Medium Lemon Sailor Soda",
+            "Medium Peach Sailor Soda",
+            "Medium Watermelon Sailor Soda",
+
+            "Large Blackberry Sailor Soda",
+            "Large Cherry Sailor Soda",
+            "Large Grapefruit Sailor Soda",
+            "Large Lemon Sailor Soda",
+            "Large Peach Sailor Soda",
+            "Large Watermelon Sailor Soda",
+
+            "Small Markarth Milk",
+            "Medium Markarth Milk",
+            "Large Markarth Milk",
+
+            "Small Aretino Apple Juice",
+            "Medium Aretino Apple Juice",
+            "Large Aretino Apple Juice",
+
+            "Small Candlehearth Coffee",
+            "Medium Candlehearth Coffee",
+            "Large Candlehearth Coffee",
+
+            "Small Decaf Candlehearth Coffee",
+            "Medium Decaf Candlehearth Coffee",
+            "Large Decaf Candlehearth Coffee",
+
+            "Small Warrior Water",
+            "Medium Warrior Water",
+            "Large Warrior Water",
+
+            "Small Vokun Salad",
+            "Medium Vokun Salad",
+            "Large Vokun Salad",
+
+            "Small Fried Miraak",
+            "Medium Fried Miraak",
+            "Large Fried Miraak",
+
+            "Small Mad Otar Grits",
+            "Medium Mad Otar Grits",
+            "Large Mad Otar Grits",
+
+            "Small Dragonborn Waffle Fries",
+            "Medium Dragonborn Waffle Fries",
+            "Large Dragonborn Waffle Fries",})]
+        [InlineData(null, new[] {
+            "Briarheart Burger",
+            "Double Draugr",
+            "Thalmor Triple",
+            "Smokehouse Skeleton",
+            "Garden Orc Omelette",
+            "Philly Poacher",
+            "Thugs T-Bone",
+
+            "Small Blackberry Sailor Soda",
+            "Small Cherry Sailor Soda",
+            "Small Grapefruit Sailor Soda",
+            "Small Lemon Sailor Soda",
+            "Small Peach Sailor Soda",
+            "Small Watermelon Sailor Soda",
+
+            "Medium Blackberry Sailor Soda",
+            "Medium Cherry Sailor Soda",
+            "Medium Grapefruit Sailor Soda",
+            "Medium Lemon Sailor Soda",
+            "Medium Peach Sailor Soda",
+            "Medium Watermelon Sailor Soda",
+
+            "Large Blackberry Sailor Soda",
+            "Large Cherry Sailor Soda",
+            "Large Grapefruit Sailor Soda",
+            "Large Lemon Sailor Soda",
+            "Large Peach Sailor Soda",
+            "Large Watermelon Sailor Soda",
+
+            "Small Markarth Milk",
+            "Medium Markarth Milk",
+            "Large Markarth Milk",
+
+            "Small Aretino Apple Juice",
+            "Medium Aretino Apple Juice",
+            "Large Aretino Apple Juice",
+
+            "Small Candlehearth Coffee",
+            "Medium Candlehearth Coffee",
+            "Large Candlehearth Coffee",
+
+            "Small Decaf Candlehearth Coffee",
+            "Medium Decaf Candlehearth Coffee",
+            "Large Decaf Candlehearth Coffee",
+
+            "Small Warrior Water",
+            "Medium Warrior Water",
+            "Large Warrior Water",
+
+            "Small Vokun Salad",
+            "Medium Vokun Salad",
+            "Large Vokun Salad",
+
+            "Small Fried Miraak",
+            "Medium Fried Miraak",
+            "Large Fried Miraak",
+
+            "Small Mad Otar Grits",
+            "Medium Mad Otar Grits",
+            "Large Mad Otar Grits",
+
+            "Small Dragonborn Waffle Fries",
+            "Medium Dragonborn Waffle Fries",
+            "Large Dragonborn Waffle Fries",})]
+        [InlineData("Triple", new[] { "Thalmor Triple" })]
+        [InlineData("TriPlE", new[] { "Thalmor Triple" })]  // case insensitivity
+        [InlineData("Drag", new[] { "Small Dragonborn Waffle Fries", "Medium Dragonborn Waffle Fries", "Large Dragonborn Waffle Fries" })]
+        public void ShouldSearchByTerms(string searchTerms, string[] filteredItemNames)
+        {
+            var filteredItems = Menu.Search(Menu.FullMenu(), searchTerms);
+            Assert.Equal(filteredItemNames.Length, filteredItems.Count());
+            foreach (var name in filteredItemNames)
+            {
+                Assert.Contains(filteredItems, item => item.Name == name);
+            }
+        }
+
+        [Fact]
+        public void ShouldFilterByCategory()
+        {
+            IEnumerable<IOrderItem> items;
+
+            items = Menu.FilterByCategory(Menu.FullMenu(), new[] { "Entree" });
+            Assert.Equal(Menu.Entrees().Count(), items.Count());
+            foreach (var item in items)
+            {
+                Assert.Contains(Menu.Entrees(), i => i.Name == item.Name);
+            }
+
+            items = Menu.FilterByCategory(Menu.FullMenu(), new[] { "Side" });
+            Assert.Equal(Menu.Sides().Count(), items.Count());
+            foreach (var item in items)
+            {
+                Assert.Contains(Menu.Sides(), i => i.Name == item.Name);
+            }
+
+            items = Menu.FilterByCategory(Menu.FullMenu(), new[] { "Drink" });
+            Assert.Equal(Menu.Drinks().Count(), items.Count());
+            foreach (var item in items)
+            {
+                Assert.Contains(Menu.Drinks(), i => i.Name == item.Name);
+            }
+
+            items = Menu.FilterByCategory(Menu.FullMenu(), new string[] { });
+            Assert.Equal(Menu.FullMenu().Count(), items.Count());
+            foreach (var item in items)
+            {
+                Assert.Contains(Menu.FullMenu(), i => i.Name == item.Name);
+            }
+        }
+
+        [Theory]
+        [InlineData(null, null, new[] {
+            "Briarheart Burger",
+            "Double Draugr",
+            "Thalmor Triple",
+            "Smokehouse Skeleton",
+            "Garden Orc Omelette",
+            "Philly Poacher",
+            "Thugs T-Bone",
+
+            "Small Blackberry Sailor Soda",
+            "Small Cherry Sailor Soda",
+            "Small Grapefruit Sailor Soda",
+            "Small Lemon Sailor Soda",
+            "Small Peach Sailor Soda",
+            "Small Watermelon Sailor Soda",
+
+            "Medium Blackberry Sailor Soda",
+            "Medium Cherry Sailor Soda",
+            "Medium Grapefruit Sailor Soda",
+            "Medium Lemon Sailor Soda",
+            "Medium Peach Sailor Soda",
+            "Medium Watermelon Sailor Soda",
+
+            "Large Blackberry Sailor Soda",
+            "Large Cherry Sailor Soda",
+            "Large Grapefruit Sailor Soda",
+            "Large Lemon Sailor Soda",
+            "Large Peach Sailor Soda",
+            "Large Watermelon Sailor Soda",
+
+            "Small Markarth Milk",
+            "Medium Markarth Milk",
+            "Large Markarth Milk",
+
+            "Small Aretino Apple Juice",
+            "Medium Aretino Apple Juice",
+            "Large Aretino Apple Juice",
+
+            "Small Candlehearth Coffee",
+            "Medium Candlehearth Coffee",
+            "Large Candlehearth Coffee",
+
+            "Small Decaf Candlehearth Coffee",
+            "Medium Decaf Candlehearth Coffee",
+            "Large Decaf Candlehearth Coffee",
+
+            "Small Warrior Water",
+            "Medium Warrior Water",
+            "Large Warrior Water",
+
+            "Small Vokun Salad",
+            "Medium Vokun Salad",
+            "Large Vokun Salad",
+
+            "Small Fried Miraak",
+            "Medium Fried Miraak",
+            "Large Fried Miraak",
+
+            "Small Mad Otar Grits",
+            "Medium Mad Otar Grits",
+            "Large Mad Otar Grits",
+
+            "Small Dragonborn Waffle Fries",
+            "Medium Dragonborn Waffle Fries",
+            "Large Dragonborn Waffle Fries",})]
+        [InlineData(null, 0.00, new[] { "Small Warrior Water", "Medium Warrior Water", "Large Warrior Water" })]
+        [InlineData(8.32, null, new[] { "Thalmor Triple" })]
+        [InlineData(0.00, 0.00, new[] { "Small Warrior Water", "Medium Warrior Water", "Large Warrior Water" })]
+        public void ShouldFilterByPrice(double? min, double? max, string[] filteredItemNames)
+        {
+            var filteredItems = Menu.FilterByPrice(Menu.FullMenu(), (decimal?)min, (decimal?)max);
+            Assert.Equal(filteredItemNames.Length, filteredItems.Count());
+            foreach (var name in filteredItemNames)
+            {
+                Assert.Contains(filteredItems, item => item.Name == name);
+            }
+        }
+
+        [Theory]
+        [InlineData(null, null, new[] {
+            "Briarheart Burger",
+            "Double Draugr",
+            "Thalmor Triple",
+            "Smokehouse Skeleton",
+            "Garden Orc Omelette",
+            "Philly Poacher",
+            "Thugs T-Bone",
+
+            "Small Blackberry Sailor Soda",
+            "Small Cherry Sailor Soda",
+            "Small Grapefruit Sailor Soda",
+            "Small Lemon Sailor Soda",
+            "Small Peach Sailor Soda",
+            "Small Watermelon Sailor Soda",
+
+            "Medium Blackberry Sailor Soda",
+            "Medium Cherry Sailor Soda",
+            "Medium Grapefruit Sailor Soda",
+            "Medium Lemon Sailor Soda",
+            "Medium Peach Sailor Soda",
+            "Medium Watermelon Sailor Soda",
+
+            "Large Blackberry Sailor Soda",
+            "Large Cherry Sailor Soda",
+            "Large Grapefruit Sailor Soda",
+            "Large Lemon Sailor Soda",
+            "Large Peach Sailor Soda",
+            "Large Watermelon Sailor Soda",
+
+            "Small Markarth Milk",
+            "Medium Markarth Milk",
+            "Large Markarth Milk",
+
+            "Small Aretino Apple Juice",
+            "Medium Aretino Apple Juice",
+            "Large Aretino Apple Juice",
+
+            "Small Candlehearth Coffee",
+            "Medium Candlehearth Coffee",
+            "Large Candlehearth Coffee",
+
+            "Small Decaf Candlehearth Coffee",
+            "Medium Decaf Candlehearth Coffee",
+            "Large Decaf Candlehearth Coffee",
+
+            "Small Warrior Water",
+            "Medium Warrior Water",
+            "Large Warrior Water",
+
+            "Small Vokun Salad",
+            "Medium Vokun Salad",
+            "Large Vokun Salad",
+
+            "Small Fried Miraak",
+            "Medium Fried Miraak",
+            "Large Fried Miraak",
+
+            "Small Mad Otar Grits",
+            "Medium Mad Otar Grits",
+            "Large Mad Otar Grits",
+
+            "Small Dragonborn Waffle Fries",
+            "Medium Dragonborn Waffle Fries",
+            "Large Dragonborn Waffle Fries",})]
+        [InlineData(null, (uint)0, new[] { "Small Warrior Water", "Medium Warrior Water", "Large Warrior Water" })]
+        [InlineData((uint)982, null, new[] { "Thugs T-Bone" })]
+        [InlineData((uint)0, (uint)0, new[] { "Small Warrior Water", "Medium Warrior Water", "Large Warrior Water" })]
+        public void ShouldFilterByCalories(uint? min, uint? max, string[] filteredItemNames)
+        {
+            var filteredItems = Menu.FilterByCalories(Menu.FullMenu(), min, max);
+            Assert.Equal(filteredItemNames.Length, filteredItems.Count());
+            foreach (var name in filteredItemNames)
+            {
+                Assert.Contains(filteredItems, item => item.Name == name);
+            }
+        }
+
         /// <summary>
         /// The number of drinks on the menu (3 ordinary drinks,
         /// plus 6 flavors of Sailor Soda,

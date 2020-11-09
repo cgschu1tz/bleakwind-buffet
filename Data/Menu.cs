@@ -7,7 +7,9 @@ using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Sides;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BleakwindBuffet.Data
 {
@@ -102,6 +104,70 @@ namespace BleakwindBuffet.Data
             foreach (IOrderItem entree in Entrees()) yield return entree;
             foreach (IOrderItem side in Sides()) yield return side;
             foreach (IOrderItem drink in Drinks()) yield return drink;
+        }
+
+        /// <summary>
+        /// Filter a list of menu items by a search string
+        /// </summary>
+        /// <param name="items">The items to filter</param>
+        /// <param name="searchTerms">A substring to search for</param>
+        /// <returns>The filtered items</returns>
+        public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> items, string searchTerms)
+        {
+            if (searchTerms == null || searchTerms == "") return items;
+            return items.Where(item => item.Name.IndexOf(searchTerms, StringComparison.InvariantCultureIgnoreCase) != -1);
+        }
+
+        /// <summary>
+        /// Filter a list of menu itmes by category.
+        /// </summary>
+        /// <param name="items">The items to filter</param>
+        /// <param name="categories">A list of categories to include</param>
+        /// <returns>The filtered items</returns>
+        public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> items, IEnumerable<string> categories)
+        {
+            if (categories.Count() == 0) return items;
+            return items.Where(item =>
+            {
+                if (categories.Contains("Entree") && item is Entree) return true;
+                if (categories.Contains("Side") && item is Side) return true;
+                if (categories.Contains("Drink") && item is Drink) return true;
+                return false;
+            });
+        }
+
+        /// <summary>
+        /// Filters a list of menu items by calories.
+        /// </summary>
+        /// <param name="items">The items to filter</param>
+        /// <param name="min">The minimum calories (inclusive)</param>
+        /// <param name="max">The maximum calories (inclusive)</param>
+        /// <returns>The filtered items</returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, uint? min, uint? max)
+        {
+            return items.Where(item =>
+            {
+                if (min != null && item.Calories < min) return false;
+                if (max != null && item.Calories > max) return false;
+                return true;
+            });
+        }
+
+        /// <summary>
+        /// Filters a list of menu items by price.
+        /// </summary>
+        /// <param name="items">The items to filter</param>
+        /// <param name="min">The minimum price (inclusive)</param>
+        /// <param name="max">The maximum price (inclusive)</param>
+        /// <returns>The filtered items</returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, decimal? min, decimal? max)
+        {
+            return items.Where(item =>
+            {
+                if (min != null && item.Price < min) return false;
+                if (max != null && item.Price > max) return false;
+                return true;
+            });
         }
     }
 }
