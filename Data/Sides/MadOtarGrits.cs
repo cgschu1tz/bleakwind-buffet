@@ -16,6 +16,11 @@ namespace BleakwindBuffet.Data.Sides
     public class MadOtarGrits : Side, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A brief description of this item.
+        /// </summary>
+        public string Description => "Cheesy grits.";
+
+        /// <summary>
         /// The price of this item in USD.
         /// </summary>
         /// <exception cref="NotImplementedException">

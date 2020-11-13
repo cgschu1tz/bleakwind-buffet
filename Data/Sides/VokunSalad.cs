@@ -16,6 +16,11 @@ namespace BleakwindBuffet.Data.Sides
     public class VokunSalad : Side, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A brief description of this item.
+        /// </summary>
+        public string Description => "A seasonal fruit salad of melons, berries, mangoes, grapes, apples, and oranges.";
+
+        /// <summary>
         /// The price of this item in USD.
         /// </summary>
         /// <exception cref="NotImplementedException">

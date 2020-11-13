@@ -14,6 +14,11 @@ namespace BleakwindBuffet.Data.Entrees
     public class GardenOrcOmelette : Entree, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A brief description of this item.
+        /// </summary>
+        public string Description => "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.";
+
+        /// <summary>
         /// The price of this item in USD.
         /// </summary>
         public override decimal Price => 4.57m;

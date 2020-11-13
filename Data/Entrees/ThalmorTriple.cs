@@ -14,6 +14,11 @@ namespace BleakwindBuffet.Data.Entrees
     public class ThalmorTriple : Entree, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A brief description of this item.
+        /// </summary>
+        public string Description => "Think you are strong enough to take on the Thalmor? Includes two 1/4lb patties, with a 1/2lb patty in between, and ketchup, mustard, pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.";
+
+        /// <summary>
         /// The price of this item in USD.
         /// </summary>
         public override decimal Price => 8.32m;

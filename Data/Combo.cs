@@ -19,6 +19,11 @@ namespace BleakwindBuffet.Data
     public class Combo : IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A brief description of this item.
+        /// </summary>
+        public string Description => "Any entree, side, and drink can be combined into a Combo.  The price of a Combo is the sum of the prices of its entree, side, and drink, minus $1.00.";
+
+        /// <summary>
         /// The name of this item.
         /// </summary>
         public string Name => ToString();

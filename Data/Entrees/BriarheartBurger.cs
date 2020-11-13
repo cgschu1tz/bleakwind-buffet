@@ -14,6 +14,11 @@ namespace BleakwindBuffet.Data.Entrees
     public class BriarheartBurger : Entree, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A brief description of this item.
+        /// </summary>
+        public string Description => "Single patty burger on a brioche bun. Comes with ketchup, mustard, pickle, and cheese.";
+
+        /// <summary>
         /// The price of this item in USD.
         /// </summary>
         public override decimal Price => 6.32m;

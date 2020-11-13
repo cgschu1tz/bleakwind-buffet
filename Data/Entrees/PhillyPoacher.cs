@@ -14,6 +14,11 @@ namespace BleakwindBuffet.Data.Entrees
     public class PhillyPoacher : Entree, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A brief description of this item.
+        /// </summary>
+        public string Description => "Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.";
+
+        /// <summary>
         /// The price of this item in USD.
         /// </summary>
         public override decimal Price => 7.23m;

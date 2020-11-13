@@ -15,6 +15,11 @@ namespace BleakwindBuffet.Data.Drinks
     public class WarriorWater : Drink, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A brief description of this item.
+        /// </summary>
+        public string Description => "It’s water. Just water.";
+
+        /// <summary>
         /// The price of this item in USD.
         /// </summary>
         public override decimal Price => 0.00m;

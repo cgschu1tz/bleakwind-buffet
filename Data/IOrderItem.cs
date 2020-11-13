@@ -13,6 +13,11 @@ namespace BleakwindBuffet.Data
     public interface IOrderItem
     {
         /// <summary>
+        /// A brief description of the item.
+        /// </summary>
+        string Description { get; }
+
+        /// <summary>
         /// The price of the item in USD.
         /// </summary>
         decimal Price { get; }

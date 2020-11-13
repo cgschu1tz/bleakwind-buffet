@@ -19,6 +19,11 @@ namespace BleakwindBuffet.DataTests.UnitTests
     class MockSide : Side, IOrderItem
     {
         /// <summary>
+        /// A brief description of this item.
+        /// </summary>
+        public string Description => "";
+
+        /// <summary>
         /// Fires the PropertyChanged event
         /// </summary>
         /// <param name="propertyName">the name of the property that changed</param>

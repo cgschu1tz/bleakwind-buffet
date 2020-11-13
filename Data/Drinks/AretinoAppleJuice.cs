@@ -16,6 +16,11 @@ namespace BleakwindBuffet.Data.Drinks
     public class AretinoAppleJuice : Drink, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A brief description of this item.
+        /// </summary>
+        public string Description => "Freshly-squeezed apple juice.";
+
+        /// <summary>
         /// The price of this item in USD.
         /// </summary>
         /// <exception cref="NotImplementedException">

@@ -16,6 +16,11 @@ namespace BleakwindBuffet.Data.Drinks
     public class MarkarthMilk : Drink, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A brief description of this item.
+        /// </summary>
+        public string Description => "Hormone-free organic 2% milk.";
+
+        /// <summary>
         /// The price of this item in USD.
         /// </summary>
         /// <exception cref="NotImplementedException">

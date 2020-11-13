@@ -16,6 +16,11 @@ namespace BleakwindBuffet.Data.Drinks
     public class CandlehearthCoffee : Drink, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A brief description of this item.
+        /// </summary>
+        public string Description => "Fair trade, fresh ground dark roast coffee.";
+
+        /// <summary>
         /// The price of this item in USD.
         /// </summary>
         /// <exception cref="NotImplementedException">
