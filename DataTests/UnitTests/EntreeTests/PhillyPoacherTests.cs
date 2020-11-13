@@ -18,6 +18,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class PhillyPoacherTests
     {
         [Fact]
+        public void ShouldHaveDescription()
+        {
+            Assert.Equal("Cheesesteak sandwich made from grilled sirloin, topped with onions on a fried roll.",
+                new PhillyPoacher().Description);
+        }
+
+        [Fact]
         public void ShouldInvokePropertyChangedEvent()
         {
             var p = new PhillyPoacher();

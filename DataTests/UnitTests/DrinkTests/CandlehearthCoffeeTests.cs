@@ -19,6 +19,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class CandlehearthCoffeeTests
     {
         [Fact]
+        public void ShouldHaveDescription()
+        {
+            Assert.Equal("Fair trade, fresh ground dark roast coffee.",
+                new CandlehearthCoffee().Description);
+        }
+
+        [Fact]
         public void ShouldInvokePropertyChangedEvent()
         {
             var c = new CandlehearthCoffee();

@@ -19,6 +19,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class MadOtarGritsTests
     {
         [Fact]
+        public void ShouldHaveDescription()
+        {
+            Assert.Equal("Cheesy grits.",
+                new MadOtarGrits().Description);
+        }
+
+        [Fact]
         public void ShouldInvokePropertyChangedEvent()
         {
             var m = new MadOtarGrits();

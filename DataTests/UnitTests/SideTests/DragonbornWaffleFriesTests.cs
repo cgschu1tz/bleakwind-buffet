@@ -18,6 +18,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class DragonbornWaffleFriesTests
     {
         [Fact]
+        public void ShouldHaveDescription()
+        {
+            Assert.Equal("Crispy fried potato waffle fries.",
+                new DragonbornWaffleFries().Description);
+        }
+
+        [Fact]
         public void ShouldInvokePropertyChangedEvent()
         {
             var d = new DragonbornWaffleFries();

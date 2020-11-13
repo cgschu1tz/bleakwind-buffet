@@ -18,6 +18,13 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class ThugsTBoneTests
     {
         [Fact]
+        public void ShouldHaveDescription()
+        {
+            Assert.Equal("Juicy T-Bone, not much else to say.",
+                new ThugsTBone().Description);
+        }
+
+        [Fact]
         public void ShouldInheritEntree()
         {
             Assert.IsAssignableFrom<Entree>(new ThugsTBone());
