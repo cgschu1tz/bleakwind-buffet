@@ -73,3 +73,12 @@ body {
 .menu-item {
     margin-left: 1cm;
 }
+
+@font-face{
+    font-family: 'Futura PT Condensed Medium';
+    src: url('futura-condensed-pt-medium.woff') format('woff');
+}
+
+html{
+    font-family: 'Futura PT Condensed Medium', sans-serif
+}
