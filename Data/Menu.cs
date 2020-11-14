@@ -115,7 +115,15 @@ namespace BleakwindBuffet.Data
         public static IEnumerable<IOrderItem> Search(IEnumerable<IOrderItem> items, string searchTerms)
         {
             if (searchTerms == null || searchTerms == "") return items;
-            return items.Where(item => item.Name.IndexOf(searchTerms, StringComparison.InvariantCultureIgnoreCase) != -1);
+            return items.Where(item =>
+            {
+                foreach (string term in searchTerms.Split(' '))
+                {
+                    if (item.Description.IndexOf(term, StringComparison.InvariantCultureIgnoreCase) != -1
+                    || item.Name.IndexOf(term, StringComparison.InvariantCultureIgnoreCase) != -1) return true;
+                }
+                return false;
+            });
         }
 
         /// <summary>

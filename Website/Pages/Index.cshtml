@@ -16,6 +16,7 @@
     so spend it with us!
 </p>
 
+<h1>Menu</h1>
 <form id="filter-form">
     <div id="search">
         <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
@@ -48,43 +49,58 @@
     </div>
 </form>
 
-<h1>Menu</h1>
-
-<h2>Entrees</h2>
-@foreach (var entree in Model.Entrees)
-{
-    <div class="menu-item">
-        <h4>@entree.Name</h4>
+<div class="flex-columns">
+    <div class="menu-category">
+        <h2>Entrees</h2>
         <ul>
-            <li>Price: @entree.Price.ToString("C2")</li>
-            <li>Calories: @entree.Calories</li>
+            @foreach (var entree in Model.Entrees)
+            {
+                <li class="menu-item">
+                    <h4>@entree.Name</h4>
+                    <p>@entree.Description</p>
+                    <ul>
+                        <li>Price: @entree.Price.ToString("C2")</li>
+                        <li>Calories: @entree.Calories</li>
+                    </ul>
+                </li>
+            }
         </ul>
     </div>
-}
 
-<h2>Sides</h2>
-@foreach (var side in Model.Sides)
-{
-    <div class="menu-item">
-        <h4>@side.Name</h4>
+    <div class="menu-category">
+        <h2>Sides</h2>
         <ul>
-            <li>Price: @side.Price.ToString("C2")</li>
-            <li>Calories: @side.Calories</li>
+            @foreach (var side in Model.Sides)
+            {
+                <li class="menu-item">
+                    <h4>@side.Name</h4>
+                    <p>@side.Description</p>
+                    <ul>
+                        <li>Price: @side.Price.ToString("C2")</li>
+                        <li>Calories: @side.Calories</li>
+                    </ul>
+                </li>
+            }
         </ul>
     </div>
-}
 
-<h2>Drinks</h2>
-@foreach (var drink in Model.Drinks)
-{
-    <div class="menu-item">
-        <h4>@drink.Name</h4>
+    <div class="menu-category">
+        <h2>Drinks</h2>
         <ul>
-            <li>Price: @drink.Price.ToString("C2")</li>
-            <li>Calories: @drink.Calories</li>
+            @foreach (var drink in Model.Drinks)
+            {
+                <li class="menu-item">
+                    <h4>@drink.Name</h4>
+                    <p>@drink.Description</p>
+                    <ul>
+                        <li>Price: @drink.Price.ToString("C2")</li>
+                        <li>Calories: @drink.Calories</li>
+                    </ul>
+                </li>
+            }
         </ul>
     </div>
-}
+</div>
 
 <h2>Combos</h2>
 <p>
