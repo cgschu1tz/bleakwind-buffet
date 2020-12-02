@@ -24,7 +24,7 @@ jobs:
       run: dotnet build --configuration Release
 
     - name: dotnet publish
-      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/Website
+      run: dotnet publish -c Release -o ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/Website
 
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
@@ -32,4 +32,4 @@ jobs:
         app-name: 'website20201201104539'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_4a194d2fed6e497f83bf7d10de00e32e }}
-        package: ${{env.DOTNET_ROOT}}/Website 
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/Website 
